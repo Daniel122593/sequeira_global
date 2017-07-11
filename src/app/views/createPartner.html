@@ -1,0 +1,709 @@
+<link rel="stylesheet" href="assets/css/style.css">
+
+<br><br>
+
+<style type="text/css">
+	
+
+#fecha{
+
+display: inline;
+
+}
+
+#fecha li{
+
+display: inline;
+
+}
+
+
+
+
+</style>
+
+
+<nav id="mobile_navigation"></nav>
+			
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+						<li><a [routerLink]="['/users']">{{'User.AdministrativeUser' | translate}}</a></li>	
+						<li><a [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
+						<li><a [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
+						<li><a [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>
+
+					</ul>
+				
+                  
+				</div>
+			</section>
+
+
+
+
+
+<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					<div id="">
+						<form  method="post" action="" name="into" id="into">
+						<!-- main content -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{'User.DataPartner' | translate}}</h4>
+									</div>
+									
+									<table id="dt_basic" class="table table-striped">
+									<script src="js/archivo_ajax.js"></script>
+										
+										<tr>
+											<td>{{'User.Name' | translate}}</td>
+											<td><input type="text" id="v1" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.IdentityCard' | translate}}</td>
+											<td><input type="text" id="v2" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.Gender' | translate}}</td>
+											<td >
+												  <input type="radio" name="genero"  value="male" >{{'User.Man' | translate}}  <input type="radio" name="genero" style="margin-left: 15px;" value="female" >  {{'User.Woman' | translate}}<br>
+
+											</td>
+										</tr>
+
+										<tr>
+											<td>{{'User.CivilStatus' | translate}}</td>
+											<td><input type="text" id="v4" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.Profession' | translate}}</td>
+											<td><input type="text" id="v5" class="form-control"></td>
+										</tr>
+										
+										<tr>
+											<td>{{'User.Email' | translate}}</td>
+											<td><input type="text" id="v6" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.Telephone' | translate}}</td>
+											<td><input type="text" id="v7" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.Country' | translate}}</td>
+											<td>
+												 <div class="col-sm-6 clearfix">
+                                                <h4 class="heading_a">{{'User.SelectCountry' | translate}}</h4>
+                                                <div class="sepH_a">
+													<select id="s2_ext_value" class="form-control">
+														<option value="AF">Afghanistan</option>
+														<option value="AX">Åland Islands</option>
+														<option value="AL">Albania</option>
+														<option value="DZ">Algeria</option>
+														<option value="AS">American Samoa</option>
+														<option value="AD">Andorra</option>
+														<option value="AO">Angola</option>
+														<option value="AI">Anguilla</option>
+														<option value="AQ">Antarctica</option>
+														<option value="AG">Antigua and Barbuda</option>
+														<option value="AR">Argentina</option>
+														<option value="AM">Armenia</option>
+														<option value="AW">Aruba</option>
+														<option value="AU">Australia</option>
+														<option value="AT">Austria</option>
+														<option value="AZ">Azerbaijan</option>
+														<option value="BS">Bahamas</option>
+														<option value="BH">Bahrain</option>
+														<option value="BD">Bangladesh</option>
+														<option value="BB">Barbados</option>
+														<option value="BY">Belarus</option>
+														<option value="BE">Belgium</option>
+														<option value="BZ">Belize</option>
+														<option value="BJ">Benin</option>
+														<option value="BM">Bermuda</option>
+														<option value="BT">Bhutan</option>
+														<option value="BO">Bolivia, Plurinational State of</option>
+														<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+														<option value="BA">Bosnia and Herzegovina</option>
+														<option value="BW">Botswana</option>
+														<option value="BV">Bouvet Island</option>
+														<option value="BR">Brazil</option>
+														<option value="IO">British Indian Ocean Territory</option>
+														<option value="BN">Brunei Darussalam</option>
+														<option value="BG">Bulgaria</option>
+														<option value="BF">Burkina Faso</option>
+														<option value="BI">Burundi</option>
+														<option value="KH">Cambodia</option>
+														<option value="CM">Cameroon</option>
+														<option value="CA">Canada</option>
+														<option value="CV">Cape Verde</option>
+														<option value="KY">Cayman Islands</option>
+														<option value="CF">Central African Republic</option>
+														<option value="TD">Chad</option>
+														<option value="CL">Chile</option>
+														<option value="CN">China</option>
+														<option value="CX">Christmas Island</option>
+														<option value="CC">Cocos (Keeling) Islands</option>
+														<option value="CO">Colombia</option>
+														<option value="KM">Comoros</option>
+														<option value="CG">Congo</option>
+														<option value="CD">Congo, the Democratic Republic of the</option>
+														<option value="CK">Cook Islands</option>
+														<option value="CR">Costa Rica</option>
+														<option value="CI">Côte d'Ivoire</option>
+														<option value="HR">Croatia</option>
+														<option value="CU">Cuba</option>
+														<option value="CW">Curaçao</option>
+														<option value="CY">Cyprus</option>
+														<option value="CZ">Czech Republic</option>
+														<option value="DK">Denmark</option>
+														<option value="DJ">Djibouti</option>
+														<option value="DM">Dominica</option>
+														<option value="DO">Dominican Republic</option>
+														<option value="EC">Ecuador</option>
+														<option value="EG">Egypt</option>
+														<option value="SV">El Salvador</option>
+														<option value="GQ">Equatorial Guinea</option>
+														<option value="ER">Eritrea</option>
+														<option value="EE">Estonia</option>
+														<option value="ET">Ethiopia</option>
+														<option value="FK">Falkland Islands (Malvinas)</option>
+														<option value="FO">Faroe Islands</option>
+														<option value="FJ">Fiji</option>
+														<option value="FI">Finland</option>
+														<option value="FR">France</option>
+														<option value="GF">French Guiana</option>
+														<option value="PF">French Polynesia</option>
+														<option value="TF">French Southern Territories</option>
+														<option value="GA">Gabon</option>
+														<option value="GM">Gambia</option>
+														<option value="GE">Georgia</option>
+														<option value="DE">Germany</option>
+														<option value="GH">Ghana</option>
+														<option value="GI">Gibraltar</option>
+														<option value="GR">Greece</option>
+														<option value="GL">Greenland</option>
+														<option value="GD">Grenada</option>
+														<option value="GP">Guadeloupe</option>
+														<option value="GU">Guam</option>
+														<option value="GT">Guatemala</option>
+														<option value="GG">Guernsey</option>
+														<option value="GN">Guinea</option>
+														<option value="GW">Guinea-Bissau</option>
+														<option value="GY">Guyana</option>
+														<option value="HT">Haiti</option>
+														<option value="HM">Heard Island and McDonald Islands</option>
+														<option value="VA">Holy See (Vatican City State)</option>
+														<option value="HN">Honduras</option>
+														<option value="HK">Hong Kong</option>
+														<option value="HU">Hungary</option>
+														<option value="IS">Iceland</option>
+														<option value="IN">India</option>
+														<option value="ID">Indonesia</option>
+														<option value="IR">Iran, Islamic Republic of</option>
+														<option value="IQ">Iraq</option>
+														<option value="IE">Ireland</option>
+														<option value="IM">Isle of Man</option>
+														<option value="IL">Israel</option>
+														<option value="IT">Italy</option>
+														<option value="JM">Jamaica</option>
+														<option value="JP">Japan</option>
+														<option value="JE">Jersey</option>
+														<option value="JO">Jordan</option>
+														<option value="KZ">Kazakhstan</option>
+														<option value="KE">Kenya</option>
+														<option value="KI">Kiribati</option>
+														<option value="KP">Korea, Democratic People's Republic of</option>
+														<option value="KR">Korea, Republic of</option>
+														<option value="KW">Kuwait</option>
+														<option value="KG">Kyrgyzstan</option>
+														<option value="LA">Lao People's Democratic Republic</option>
+														<option value="LV">Latvia</option>
+														<option value="LB">Lebanon</option>
+														<option value="LS">Lesotho</option>
+														<option value="LR">Liberia</option>
+														<option value="LY">Libya</option>
+														<option value="LI">Liechtenstein</option>
+														<option value="LT">Lithuania</option>
+														<option value="LU">Luxembourg</option>
+														<option value="MO">Macao</option>
+														<option value="MK">Macedonia, the former Yugoslav Republic of</option>
+														<option value="MG">Madagascar</option>
+														<option value="MW">Malawi</option>
+														<option value="MY">Malaysia</option>
+														<option value="MV">Maldives</option>
+														<option value="ML">Mali</option>
+														<option value="MT">Malta</option>
+														<option value="MH">Marshall Islands</option>
+														<option value="MQ">Martinique</option>
+														<option value="MR">Mauritania</option>
+														<option value="MU">Mauritius</option>
+														<option value="YT">Mayotte</option>
+														<option value="MX">Mexico</option>
+														<option value="FM">Micronesia, Federated States of</option>
+														<option value="MD">Moldova, Republic of</option>
+														<option value="MC">Monaco</option>
+														<option value="MN">Mongolia</option>
+														<option value="ME">Montenegro</option>
+														<option value="MS">Montserrat</option>
+														<option value="MA">Morocco</option>
+														<option value="MZ">Mozambique</option>
+														<option value="MM">Myanmar</option>
+														<option value="NA">Namibia</option>
+														<option value="NR">Nauru</option>
+														<option value="NP">Nepal</option>
+														<option value="NL">Netherlands</option>
+														<option value="NC">New Caledonia</option>
+														<option value="NZ">New Zealand</option>
+														<option value="NI">Nicaragua</option>
+														<option value="NE">Niger</option>
+														<option value="NG">Nigeria</option>
+														<option value="NU">Niue</option>
+														<option value="NF">Norfolk Island</option>
+														<option value="MP">Northern Mariana Islands</option>
+														<option value="NO">Norway</option>
+														<option value="OM">Oman</option>
+														<option value="PK">Pakistan</option>
+														<option value="PW">Palau</option>
+														<option value="PS">Palestinian Territory, Occupied</option>
+														<option value="PA">Panama</option>
+														<option value="PG">Papua New Guinea</option>
+														<option value="PY">Paraguay</option>
+														<option value="PE">Peru</option>
+														<option value="PH">Philippines</option>
+														<option value="PN">Pitcairn</option>
+														<option value="PL">Poland</option>
+														<option value="PT">Portugal</option>
+														<option value="PR">Puerto Rico</option>
+														<option value="QA">Qatar</option>
+														<option value="RE">Réunion</option>
+														<option value="RO">Romania</option>
+														<option value="RU">Russian Federation</option>
+														<option value="RW">Rwanda</option>
+														<option value="BL">Saint Barthélemy</option>
+														<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+														<option value="KN">Saint Kitts and Nevis</option>
+														<option value="LC">Saint Lucia</option>
+														<option value="MF">Saint Martin (French part)</option>
+														<option value="PM">Saint Pierre and Miquelon</option>
+														<option value="VC">Saint Vincent and the Grenadines</option>
+														<option value="WS">Samoa</option>
+														<option value="SM">San Marino</option>
+														<option value="ST">Sao Tome and Principe</option>
+														<option value="SA">Saudi Arabia</option>
+														<option value="SN">Senegal</option>
+														<option value="RS">Serbia</option>
+														<option value="SC">Seychelles</option>
+														<option value="SL">Sierra Leone</option>
+														<option value="SG">Singapore</option>
+														<option value="SX">Sint Maarten (Dutch part)</option>
+														<option value="SK">Slovakia</option>
+														<option value="SI">Slovenia</option>
+														<option value="SB">Solomon Islands</option>
+														<option value="SO">Somalia</option>
+														<option value="ZA">South Africa</option>
+														<option value="GS">South Georgia and the South Sandwich Islands</option>
+														<option value="SS">South Sudan</option>
+														<option value="ES">Spain</option>
+														<option value="LK">Sri Lanka</option>
+														<option value="SD">Sudan</option>
+														<option value="SR">Suriname</option>
+														<option value="SJ">Svalbard and Jan Mayen</option>
+														<option value="SZ">Swaziland</option>
+														<option value="SE">Sweden</option>
+														<option value="CH">Switzerland</option>
+														<option value="SY">Syrian Arab Republic</option>
+														<option value="TW">Taiwan, Province of China</option>
+														<option value="TJ">Tajikistan</option>
+														<option value="TZ">Tanzania, United Republic of</option>
+														<option value="TH">Thailand</option>
+														<option value="TL">Timor-Leste</option>
+														<option value="TG">Togo</option>
+														<option value="TK">Tokelau</option>
+														<option value="TO">Tonga</option>
+														<option value="TT">Trinidad and Tobago</option>
+														<option value="TN">Tunisia</option>
+														<option value="TR">Turkey</option>
+														<option value="TM">Turkmenistan</option>
+														<option value="TC">Turks and Caicos Islands</option>
+														<option value="TV">Tuvalu</option>
+														<option value="UG">Uganda</option>
+														<option value="UA">Ukraine</option>
+														<option value="AE">United Arab Emirates</option>
+														<option value="GB">United Kingdom</option>
+														<option value="US">United States</option>
+														<option value="UM">United States Minor Outlying Islands</option>
+														<option value="UY">Uruguay</option>
+														<option value="UZ">Uzbekistan</option>
+														<option value="VU">Vanuatu</option>
+														<option value="VE">Venezuela, Bolivarian Republic of</option>
+														<option value="VN">Viet Nam</option>
+														<option value="VG">Virgin Islands, British</option>
+														<option value="VI">Virgin Islands, U.S.</option>
+														<option value="WF">Wallis and Futuna</option>
+														<option value="EH">Western Sahara</option>
+														<option value="YE">Yemen</option>
+														<option value="ZM">Zambia</option>
+														<option value="ZW">Zimbabwe</option>	
+													</select>
+												  </div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>{{'User.Address' | translate}}</td>
+											<td><input type="text" id="v9" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.InvestmentAmount' | translate}}</td>
+											
+												<td><input type="text" id="v10" class="form-control"></td>
+											
+										</tr>
+										<tr>
+											<td>{{'User.Time' | translate}}</td>
+											<td><input type="text" id="v11" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.Interest' | translate}}</td>
+											<td><input type="text" id="v12" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.ReferredToBy' | translate}}</td>
+											<td><input type="text" id="v14" class="form-control"></td>
+										</tr>
+										<tr style="height: 70px;">
+											<td>{{'User.StartDate' | translate}}</td>
+											<ul style=" margin-top: 50px;" id="fecha">
+											
+
+										
+											
+                                               
+                                              
+                                                    
+
+                                                    <td><select id="s2_ext_value" class="form-control" style="width: 130px; margin-top: 10px; margin-right: 25px;" >
+														
+														<option value="CW">{{'User.Year' | translate}}</option>
+														<option value="CW">2017</option>
+														<option value="CW">2018</option>
+														<option value="CW">2019</option>
+														<option value="CW">2020</option>
+														<option value="CW">2021</option>
+														<option value="CW">2022</option>
+														<option value="CW">2023</option>
+														<option value="CW">2024</option>
+														<option value="CW">2025</option>
+														<option value="CW">2026</option>
+														<option value="CW">2027</option>
+														<option value="CW">2028</option>
+														<option value="CW">2029</option>
+														<option value="CW">2030</option>
+														<option value="CW">2031</option>
+														<option value="CW">2032</option>
+														<option value="CW">2033</option>
+														<option value="CW">2034</option>
+														<option value="CW">2035</option>
+														<option value="CW">2036</option>
+														<option value="CW">2037</option>
+														<option value="CW">2038</option>
+														<option value="CW">2039</option>
+														<option value="CW">2040</option>
+														<option value="CW">2041</option>
+														<option value="CW">2042</option>
+														<option value="CW">2043</option>
+														<option value="CW">2044</option>
+														<option value="CW">2045</option>
+														<option value="CW">2046</option>
+														<option value="CW">2047</option>
+														<option value="CW">2048</option>
+														<option value="CW">2049</option>
+														<option value="CW">2050</option>
+
+
+												
+
+
+
+													</select></td>
+
+
+													<td><select id="s2_ext_value" class="form-control" style=" width: 130px; margin-right: 25px;">
+														
+														
+
+
+												
+                                                          
+                                                        <option value="CW">{{'User.Month' | translate}}</option>
+														<option value="CW">{{'User.January' | translate}}</option>
+														<option value="CW">{{'User.February' | translate}}</option>
+														<option value="CW">{{'User.March' | translate}}</option>
+														<option value="CW">{{'User.April' | translate}}</option>
+														<option value="CW">{{'User.May' | translate}}</option>
+														<option value="CW">{{'User.June' | translate}}</option>
+														<option value="CW">{{'User.July' | translate}}</option>
+														<option value="CW">{{'User.August' | translate}}</option>
+														<option value="CW">{{'User.September' | translate}}</option>
+														<option value="CW">{{'User.October' | translate}}</option>
+														<option value="CW">{{'User.November' | translate}}</option>
+														<option value="CW">{{'User.December' | translate}}</option>
+
+
+													</select></td>
+
+													<td><select id="s2_ext_value" class="form-control" style=" width: 130px;">
+														
+														<option value="CW">{{'User.Day' | translate}}</option>
+														<option value="CW">1</option>
+														<option value="CW">2</option>
+														<option value="CW">3</option>
+														<option value="CW">4</option>
+														<option value="CW">5</option>
+														<option value="CW">6</option>
+														<option value="CW">7</option>
+														<option value="CW">8</option>
+														<option value="CW">9</option>
+														<option value="CW">10</option>
+														<option value="CW">11</option>
+														<option value="CW">12</option>
+														<option value="CW">13</option>
+														<option value="CW">14</option>
+														<option value="CW">15</option>
+														<option value="CW">16</option>
+														<option value="CW">17</option>
+														<option value="CW">18</option>
+														<option value="CW">19</option>
+														<option value="CW">20</option>
+														<option value="CW">21</option>
+														<option value="CW">22</option>
+														<option value="CW">23</option>
+														<option value="CW">24</option>
+														<option value="CW">25</option>
+														<option value="CW">26</option>
+														<option value="CW">27</option>
+														<option value="CW">28</option>
+														<option value="CW">29</option>
+														<option value="CW">30</option>
+														<option value="CW">31</option>
+														
+
+													</select></td>
+				
+
+                                         </ul>
+
+										</tr>
+										<tr>
+											<td>{{'User.EndDate' | translate}}</td>
+											<ul style=" margin-top: 50px;" id="fecha">
+											
+
+										
+											
+                                               
+                                              
+                                                    
+
+                                                    <td><select id="s2_ext_value" class="form-control" style="width: 130px; margin-top: 10px; margin-right: 25px;" >
+														
+														<option value="CW">{{'User.Year' | translate}}</option>
+														<option value="CW">2017</option>
+														<option value="CW">2018</option>
+														<option value="CW">2019</option>
+														<option value="CW">2020</option>
+														<option value="CW">2021</option>
+														<option value="CW">2022</option>
+														<option value="CW">2023</option>
+														<option value="CW">2024</option>
+														<option value="CW">2025</option>
+														<option value="CW">2026</option>
+														<option value="CW">2027</option>
+														<option value="CW">2028</option>
+														<option value="CW">2029</option>
+														<option value="CW">2030</option>
+														<option value="CW">2031</option>
+														<option value="CW">2032</option>
+														<option value="CW">2033</option>
+														<option value="CW">2034</option>
+														<option value="CW">2035</option>
+														<option value="CW">2036</option>
+														<option value="CW">2037</option>
+														<option value="CW">2038</option>
+														<option value="CW">2039</option>
+														<option value="CW">2040</option>
+														<option value="CW">2041</option>
+														<option value="CW">2042</option>
+														<option value="CW">2043</option>
+														<option value="CW">2044</option>
+														<option value="CW">2045</option>
+														<option value="CW">2046</option>
+														<option value="CW">2047</option>
+														<option value="CW">2048</option>
+														<option value="CW">2049</option>
+														<option value="CW">2050</option>
+
+
+												
+
+
+
+													</select></td>
+
+
+													<td><select id="s2_ext_value" class="form-control" style=" width: 130px; margin-right: 25px;">
+														
+														
+
+
+												
+                                                          
+                                                        <option value="CW">{{'User.Month' | translate}}</option>
+														<option value="CW">{{'User.January' | translate}}</option>
+														<option value="CW">{{'User.February' | translate}}</option>
+														<option value="CW">{{'User.March' | translate}}</option>
+														<option value="CW">{{'User.April' | translate}}</option>
+														<option value="CW">{{'User.May' | translate}}</option>
+														<option value="CW">{{'User.June' | translate}}</option>
+														<option value="CW">{{'User.July' | translate}}</option>
+														<option value="CW">{{'User.August' | translate}}</option>
+														<option value="CW">{{'User.September' | translate}}</option>
+														<option value="CW">{{'User.October' | translate}}</option>
+														<option value="CW">{{'User.November' | translate}}</option>
+														<option value="CW">{{'User.December' | translate}}</option>
+
+
+													</select></td>
+
+													<td><select id="s2_ext_value" class="form-control" style=" width: 130px;">
+														
+														<option value="CW">{{'User.Day' | translate}}</option>
+														<option value="CW">1</option>
+														<option value="CW">2</option>
+														<option value="CW">3</option>
+														<option value="CW">4</option>
+														<option value="CW">5</option>
+														<option value="CW">6</option>
+														<option value="CW">7</option>
+														<option value="CW">8</option>
+														<option value="CW">9</option>
+														<option value="CW">10</option>
+														<option value="CW">11</option>
+														<option value="CW">12</option>
+														<option value="CW">13</option>
+														<option value="CW">14</option>
+														<option value="CW">15</option>
+														<option value="CW">16</option>
+														<option value="CW">17</option>
+														<option value="CW">18</option>
+														<option value="CW">19</option>
+														<option value="CW">20</option>
+														<option value="CW">21</option>
+														<option value="CW">22</option>
+														<option value="CW">23</option>
+														<option value="CW">24</option>
+														<option value="CW">25</option>
+														<option value="CW">26</option>
+														<option value="CW">27</option>
+														<option value="CW">28</option>
+														<option value="CW">29</option>
+														<option value="CW">30</option>
+														<option value="CW">31</option>
+														
+														
+
+
+													</select></td>
+
+
+
+
+                                             
+                                                
+                                            
+										
+
+                                         </ul>
+										</tr>
+										
+										<!--<tr>
+											<td>Foto de cedula</td>
+											<td>
+												<div class="row">
+												<div class="col-sm-6">
+													<div class="fileupload fileupload-new" data-provides="fileupload">
+														<div class="input-group">
+															<div class="form-control">
+																<i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span>
+															</div>
+															<div class="input-group-btn">
+																<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+																<span class="btn btn-default btn-file">
+																	<span class="fileupload-new">Select file</span>
+																	<span class="fileupload-exists">Change</span>
+																	<input type="file" />
+																</span>
+															</div>
+														</div>
+													</div>  
+												</div>
+											</td>
+										</tr>-->
+										
+										
+                                            
+										
+									</table>
+									
+								</div>
+							</div>
+						</div>
+					
+
+					<BR><BR><BR>
+
+					<!-- main content -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{'User.BankDetails' | translate}}</h4>
+									</div>
+
+									<table id="dt_basic" class="table table-striped">
+										
+										<tr>
+											<td>{{'User.NameBank' | translate}}</td>
+											<td><input type="text" id="b1" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.AccountNumber' | translate}}</td>
+											<td><input type="text" id="b2" class="form-control"></td>
+										</tr>
+
+										<tr>
+											<td>{{'User.SinpeAccount' | translate}}</td>
+											<td><input type="text" id="b3" class="form-control"></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td><input type="button"  value="{{'User.Save' | translate}}"  onclick="save()" style="width:80%;" class="boton-save" id="btnEnviar" /></td>
+										</tr>
+										<tr><td colspan="2"> <label id="myDiv"></label></td></tr>
+								    </table>
+
+									</div>
+                              </div>
+
+                              </div>
+						
+					  </form>
+				
+					</div>
+				
+				</div>
+			</section>

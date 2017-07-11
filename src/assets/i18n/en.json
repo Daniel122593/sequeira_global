@@ -1,0 +1,128 @@
+{
+    
+    "Sel_lang": "Seleccione el idioma",
+    "Languages":{
+        "English":"English",
+        "Spanish":"Spanish"
+        
+    },
+
+    "Menu":{
+     
+     "Home":"Home",
+     "Signal":"Signal",
+     "User":"Users",
+     "Finance":"Finance",
+     "Configuration":"Configuration"
+
+    },
+
+    "Desktop":"Desktop",
+
+    "SaleUser":{
+     
+    "SaleYear":"Sales of the year",
+    "SaleMonth":"Sales of the month",
+    "UserActive":"Active users",
+    "UserInactive":"Inactive users"
+
+    },
+
+
+    "AlertPip":{
+      
+    "PositiveAlert":"Positive Alerts this month",
+    "NegativeAlert":"Negative Alerts this month",
+    "PositivePip":"Positive pips this month",
+    "NegativePip":"Negative pips this month"
+    
+    },
+
+
+    "Signal":{
+ 
+      "SignalToday":"Signals of today",
+      "CreateSignal":"Create Signal",
+      "SignalMonth":"Signals of the month",
+      "TotalSignal":"Total signals",
+
+
+       "Instrument":"Instrument",
+       "OpenPrice":"Opening price",
+       "Date":"Date",
+       "Condition":"Condition",
+       "Analyst":"Analyst",
+
+       "Trend":"Trend",
+       "InitialGraph":"Initial Graph",
+       "Buy":"Buy",
+       "Sell":"Sell"
+
+    },
+
+    "User":{
+
+    "AdministrativeUser":"Administrative users",
+    "ClientSignal":"Signal client signal",
+    "AnalystUser":"Analyst users",
+    "PreferredPartnerUsers":"Preferred partner Users",
+    "CreateUser":"Create User",
+    
+
+    "Name":"Name",
+    "Email":"Email",
+    "Telephone":"Telephone",
+    "Country":"Country",
+    "Hierarchy":"Hierarchy",
+
+    "PartnerBack":"Back to Partner",
+    "IdentityCard":"Identity Card",
+    "Address":"Address",
+    "ProfilePicture":"Profile Picture",
+
+    "PreferredPartner":"Preferred Partners",
+    "CreatePreferredPartner":"Create Preferred Partner",
+
+
+
+    "DataPartner":"Partner Data",
+    "Gender":"Gender",
+    "Man":"Man",
+    "Woman":"Woman",
+    "CivilStatus":"Civil Status",
+    "Profession":"Profession",
+    "SelectCountry":"Select the country",
+    "InvestmentAmount":"Investment amount",
+    "Time":"Time",
+    "Interest":"Interest",
+    "ReferredToBy":"Referred to by",
+    "StartDate":"Start Date",
+    "EndDate":"End Date",
+    "Year":"Year",
+    "Month":"Month",
+    "Day":"Day",
+    "January":"January",
+    "February":"February",
+    "March":"March",
+    "April":"April",
+    "May":"May",
+    "June":"June",
+    "July":"July",
+    "August":"August",
+    "September":"September",
+    "October":"October",
+    "November":"November",
+    "December":"December",
+    "BankDetails":"Bank details",
+    "NameBank":"Name of the bank",
+    "AccountNumber":"Account number",
+    "SinpeAccount":"Sinpe Account",
+    "Save":"Save"
+
+
+    }
+
+
+
+  }
+

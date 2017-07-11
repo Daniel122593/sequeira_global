@@ -1,0 +1,128 @@
+{
+    
+    "Sel_lang": "Seleccione el idioma",
+    "Languages":{
+        "English":"Inglés",
+        "Spanish":"Español"
+        
+    },
+
+    "Menu":{
+     
+     "Home":"Home",
+     "Signal":"Señales",
+     "User":"Usuarios",
+     "Finance":"Finanzas",
+     "Configuration":"Configuración"
+
+    },
+
+    "Desktop":"Escritorio",
+
+    "SaleUser":{
+     
+    "SaleYear":"Ventas del año",
+    "SaleMonth":"Ventas en el mes",
+    "UserActive":"Usuarios Activos",
+    "UserInactive":"Usuarios inactivos"
+
+    },
+
+
+    "AlertPip":{
+      
+    "PositiveAlert":"Alertas positivas este mes",
+    "NegativeAlert":"Alertas negativas este mes",
+    "PositivePip":"Pips positivos este mes",
+    "NegativePip":"Pips negativos este mes"
+    
+    },
+
+
+    "Signal":{
+ 
+      "SignalToday":"Señales de hoy",
+      "CreateSignal":"Crear señal",
+      "SignalMonth":"Señales del mes",
+      "TotalSignal":"Total de señales",
+
+
+       "Instrument":"Intrumento",
+       "OpenPrice":"Precio Apertura",
+       "Date":"Fecha",
+       "Condition":"Condición",
+       "Analyst":"Analista",
+
+
+
+       "Trend":"Tendencia",
+       "InitialGraph":"Gráfico inicial",
+       "Buy":"Comprar",
+       "Sell":"Vender"
+
+    },
+
+
+    "User":{
+
+    "AdministrativeUser":"Usuarios administrativos",
+    "ClientSignal":"Usuarios clientes de señales",
+    "AnalystUser":"Usuarios analistas",
+    "PreferredPartnerUsers":"Usuarios socios preferentes",
+    
+
+    "CreateUser":"Crear usuario",
+    "Name":"Nombre",
+    "Email":"Correo electronico",
+    "Telephone":"Teléfono",
+    "Country":"País",
+    "Hierarchy":"Jerarquía",
+     
+    "PartnerBack":"Volver a socios",
+    "IdentityCard":"Cédula",
+    "Address":"Dirección",
+    "ProfilePicture":"Foto de perfil",
+
+    "PreferredPartner":"Socios Preferentes",
+    "CreatePreferredPartner":"Crear socio preferente",
+
+
+
+    "DataPartner":"Datos del socio",
+    "Gender":"Género",
+    "Man":"Hombre",
+    "Woman":"Mujer",
+    "CivilStatus":"Estado Civil",
+    "Profession":"Profesión",
+    "SelectCountry":"Seleccione el país",
+    "InvestmentAmount":"Monto de inversión",
+    "Time":"Tiempo",
+    "Interest":"Interés",
+    "ReferredToBy":"Referido por",
+    "StartDate":"Fecha de inicio",
+    "EndDate":"Fecha de final",
+    "Year":"Año",
+    "Month":"Mes",
+    "Day":"Día",
+    "January":"Enero",
+    "February":"Febrero",
+    "March":"Marzo",
+    "April":"Abril",
+    "May":"Mayo",
+    "June":"Julio",
+    "July":"Julio",
+    "August":"Agosto",
+    "September":"Septiembre",
+    "October":"Octubre",
+    "November":"Noviembre",
+    "December":"Diciembre",
+    "BankDetails":"Datos de bancarios",
+    "NameBank":"Nombre del Banco",
+    "AccountNumber":"Número de cuenta",
+    "SinpeAccount":"Cuenta Sinpe",
+    "Save":"Guardar"
+
+    }
+
+
+  }

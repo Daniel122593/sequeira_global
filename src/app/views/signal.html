@@ -1,0 +1,70 @@
+
+
+<link rel="stylesheet" href="assets/css/style.css"> 
+
+<br><br>
+<nav id="mobile_navigation"></nav>
+			
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						<li><a href="#">{{'Desktop' | translate}}</a></li>	
+						<li><a [routerLink]="['/createSignal']">{{'Signal.CreateSignal' | translate}}</a></li>							
+						<li><a [routerLink]="['/signalMonth']" >{{'Signal.SignalMonth' | translate}}</a></li>
+						<li><a [routerLink]="['/signalAll']">{{'Signal.TotalSignal' | translate}}</a></li>	
+								
+					</ul>
+				</div>
+			</section>
+
+
+<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+
+						<!-- main content -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{'Signal.SignalToday' | translate}} 11/06/2017</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										<thead>
+											<tr>
+												
+												<th>{{'Signal.Instrument' | translate}}</th>
+												<th>{{'Signal.OpenPrice' | translate}}</th>
+												<th>T/P</th>
+												<th>T/L</th>
+												<th>{{'Signal.Date' | translate}}</th>
+												<th>{{'Signal.Condition' | translate}}</th>
+												<th>{{'Signal.Analyst' | translate}}</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor=" let signal of signal_array">
+
+										
+											<td><a href="alerts_tranding_edit.html">{{signal.instrument}}</a></td>
+											<td>{{signal.open_price}}</td>
+											<td>{{signal.tp1}}</td>
+											<td>{{signal.tp2}}</td>
+											<td>{{signal.sl}}</td>
+											<td>{{signal.date}}</td>
+											<td>{{signal.trend}}</td>
+
+											</tr>
+
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+				
+						
+					
+	
+				</div>
+			</section>
+

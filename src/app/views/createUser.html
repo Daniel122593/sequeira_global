@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" type="text/javascript" href="assets/bootstrap/css/bootstrap.min.css">
+
+<br><br>
+<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+						<li><a [routerLink]="['/users']">{{'User.PartnerBack' | translate}}</a></li>					
+					</ul>
+				</div>
+			</section>
+ 
+
+<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					
+						<!-- main content -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{'User.CreateUser' | translate}}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										
+										<tr>
+											<td>{{'User.Name' | translate}}</td>
+											<td><input type="text" id="mask_date" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.IdentityCard' | translate}}</td>
+											<td><input type="text" id="mask_date" class="form-control"></td>
+										</tr>
+										
+										<tr>
+											<td>{{'User.Email' | translate}}</td>
+											<td><input type="text" id="mask_date" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.Telephone' | translate}}</td>
+											<td><input type="text" id="mask_date" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.Country' | translate}}</td>
+											<td><input type="text" id="mask_date" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.Address' | translate}}</td>
+											<td><input type="text" id="mask_date" class="form-control"></td>
+										</tr>
+										
+										<tr>
+											<td>{{'User.ProfilePicture' | translate}}</td>
+											<td>
+												<div class="row">
+												<div class="col-sm-6">
+													<div class="fileupload fileupload-new" data-provides="fileupload">
+														<div class="input-group">
+															<div class="form-control">
+																<i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span>
+															</div>
+															<div class="input-group-btn">
+																<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+																<span class="btn btn-default btn-file">
+																	<span class="fileupload-new">Select file</span>
+																	<span class="fileupload-exists">Change</span>
+																	<input type="file" />
+																</span>
+															</div>
+														</div>
+													</div>  
+												</div>
+
+												</div>
+											
+									        </tr>
+
+										<tr>
+											<td></td>
+											<td><input type="button" value="{{'User.CreateUser' | translate}}" ></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>				
+					</div>
+			
+			</section>
+
+
+
+

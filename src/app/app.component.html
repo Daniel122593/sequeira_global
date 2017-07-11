@@ -1,0 +1,246 @@
+<!--
+Sequeria Global
+Daniel Jimenez -->
+
+<html>
+
+<head>
+
+		<link rel="stylesheet" href="assets/css/todc-bootstrap.min.css"> 
+
+		<link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="assets/css/style.css"> 
+
+        <link rel="stylesheet" href="assets/css/theme/color_9.css" id="theme"> 
+
+
+</head>
+
+<body class="sidebar_hidden">
+
+<header id="top_header" style="background-color:#e31a8f;">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-6 col-sm-2">
+							<a href="dashboard1.html" class="logo_main"><img src="assets/img/img-icono.png" width="60px" alt=""></a>
+						</div>
+					
+						<div class="col-xs-6 col-sm-push-4 col-sm-3">
+							<div class="pull-right dropdown">
+								<a href="#" class="user_info dropdown-toggle" title="{{'Sel_lang' | translate}}" data-toggle="dropdown">
+									<img src="assets/img/user_avatar.png" alt="">
+									<span class="caret"></span>
+								</a>
+								<ul class="dropdown-menu">
+								<li>
+                            <a (click)="changeLanguage('es')">{{ 'Languages.Spanish' | translate }}</a>
+                        </li>
+                        <li>
+                            <a (click)="changeLanguage('en')">{{ 'Languages.English' | translate }}</a>
+                        </li>
+                       
+								</ul>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-pull-6 col-sm-4">
+							<!--<form class="main_search">
+								<input type="text" id="search_query" name="search_query" class="typeahead form-control">
+								<button type="submit" class="btn btn-primary btn-xs"><i class="icon-search icon-white"></i></button>
+							</form> -->
+						</div>
+					</div>
+				</div>
+
+
+			</header>	
+
+
+<!--*******************section de menu principal*************************-->
+
+<nav id="top_navigation">
+				<div class="container">
+					<ul id="icon_nav_h" class="top_ico_nav clearfix">
+						<li>
+							<a [routerLink]="[''/home]">
+								<i><img style="height:25px;" src="assets/img/home.png"/></i>
+								<span class="menu_label">{{ 'Menu.Home' | translate }}</span>
+							</a>
+						</li>
+						<li>             
+							<a  [routerLink]="['/signal']">
+								<i class="icon-2x"><img style="height:25px;" src="assets/img/signal.png"/></i>
+								<span class="menu_label">{{ 'Menu.Signal' | translate }}</span>
+							</a>
+						</li>
+						<li>             
+							<a [routerLink]="['/users']">
+								<i class=" icon-2x"><img style="height:29px;" src="assets/img/users.png"/></i>
+								<span class="menu_label">{{ 'Menu.User' | translate }}</span>
+							</a>
+						</li>
+						<!--<li>             
+							<a href="#">
+								<span class="label label-danger">12</span>
+								<i class="icon-tasks icon-2x"></i>
+								<span class="menu_label">Tasks</span>
+							</a>
+						</li>-->
+						<li>             
+							<a href="finance.html">
+								<i class=" icon-2x"><img style="height:21px;" src="assets/img/finance.png"/></i>
+								<span class="menu_label">{{ 'Menu.Finance' | translate }}</span>
+							</a>
+						</li>
+						<!--<li>             
+							<a href="#">
+								<i class="icon-book icon-2x"></i>
+								<span class="menu_label">Help</span>
+							</a>
+						</li>
+						<li>             
+							<a href="#">
+								<span class="label label-success">$2 347</span>
+								<i class="icon-tags icon-2x"></i>
+								<span class="menu_label">E-Commerce</span>
+							</a>
+						</li>-->
+						<li>             
+							<a href="#">
+								<i class=" icon-2x"><img style="height:23px;" src="assets/img/configuration.png"/></i>
+								<span class="menu_label">{{ 'Menu.Configuration' | translate }}</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+ 
+
+
+
+
+<nav id="mobile_navigation"></nav>
+			
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						<li><a href="#">Sequeira Global Admin</a></li>
+						<li><span>{{ 'Desktop' | translate }}</span></li>						
+					</ul>
+				</div>
+			</section>
+<hr>
+
+<!--**********************Aqui es la seccion de datos relacionados a ventas****************-->
+<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					<div id="main_content">
+
+                    <br><br>
+
+
+					<div class="row">
+
+							<div class="col-lg-3 col-md-6">
+								<div class="box_stat box_ico">
+									<span class="stat_ico stat_ico_1"><img src="assets/img/money.png" style="height:40px; margin-top:10px;"></span>
+									<h4>$27,785,639.30</h4>
+									<small>{{ 'SaleUser.SaleYear' | translate }}</small>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="box_stat box_ico">
+									<span class="stat_ico stat_ico_2"><img src="assets/img/money.png" style="height:40px; margin-top:10px;"></span>
+									<h4>$7,856,365.30</h4>
+									<small>{{ 'SaleUser.SaleMonth' | translate }}</small>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="box_stat box_ico">
+									<span class="stat_ico stat_ico_3"><img src="assets/img/user.png" style="height:54px; margin-top:3px;"></span>
+									<h4>112,000</h4>
+									<small>{{ 'SaleUser.UserActive' | translate }}</small>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">
+								<div class="box_stat box_ico">
+									<span class="stat_ico stat_ico_4"><img src="assets/img/user.png" style="height:54px; margin-top:3px;"></span>
+									<h4>596</h4>
+									<small>{{ 'SaleUser.UserInactive' | translate }}</small>
+								</div>
+							</div>
+						</div>
+
+        </div>
+        </div>
+        <br><br><br><br><br>
+
+
+
+        <div class="row" style="margin-top: 100px;">
+							<div class="col-sm-3">
+								<div class="box_stat box_pos">
+									<img src="assets/img/up_green.ico" alt="" style=" float:right; margin-top: 15px; height: 40px;" >
+									<h4>32</h4>
+									<small>{{ 'AlertPip.PositiveAlert' | translate }}</small>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="box_stat box_neg">
+									<img src="assets/img/down_red.ico" alt="" style=" float:right; margin-top: 15px; height: 40px;" >
+									<h4>5345364</h4>
+									<small>{{ 'AlertPip.NegativeAlert' | translate }}</small>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="box_stat box_pos">
+									<img src="assets/img/up_green.ico" alt="" style=" float:right; margin-top: 15px; height: 40px;" >
+									<h4>863</h4>
+									<small>{{ 'AlertPip.PositivePip' | translate }}</small>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="box_stat box_neg">
+									<img src="assets/img/down_red.ico" alt="" style=" float:right; margin-top: 15px; height: 40px;" >
+									<h4>102</h4>
+									<small>{{ 'AlertPip.NegativePip' | translate }}</small>
+								</div>
+							</div>
+							
+							</div>
+
+							<router-outlet></router-outlet>
+        <div id="footer_space" style="height:300px"></div>
+
+
+
+        </section>
+        
+
+
+
+ <footer id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        &copy; 2013 Sequeira Global Inc,
+                    </div>
+                    <div class="col-sm-8">
+                        <ul>
+                            <li><a href="#">{{ 'Desktop' | translate }}</a></li>
+                          
+                            
+                        </ul>
+                    </div>
+                    <div class="col-sm-1 text-right">
+                        <small class="text-muted">v1.3</small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+			</body>
+
+			</html>

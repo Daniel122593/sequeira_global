@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="assets/css/style.css">
+
+<br><br>
+<nav id="mobile_navigation"></nav>
+			
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+						<li><a [routerLink]="['/users']">{{'User.AdministrativeUser' | translate}}</a></li>	
+						<li><a [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
+						<li><a [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>					
+					</ul>
+					<ul>
+                     <li><a [routerLink]="['/createPartner']">{{'User.CreatePreferredPartner' | translate}}</a></li>
+
+					</ul>
+				</div>
+			</section>
+
+
+			<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+				
+						
+						<!-- main content -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{'User.PreferredPartner' | translate}}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>{{'User.Name' | translate}}</th>
+												<th>{{'User.Email' | translate}}</th>
+												<th>{{'User.Telephone' | translate}}</th>
+												<th>{{'User.Country' | translate}}</th>
+												<th>{{'Signal.Date' | translate}}</th>
+												<th>{{'User.Hierarchy' | translate}}</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr><td>1</td><td>Adolfo Sequeira</td><td>asequeira@sequeiraglobal.com</td><td>+506 72708004</td><td>Estados Unidos</td><td>11/06/2017</td><td>CEO</td></tr>
+											<tr><td>2</td><td>Susan Hontintong</td><td>shontintong@sequeiraglobal.com</td><td>+506 </td><td>Costa Rica</td><td>11/06/207</td><td>COO</td></tr>
+								
+											
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+			
+						
+					
+					</div>
+				
+			</section>
