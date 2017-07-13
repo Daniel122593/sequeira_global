@@ -1,14 +1,7 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule, Http } from '@angular/http';
-import { RouterModule } from '@angular/router';
-
-import { routing, appRoutingProviders} from './app.routing';
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule} from '@angular/router';
 
 
-import { TranslateModule, TranslateLoader, TranslateStaticLoader, MissingTranslationHandler } from 'ng2-translate';
-
-import { FormsModule } from "@angular/forms";
 
 import { AppComponent }    from './app.component';
 import { LoginComponent } from './components/login.component';
@@ -27,20 +20,11 @@ import { SignalDetailComponent } from './components/signal-detail.component';
 import { SignalEditComponent } from './components/signal-edit.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { MyMissingTranslationHandler } from './missingtemplate.component';
 
-export function createTranslateLoader(http: Http) {
-  return new TranslateStaticLoader(http, './assets/i18n', '.json');
-}
 
-@NgModule({
-  imports: [
-    BrowserModule,
-    HttpModule,
-    FormsModule,
-    routing,
-    RouterModule.forRoot([
-    { path: 'login', component: LoginComponent},
+
+const  appRoutes: Routes = [
+    {path: 'login', component: LoginComponent},
     { path: 'home', component: HomeComponent},
     { path: 'signal', component: SignalComponent},
     { path: 'createSignal', component: CreateSignalComponent},
@@ -56,36 +40,8 @@ export function createTranslateLoader(http: Http) {
     { path: 'signal-edit/:id', component:SignalEditComponent},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
-    ]),
-    TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: (createTranslateLoader),
-      deps: [Http]
-    })
-  ],
-  declarations: [ 
-    AppComponent,
-    LoginComponent,
-    SignalComponent,
-    CreateSignalComponent,
-    UsersComponent,
-    UserAnalyst,
-    CreateUser,
-    ClientUser,
-    PreferredUser,
-    CreatePartner,
-    SignalMonth,
-    SignalAll,
-    SignalDetailComponent,
-    SignalEditComponent,
-    HomeComponent,
-    AboutComponent,
-    ContactComponent
-  ],
-  providers: [
-    appRoutingProviders,
-    { provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler}
-  ],
-  bootstrap: [ AppComponent ]
-})
-export class AppModule { }
+
+];
+
+export const appRoutingProviders: any[] = [];
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

@@ -10,6 +10,8 @@ constructor(
  public tp2:string,
  public sl:string,
  public graph: string,
+ public condition_signal:string,
+ public id_analyst:number,
  public year:string,
  public month:string,
  public day:string,

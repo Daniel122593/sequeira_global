@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import { ServicesInfo } from '../services/services_info.services';
 import { Signal } from '../models/signal';
 
@@ -18,7 +19,9 @@ export class SignalMonth{
 
   constructor(
    
-   private _services:ServicesInfo
+   private _services:ServicesInfo,private _route: ActivatedRoute,
+
+        private _router: Router
 
  	){
 

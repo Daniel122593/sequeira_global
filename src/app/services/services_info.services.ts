@@ -61,6 +61,34 @@ return this._http.get(this.url+'signalAll').map(res =>res.json());
 }//fin del metodo getSignal
 
 
+//muestra el detalle de una señal en especifico
+getSignalDetail(id){
+  
+  return this._http.get(this.url+'signal/'+id).map(res =>res.json());
+
+}//fin del metodo getSignal
+
+
+
+//metodo para modificar una señal
+editSignal(id, signal:Signal){
+ 
+ let json= JSON.stringify(signal); 
+ let params = "json="+json;
+ let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+
+ return this._http.post(this.url+'signal-update/'+id, params, {headers: headers})
+                                   .map(res =>res.json());
+
+}//fin del metodo
+
+//metodo para eliminar productos
+deleteSignal(id){
+  
+  return this._http.get(this.url+'delete-signal/'+id)
+                       .map(res => res.json());
+
+}//fin del metodo 
 
 
 //codigo para guardar la imagen 

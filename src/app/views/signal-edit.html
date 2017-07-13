@@ -66,18 +66,8 @@
 											<td>S/L</td>
 											<td><input type="text" #sl="ngModel" name="sl" [(ngModel)]="signal.sl" class="form-control"></td>
 										</tr>
-										
-										<tr>
-											<td>{{'Signal.InitialGraph' | translate}}</td>
-											<td>
-												<div class="row">
-												<div class="col-sm-6">
-												 <input type="file" class="form-control" (change)="fileChangeEvent($event)"><br><br>
-												</div>
-												</div>
-											</td>
-										</tr>
-                                        <tr>
+
+										 <tr>
                                         <td>Condición</td> 
 										<td>
 												<select #condition_signal="ngModel"  name="condition_signal" [(ngModel)]="signal.condition_signal" class="form-control">
@@ -92,10 +82,10 @@
 
 										<tr>
 											<td>Analista</td>
-											<td><input type="text" #analyst="ngModel" name="analyst" [(ngModel)]="signal.analyst" class="form-control"></td>
+											<td><input type="text" #analyst="ngModel" name="analyst" [(ngModel)]="signal.id_analyst" class="form-control"></td>
 										</tr>
-
-
+										
+									
 										
 										<tr>
 											
@@ -214,47 +204,35 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 										</tr>
-                                            
-										<tr>
-											<td>S/L</td>
-											<td><input type="submit" value="{{'Signal.CreateSignal' | translate}}" ></td>
-										</tr>
+
 									</table>
 								</div>
-							</div>
+							</div> 
 						</div>
+
+						   
+										
+											
+												<div class="row">
+												<div class="col-sm-6">
+												<div *ngIf="is_edit">
+
+   <img src="http://localhost/sequeira-global-backend/uploads/{{signal.graph_image}}" style="width: 280px; height: 150px; margin-left: 400px; border-radius: 5px;" /><br>
+                                                </div><br>
+												 <input type="file" class="form-control" (change)="fileChangeEvent($event)"><br><br>
+												</div>
+												</div> 
+                                                
+                                               <table>
+												<tr>
+										
+											<td><input type="submit" value="Modificar" style="margin-left: 490px;" ></td>
+											<td><input type="submit" (click)="onDeleteSignal(signal.id)" value="Eliminar" style="margin-left: 20px;" ></td>
+										</tr>
+									</table>
+										
+										
 						</form>
 					</div>
 						

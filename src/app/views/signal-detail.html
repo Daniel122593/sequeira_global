@@ -1,0 +1,80 @@
+
+<link rel="stylesheet" href="assets/css/style.css"> 
+
+
+<br><br>
+<nav id="mobile_navigation"></nav>
+			
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+						<li><a href="#">{{'Signal.TotalSignal' | translate}}</a></li>	
+								
+					</ul>
+				</div>
+			</section>
+
+          <section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					<div id="">
+						<form class="ngForm">
+						<!-- main content -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{'Signal.CreateSignal' | translate}}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										<tr>
+											<td>{{'Signal.Instrument' | translate}}</td>
+											<td>
+												<input type="text" value="{{signal.instrument}}"  class="form-control" disabled/>
+											</td>
+										</tr>
+										<tr>
+											<td>{{'Signal.OpenPrice' | translate}}</td>
+											<td><input type="text" value="{{signal.open_price}}"  class="form-control"  disabled></td>
+										</tr>
+										<tr>
+											<td>{{'Signal.Trend' | translate}}</td>
+											<td>
+												<input type="text" value="{{signal.trend}}"  class="form-control" disabled/>
+											</td>
+										</tr>
+										<tr>
+											<td>T/P 1</td>
+											<td><input type="text" value="{{signal.trend}}" class="form-control" disabled></td>
+										</tr>
+										<tr>
+											<td>T/P 2</td>
+											<td><input type="text" value="{{signal.tp2}}" class="form-control" disabled></td>
+										</tr>
+										<tr>
+											<td>S/L</td>
+											<td><input type="text" value="{{signal.sl}}"  class="form-control" disabled></td>
+										</tr>
+                                          
+
+									
+									</table>
+								</div>
+							</div>
+						</div>
+						 <div>
+										 <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{signal.graph_image}}" style="width: 40%; height: 170px; margin-left: 330px;  border-radius:10px;" />
+										  </div>
+
+										  <div>
+										 <br><p style="margin-left: 500px; ">Grafico de señal</p>
+										  </div>
+
+						</form>
+					</div>
+						
+					
+					</div>
+
+
+          </section>

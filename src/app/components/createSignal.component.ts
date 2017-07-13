@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import {ServicesInfo} from '../services/services_info.services';
 import {Signal} from '../models/signal';
 import {GLOBAL} from '../services/global';
@@ -19,9 +19,11 @@ export class CreateSignalComponent{
   public filesToUpload;
   public resultUpload;
 
- constructor( private _services: ServicesInfo){
+ constructor( private _services: ServicesInfo, private _route: ActivatedRoute,
+
+        private _router: Router){
   
-  this.signal = new Signal(0,"","","","","","","","","","","");
+  this.signal = new Signal(0,"","","","","","","","",0,"","","","");
 
  }//fin del constructor
 
