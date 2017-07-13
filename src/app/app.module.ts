@@ -2,6 +2,11 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, Http } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule} from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './auth.service';
+
 
 import { routing, appRoutingProviders} from './app.routing';
 
@@ -33,11 +38,18 @@ export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
 
+
+
+ 
+
+
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
+    AngularFireModule.initializeApp (environment.firebase),
+    AngularFireAuthModule,
     routing,
     RouterModule.forRoot([
     { path: 'login', component: LoginComponent},
@@ -84,6 +96,7 @@ export function createTranslateLoader(http: Http) {
   ],
   providers: [
     appRoutingProviders,
+    AuthService,
     { provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler}
   ],
   bootstrap: [ AppComponent ]

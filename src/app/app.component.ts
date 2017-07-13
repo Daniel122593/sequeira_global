@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
 
+import {AuthService} from './auth.service';
+
 import {Subscription } from 'rxjs';
 import {Router, ActivatedRoute} from '@angular/router';
 import {OnInit, OnDestroy} from '@angular/core';
@@ -13,8 +15,10 @@ import {OnInit, OnDestroy} from '@angular/core';
 export class AppComponent { 
 
   private subscription: Subscription;
+  email:string;
+  password:string;
 
-  constructor(private translate: TranslateService, private activatedRoute: ActivatedRoute) {
+  constructor(private translate: TranslateService, private activatedRoute: ActivatedRoute, public authService:AuthService) {
         translate.addLangs(["es", "en"]);
         translate.setDefaultLang('es');
 
@@ -35,7 +39,20 @@ export class AppComponent {
             this.translate.use(locale);
         }
       });
-  }
+  }//fin del ngOnInit
+ 
+  
+
+  login(){
+     this.authService.login(this.email, this.password);
+     this.email = this.password  ="";
+    }//fin de login
+
+   logout(){
+    
+     this.authService.logout();
+    }//logout
+
 
   ngOnDestroy() {
     // prevent memory leak by unsubscribing
