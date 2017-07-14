@@ -40,6 +40,7 @@
 												<th>{{'Signal.Date' | translate}}</th>
 												<th>{{'Signal.Condition' | translate}}</th>
 												<th>{{'Signal.Analyst' | translate}}</th>
+												<th>Cerrar Señal</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -54,6 +55,7 @@
 											<td>{{signal.sl}}</td>
 											<td>{{signal.date_signal}}</td>
 											<td>{{signal.trend}}</td>
+											<td [routerLink]="['/signal-close',signal.id]"><a>Cerrar</a></td>
 
 											</tr>
 

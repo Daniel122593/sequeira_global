@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AngularFireModule} from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthService } from './auth.service';
 
 
@@ -30,6 +31,7 @@ import { SignalMonth } from './components/signalMonth.component';
 import { SignalAll } from './components/signalAll.component';
 import { SignalDetailComponent } from './components/signal-detail.component';
 import { SignalEditComponent } from './components/signal-edit.component';
+import { SignalCloseComponent } from './components/signal-close.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { MyMissingTranslationHandler } from './missingtemplate.component';
@@ -50,6 +52,7 @@ export function createTranslateLoader(http: Http) {
     FormsModule,
     AngularFireModule.initializeApp (environment.firebase),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     routing,
     RouterModule.forRoot([
     { path: 'login', component: LoginComponent},
@@ -66,6 +69,7 @@ export function createTranslateLoader(http: Http) {
     { path: 'signalAll', component:SignalAll},
     { path: 'signal-detail/:id', component:SignalDetailComponent},
     { path: 'signal-edit/:id', component:SignalEditComponent},
+    { path: 'signal-close/:id', component:SignalCloseComponent},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
     ]),
@@ -90,6 +94,7 @@ export function createTranslateLoader(http: Http) {
     SignalAll,
     SignalDetailComponent,
     SignalEditComponent,
+    SignalCloseComponent,
     HomeComponent,
     AboutComponent,
     ContactComponent

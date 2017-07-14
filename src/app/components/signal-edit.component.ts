@@ -29,7 +29,7 @@ import {GLOBAL} from '../services/global';
         ){
  
       this.titulo="Editar Sigal";
-      this.signal = new Signal(0,"","","","","","","","",0,"","","","");
+            this.signal = new Signal(0,"","","","","","","","","","","","","","","","","","","","","");
       this.is_edit=true;
 
 
@@ -59,8 +59,8 @@ import {GLOBAL} from '../services/global';
         
           console.log(this.signal);
           this.resultUpload=result;
-          this.signal.graph=this.resultUpload.filename;
-          console.log(this.signal.graph);
+          this.signal.graph_image=this.resultUpload.filename;
+          console.log(this.signal.graph_image);
 
           this.updateSignal();
  		},
@@ -83,7 +83,7 @@ import {GLOBAL} from '../services/global';
 
 
 
-   }//fin del onSubmit
+   }//fin del onSubmitSignal
 
   
    //metodo que es llamado en el onSubmit para modificar producto

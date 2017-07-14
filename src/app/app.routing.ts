@@ -18,6 +18,7 @@ import { SignalMonth } from './components/signalMonth.component';
 import { SignalAll } from './components/signalAll.component';
 import { SignalDetailComponent } from './components/signal-detail.component';
 import { SignalEditComponent } from './components/signal-edit.component';
+import { SignalCloseComponent } from './components/signal-close.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
@@ -35,9 +36,10 @@ const  appRoutes: Routes = [
     { path: 'preferredUser', component: PreferredUser},
     { path: 'createPartner', component: CreatePartner},
     { path: 'signalMonth', component: SignalMonth},
-    { path: 'signalAll', component:SignalAll},
-    { path: 'signal-detail/:id', component:SignalDetailComponent},
-    { path: 'signal-edit/:id', component:SignalEditComponent},
+    { path: 'signalAll', component: SignalAll},
+    { path: 'signal-detail/:id', component: SignalDetailComponent},
+    { path: 'signal-edit/:id', component: SignalEditComponent},
+    { path: 'signal-close/:id', component: SignalCloseComponent},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
 
