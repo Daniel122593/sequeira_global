@@ -1,176 +1,94 @@
-/**
- * Eric Meyer's Reset CSS v2.0 (https://meyerweb.com/eric/tools/css/reset/)
- * http://cssreset.com
- */
-    html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-    a, abbr, acronym, address, big, cite, code,
-    del, dfn, em, img, ins, kbd, q, s, samp,
-    small, strike, strong, sub, sup, tt, var,
-    b, u, i, center,
-    dl, dt, dd, ol, ul, li,
-    fieldset, form, label, legend,
-    table, caption, tbody, tfoot, thead, tr, th, td,
-    article, aside, canvas, details, embed,
-    figure, figcaption, footer, header, hgroup,
-    menu, nav, output, ruby, section, summary,
-    time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    }
-    /* HTML5 display-role reset for older browsers */
-    article, aside, details, figcaption, figure,
-    footer, header, hgroup, menu, nav, section {
-    display: block;
-    }
-    body {
-    line-height: 1;
-    }
-    ol, ul {
-    list-style: none;
-    }
-    blockquote, q {
-    quotes: none;
-    }
-    blockquote:before, blockquote:after,
-    q:before, q:after {
-    content: '';
-    content: none;
-    }
-    table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    }
+/* 'Open Sans' font from Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
-/* Reset End */
 
-body {
-  background: #4EAFCD url("bg.png") repeat;
-  position: relative;
-  font-family: 'Oswald', sans-serif;
+.login {
+  width: 500px;
+  margin: 16px auto;
+  font-size: 16px;
+  height: 750px;
 }
 
-.container {
-  margin: auto;  
-  padding: 215px 0;
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-#loginform {  
-  background-color: #f7f7f7;
-  display: block;
-  height: 190px;
-  margin: 0 auto; 
-  outline: solid 10px rgba(0,0,0,0.10);
-  width: 190px;
-  padding: 30px;
+/* The triangle form is achieved by a CSS hack */
+.login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #e31a8f;
 }
 
-.login-username:before { 
-  content: "Login Form";
-  color: #4c4c4c; 
-  font-size: 20px;
+.login-header {
+  background: #e31a8f;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
   text-transform: uppercase;
-  margin: 0;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.5);
-} 
- 
- .login-username label, .login-password label {
-  display: none;
-  text-indent: -9999px;
-}
- 
-.login-username .input{ 
-  margin-top: 15px;
- } 
-
-.login-password .input { margin-top: -14px;}
- 
- ::-moz-placeholder {  /* Firefox 19+ */
-   color: #4c4c4c;
-   text-transform: uppercase;
+  color: #fff;
 }
 
-::-webkit-input-placeholder {
-   color: #5d5b5b;
-   text-transform: uppercase;
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
+  height: 550px;
+  width: 500px;
 }
 
-.input { 
-  background-color: #fff;
-  cursor: text;
-  border: solid 1px #dedede; 
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  padding: 12px;
+}
+
+.login input {
   box-sizing: border-box;
-  color: #4c4c4c;
-  font: 400 13px/18px 'oswald';
-  height: 40px;
-  margin-bottom: -18px;
-  outline: none;
-  padding: 8px 15px;
-  transition: border 0.3s;
-  width:100%;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+  margin-top: 55px;
 }
 
-.input:focus { border: solid 1px #f35b5b; }
-
-.login-username:after {
-  background-color: #f7f7f7;
-  content: '*'; 
-  color: #f35b5b;
-  height: 35px;
-  width: 35px;
-  float: right;
-  font: 400 24px 'oswald';
-  line-height: 43px;
-  position: relative;
-  overflow: hidden;
-  right: 2px;
-  text-align: center;
-  top: -24px;
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
 }
 
-.login-password:after {
-  background-color: #f7f7f7;
-  content: '*'; 
-  color: #f35b5b;
-  height: 35px;
-  width: 35px;
-  float: right;
-  font: 400 24px 'oswald';
-  line-height: 43px;
-  position: relative;
-  overflow: hidden;
-  right: 2px;
-  text-align: center;
-  top: -24px;
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
 }
 
-.button-primary {
-  background-color: #14b9d6;
-  border: solid 1px transparent; 
-  box-sizing: border-box;
+.login button {
+  background: #e31a8f;
+  border-color: transparent;
   color: #fff;
   cursor: pointer;
-  font:  14px/36px 'oswald';
-  height: 42px;
-  letter-spacing: 1px;
-  margin-top: -11px;
-  outline: none;
-  text-align: center;
-  text-transform: uppercase;
-  transition: background-color 0.5s;
-  width: 100%;
+  border-radius:3px;
+  margin-left: 170px;
+  width: 115px;
+  height: 40px;
 }
 
-.button-primary:hover {
-  background-color: #469DB6;
-
-}
-.login-remember { 
-  display: none;
+.login button:hover {
+  background: #e31a8f;
 }
 
-/* Code Ends */
+/* Buttons' focus effect */
+.login button:focus {
+  border-color: #e31a8f;
+}

@@ -8,10 +8,9 @@
 				<div class="container">
 					<ul>
 						<li><a href="#">{{'Desktop' | translate}}</a></li>
-						<li><a href="#"><b>{{'Signal.SignalToday' | translate}}</b></a></li>	
-						<li><a href="alerts_tranding_new.html">{{'Signal.CreateSignal' | translate}}</a></li>							
-						<li><a href="#">{{'Signal.SignalMonth' | translate}}</a></li>
-						<li><a href="#">{{'Signal.TotalSignal' | translate}}</a></li>	
+						<li><a [routerLink]="['/signal']"><b>{{'Signal.SignalToday' | translate}}</b></a></li>							
+						<li><a [routerLink]="['/signalMonth']">{{'Signal.SignalMonth' | translate}}</a></li>
+						<li><a [routerLink]="['/signalAll']">{{'Signal.TotalSignal' | translate}}</a></li>	
 								
 					</ul>
 				</div>
@@ -49,7 +48,7 @@
 											<td>
 												<select #trend="ngModel"  name="trend" [(ngModel)]="signal.trend" class="form-control">
 													<option value="">- {{'Signal.Instrument' | translate}} -</option>
-													<option value="compra">{{'Signal.Buy' | translate}} </option>
+													<option value="comprar">{{'Signal.Buy' | translate}} </option>
 													<option value="vender">{{'Signal.Sell' | translate}}</option>
 												</select>
 											</td>

@@ -6,7 +6,10 @@ import {GLOBAL} from '../services/global';
 import {AngularFireDatabase } from 'angularfire2/database';
 import {FirebaseListObservable } from 'angularfire2/database';
 
-
+//imports de upload 
+import { UploadRService } from '../uploads/shared/uploadR.service';
+import { Upload } from '../uploads/shared/upload';
+import * as _ from "lodash";
 
 @Component ({
 
@@ -24,12 +27,17 @@ import {FirebaseListObservable } from 'angularfire2/database';
   	public resultUpload;
  	  public is_edit;
     history_signals:FirebaseListObservable<any>;
+    
+  //estos son para la imagen en firebase
+  selectedFiles: FileList;
+  currentUpload: Upload;
+
 
  	constructor(
  
       private _services: ServicesInfo,
       private _route: ActivatedRoute,
-      private _router: Router,public db:AngularFireDatabase
+      private _router: Router,public db:AngularFireDatabase, private upSvc: UploadRService
        
         ){
  
@@ -124,8 +132,6 @@ import {FirebaseListObservable } from 'angularfire2/database';
              });
                
 
-               
-
               if(this.signal.type_trend=="Bajista"){
 
                 address_signal="arrow-dropdown-circle";
@@ -150,25 +156,21 @@ import {FirebaseListObservable } from 'angularfire2/database';
               }
              
                 console.log(this.signal.graph_image+'eerferferf');
-             this.history_signals.push({
-                Intrument: this.signal.instrument,
+                this.history_signals.push({
+                Instrument: this.signal.instrument,
                 Price_a: this.signal.open_price,
-                E_Trend: this.signal.type_trend,
-                E_Color: "red",
-                //TP1: "1.22",
-                //TP2: "1.26",
-                //SL: "1.14",
+                E_Trend: address_signal,
+                E_Color: color_signal,
                 Date_A: this.signal.date,
-                Img_E: this.signal.graph_image,
                 Price_c: this.signal.close_price,
                 Img_R: this.signal.graph_final,
                 Pips: this.signal.pip,
-                R_Trend: address_signal,
+                R_Trend: address_signal_final,
+                R_Color: color_signal_final,
                 Date_C: this.signal.date_final
             });
-
-
-
+              
+                 this.uploadSingle();
 
    }//fin de updateSignal
 
@@ -180,9 +182,17 @@ import {FirebaseListObservable } from 'angularfire2/database';
      this.filesToUpload= <Array<File>>fileInput.target.files;
      console.log(this.filesToUpload);
 
+     this.selectedFiles = fileInput.target.files;
+
      }//fin del metodo
 
+ 
 
+     uploadSingle() {
+    let file = this.selectedFiles.item(0)
+    this.currentUpload = new Upload(file);
+    this.upSvc.pushUpload(this.currentUpload,this.signal.graph_final)
+  }//fin del metodo uploadSingle
  
 
   getSignal(){

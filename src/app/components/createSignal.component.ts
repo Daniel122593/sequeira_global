@@ -1,10 +1,17 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {ServicesInfo} from '../services/services_info.services';
 import {Signal} from '../models/signal';
 import {GLOBAL} from '../services/global';
 import {AngularFireDatabase } from 'angularfire2/database';
 import {FirebaseListObservable } from 'angularfire2/database';
+
+
+
+//imports de upload 
+import { UploadService } from '../uploads/shared/upload.service';
+import { Upload } from '../uploads/shared/upload';
+import * as _ from "lodash";
 
 
 @Component ({
@@ -20,11 +27,17 @@ export class CreateSignalComponent{
   public signal: Signal;
   public filesToUpload;
   public resultUpload;
+   
+  //estos son para la imagen en firebase
+  selectedFiles: FileList;
+  currentUpload: Upload;
+
+
   signals:FirebaseListObservable<any>;
 
  constructor( private _services: ServicesInfo, private _route: ActivatedRoute,
 
-        private _router: Router, public db:AngularFireDatabase){
+        private _router: Router, public db:AngularFireDatabase, private upSvc: UploadService){
   
       this.signal = new Signal(0,"","","","","","","","","","","","","","","","","","","","","","");
 
@@ -130,9 +143,11 @@ export class CreateSignalComponent{
               TP2: this.signal.tp2,
               SL:  this.signal.sl,
               Date_A: this.signal.date,
-              Img_E: this.signal.graph_image
+              Img_E:  this.signal.graph_image
              
               });
+
+           this.uploadSingle();
  
   }//fin del metodo saveSignal
   
@@ -142,7 +157,17 @@ export class CreateSignalComponent{
      this.filesToUpload= <Array<File>>fileInput.target.files;
      console.log(this.filesToUpload);
 
+     this.selectedFiles = fileInput.target.files;
+     
+
      }//fin del metodo
+
+
+    uploadSingle() {
+    let file = this.selectedFiles.item(0)
+    this.currentUpload = new Upload(file);
+    this.upSvc.pushUpload(this.currentUpload,this.signal.graph_image)
+  }
    
 
 }//fin del componente

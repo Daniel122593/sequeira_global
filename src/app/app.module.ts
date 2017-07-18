@@ -7,6 +7,8 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthService } from './auth.service';
+import { UploadService } from './uploads/shared/upload.service';
+import { UploadRService } from './uploads/shared/uploadR.service';
 
 
 import { routing, appRoutingProviders} from './app.routing';
@@ -102,6 +104,8 @@ export function createTranslateLoader(http: Http) {
   providers: [
     appRoutingProviders,
     AuthService,
+    UploadService,
+    UploadRService,
     { provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler}
   ],
   bootstrap: [ AppComponent ]

@@ -34,9 +34,9 @@
 											<td>
 												<select #instrument="ngModel" name="instrument" [(ngModel)]="signal.instrument"  class="form-control">
 													<option value="">- {{'Signal.Instrument' | translate}} -</option>
-													<option value="chn_brazil">Crude_oli </option>
-													<option value="chn_canada">EUR/USD</option>
-													<option value="chn_usa">GBP/USD</option>
+													<option value="Crude_oli">Crude_oli </option>
+													<option value="EUR/USD">EUR/USD</option>
+													<option value="GBP/USD">GBP/USD</option>
 												</select>
 											</td>
 										</tr>
@@ -49,7 +49,7 @@
 											<td>
 												<select #trend="ngModel"  name="trend" [(ngModel)]="signal.trend" class="form-control">
 													<option value="">- {{'Signal.Instrument' | translate}} -</option>
-													<option value="compra">{{'Signal.Buy' | translate}} </option>
+													<option value="comprar">{{'Signal.Buy' | translate}} </option>
 													<option value="vender">{{'Signal.Sell' | translate}}</option>
 												</select>
 											</td>

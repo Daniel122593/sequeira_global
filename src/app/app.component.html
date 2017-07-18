@@ -1,4 +1,15 @@
-<div *ngIf="authService.user | async"><h3>Bienvenido {{ (authService.user | async)?.email }}</h3>
+<div *ngIf="authService.user | async">
+
+
+<style type="text/css">
+
+html, body {
+margin: 0; padding:0 ;
+
+}
+
+
+</style>
 
 
 <html>
@@ -16,9 +27,10 @@
 
 </head>
 
-<body class="sidebar_hidden">
+<body class="sidebar_hidden"  style="">
 
-<header id="top_header" style="background-color:#e31a8f;">
+
+<header id="top_header" style="background-color:#e31a8f; position: relative;">
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-6 col-sm-2">
@@ -37,6 +49,9 @@
                         </li>
                         <li>
                             <a (click)="changeLanguage('en')">{{ 'Languages.English' | translate }}</a>
+                        </li>
+                        <li>
+                            <a (click)="logout()" *ngIf="authService.user | async">Salir</a>
                         </li>
                        
 								</ul>
@@ -57,7 +72,7 @@
 
 <!--*******************section de menu principal*************************-->
 
-<nav id="top_navigation">
+<nav id="top_navigation" >
 				<div class="container">
 					<ul id="icon_nav_h" class="top_ico_nav clearfix">
 						<li>
@@ -209,16 +224,14 @@
 							</div>
 
 							<router-outlet></router-outlet>
-        <div id="footer_space" style="height:300px"></div>
 
+        
 
 
         </section>
         
 
-
-
- <footer id="footer">
+ <footer id="footer" style="margin-top: 400px; ">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3">
@@ -240,43 +253,57 @@
 
 
 
+
 			</body>
 
 			</html>
 
 
-
-
 </div>
 
 
 
+<html>
 
+<head>
 
+<link rel="stylesheet" type="text/css" href="assets/styles_login.css">
 
-
-
-
-
-
-
-
-
-
-
+</head>
 
 
 <div *ngIf="!(authService.user | async)">
-  <input type="text" [(ngModel)]="email" placeholder="email">
-  <input type="password" [(ngModel)]="password" placeholder="email">
 
- 
+<body style=" background-color: #F4DEF1; height: 930px;  margin: 0; padding:0;font-family:'Open Sans', sans-serif;">
 
-  <button (click)="login()" [disabled]="!email || !password">
-    Login
-  </button>
+
+<div  class="login"  >
+
+
+<div class="login-triangle"></div>
+  
+  <h2 class="login-header">Log in</h2>
+
+
+  <div class="login-container">
+
+    <p><input type="text"  [(ngModel)]="email" placeholder="Email"></p>
+    <p><input type="password" [(ngModel)]="password" placeholder="Password"></p>
+    <br><br>
+    <p><button value="Log in"  (click)="login()" [disabled]="!email || !password">Login</button></p>
+
+  </div>
+
+ </div>
+
+</body>
+
 </div>
 
-<button (click)="logout()" *ngIf="authService.user | async">
-  Logout
-</button>
+
+
+</html>
+
+
+
+
