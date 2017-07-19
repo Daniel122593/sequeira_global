@@ -24,7 +24,8 @@ constructor(
  public year_final:string,
  public month_final:string,
  public day_final:string,
- public date: string
+ public date: string,
+ public time_initial:string
 
 ){
 

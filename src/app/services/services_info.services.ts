@@ -51,6 +51,11 @@ return this._http.get(this.url+'signalMonth').map(res =>res.json());
 
 }//fin del metodo getSignal
 
+getGlobalTime(){
+
+return this._http.get(this.url+'hour').map(res =>res.json());
+
+}//fin del metodo getSignal
 
 
 //metodo para mostrar todos los datos de la señal del dia

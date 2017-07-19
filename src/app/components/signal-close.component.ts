@@ -26,6 +26,7 @@ import * as _ from "lodash";
    	public filesToUpload;
   	public resultUpload;
  	  public is_edit;
+    public hour;
     history_signals:FirebaseListObservable<any>;
     
   //estos son para la imagen en firebase
@@ -42,7 +43,7 @@ import * as _ from "lodash";
         ){
  
       this.titulo="Editar Signal";
-      this.signal = new Signal(0,"","","","","","","","","","","","","","","","","","","","","","");
+      this.signal = new Signal(0,"","","","","","","","","","","","","","","","","","","","","","","");
       this.is_edit=true;
 
       this.history_signals = db.list('/history');
@@ -51,88 +52,30 @@ import * as _ from "lodash";
  	}//fin del constructor
     
 
-    ngOnInit(){
-
-      this.getSignal();
-
-    }//fin del metodo ngOnInit
-
-     
-     onSubmitSignal(){
- 
- 
-   if(this.filesToUpload && this.filesToUpload.length>=1){
 
 
- 	this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) =>{
+    getHour(){
 
-        
-          console.log(this.signal);
-          this.resultUpload=result;
-          this.signal.graph_final=this.resultUpload.filename;
-          console.log(this.signal.graph_final);
+    this._services.getGlobalTime().subscribe(
           
-          this.updateSignal();
-          this._router.navigate(['/signal-update',this.signal.id]);
- 		},
 
-       (error) => {
+         result => {
+           
+            if(result.code==200){
+                
 
-          console.log(error);
-       	}//fin del error
-   
+                this.hour=result.data;
+                alert(result.data);
 
- 		);
+                  alert("firebase");
 
- 
- }else {
+              var address_signal:string;
+              var color_signal:string;
 
- 	
-   this.updateSignal();
-    this._router.navigate(['/signal-update',this.signal.id]);
+              var address_signal_final:string;
+              var color_signal_final:string;
 
- }//fin del else
-
-
- }//fin del onSubmitSignal
-
-
-  //metodo que es llamado en el onSubmit para modificar producto
-   updateSignal(){
-     
-      var address_signal:string;
-      var color_signal:string;
-
-      var address_signal_final:string;
-      var color_signal_final:string;
-
-
-   	 this._route.params.forEach((params:Params) => {
-          
-         //con esto capturo el id de la URL 
-      		 let id= params['id'];
-              
-            this.signal.date=this.signal.year+'-'+this.signal.month+'-'+this.signal.day;
-            this.signal.date_final=this.signal.year_final+'-'+this.signal.month_final+'-'+this.signal.day_final;
- 
-					  console.log(this.signal);
-            this._services.editSignal(id, this.signal).subscribe(
-														response => {
-															if(response.code == 200){
-																this._router.navigate(['/signal']);
-															}else{
-																console.log(response);
-															}
-														},
-														error => {
-                              
-															console.log(<any>error);
-														}
-													);
-             });
-               
-
-              if(this.signal.type_trend=="Bajista"){
+             if(this.signal.type_trend=="Bajista"){
 
                 address_signal="arrow-dropdown-circle";
                 color_signal="red";
@@ -167,8 +110,108 @@ import * as _ from "lodash";
                 Pips: this.signal.pip,
                 R_Trend: address_signal_final,
                 R_Color: color_signal_final,
-                Date_C: this.signal.date_final
+                Date_C: this.signal.date_final,
+                Initial_Hour: this.signal.time_initial,
+                Final_Hour: this.hour
+
             });
+             
+
+            
+            }else{
+
+            }//fin del else
+
+         }, error =>{
+            
+             console.log(<any>error);
+ 
+           }//fin de error
+
+      );
+
+
+   }//fin del metodo getHour
+
+
+    ngOnInit(){
+
+      this.getSignal();
+
+    }//fin del metodo ngOnInit
+
+     
+     onSubmitSignal(){
+ 
+ 
+   if(this.filesToUpload && this.filesToUpload.length>=1){
+
+
+ 	this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) =>{
+
+        
+          console.log(this.signal);
+          this.resultUpload=result;
+          this.signal.graph_final=this.resultUpload.filename;
+          console.log(this.signal.graph_final);
+          
+          this.getHour();
+          this.updateSignal();
+          this._router.navigate(['/signal-update',this.signal.id]);
+ 		},
+
+       (error) => {
+
+          console.log(error);
+       	}//fin del error
+   
+
+ 		);
+
+ 
+ }else {
+
+ 	 this.getHour();
+   this.updateSignal();
+    this._router.navigate(['/signal-update',this.signal.id]);
+
+ }//fin del else
+
+
+ }//fin del onSubmitSignal
+
+
+  //metodo que es llamado en el onSubmit para modificar producto
+   updateSignal(){
+     
+     
+
+   	 this._route.params.forEach((params:Params) => {
+          
+         //con esto capturo el id de la URL 
+      		 let id= params['id'];
+              
+            this.signal.date=this.signal.year+'-'+this.signal.month+'-'+this.signal.day;
+            this.signal.date_final=this.signal.year_final+'-'+this.signal.month_final+'-'+this.signal.day_final;
+ 
+					  console.log(this.signal);
+            this._services.editSignal(id, this.signal).subscribe(
+														response => {
+															if(response.code == 200){
+																this._router.navigate(['/signal']);
+															}else{
+																console.log(response);
+															}
+														},
+														error => {
+                              
+															console.log(<any>error);
+														}
+													);
+             });
+               
+
+             
               
                  this.uploadSingle();
 

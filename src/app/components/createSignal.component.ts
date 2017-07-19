@@ -27,6 +27,7 @@ export class CreateSignalComponent{
   public signal: Signal;
   public filesToUpload;
   public resultUpload;
+  public hour;
    
   //estos son para la imagen en firebase
   selectedFiles: FileList;
@@ -39,12 +40,78 @@ export class CreateSignalComponent{
 
         private _router: Router, public db:AngularFireDatabase, private upSvc: UploadService){
   
-      this.signal = new Signal(0,"","","","","","","","","","","","","","","","","","","","","","");
+      this.signal = new Signal(0,"","","","","","","","","","","","","","","","","","","","","","","");
 
   this.signals = db.list('/signals');
 
+
  }//fin del constructor
 
+ getHour(){
+
+    this._services.getGlobalTime().subscribe(
+          
+
+         result => {
+           
+            if(result.code==200){
+                
+
+                this.hour=result.data;
+                alert(result.data);
+
+                  alert("firebase");
+   var address_signal:string;
+   var color_signal:string;
+
+   if(this.signal.type_trend=="Alcista"){
+             
+             address_signal="arrow-dropup-circle";
+             color_signal="green";
+
+             
+
+           }else{
+           
+             address_signal="arrow-dropdown-circle";
+             color_signal="red";
+
+
+           }//fin del else
+           
+           
+
+          alert('llega aqui');
+            
+          this.signals.push({
+              Instrument: this.signal.instrument,
+              Price_a:  this.signal.open_price,
+              E_Trend: address_signal,
+              E_Color: color_signal,
+              TP1: this.signal.tp1,
+              TP2: this.signal.tp2,
+              SL:  this.signal.sl,
+              Date_A: this.signal.date,
+              Img_E:  this.signal.graph_image,
+              Initial_Hour: this.hour
+             
+              });
+
+            
+            }else{
+
+            }//fin del else
+
+         }, error =>{
+            
+             console.log(<any>error);
+ 
+           }//fin de error
+
+      );
+
+
+   }//fin del metodo getHour
 
   onSubmitSignal(){
    console.log(this.signal);
@@ -53,15 +120,14 @@ export class CreateSignalComponent{
    
       this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) =>{
 
-       
-        
+          
           this.resultUpload=result;
           console.log(this.resultUpload.name);
           this.signal.graph_image=this.resultUpload.filename;
       
-
+          this.getHour();
           this.saveSignal();
-
+          this.insertFirebase();
 
            //insert en firebase
   
@@ -78,20 +144,21 @@ export class CreateSignalComponent{
 
        }else {
 
-   alert('entra aqui');
-
+  
+   this.getHour();
    this.saveSignal();
-
+   this.insertFirebase();
 
  }//fin del else
 
   }//fin del metodo inSubmitSignal
 
   
+
+
   saveSignal(){
     
-     var address_signal:string;
-     var color_signal:string;
+    
 
     this.signal.date=this.signal.year+'-'+this.signal.month+'-'+this.signal.day;
     this.signal.condition_signal="Abierta";
@@ -110,7 +177,7 @@ export class CreateSignalComponent{
             }//fin del else
 
          }, error =>{
-
+            
              console.log(<any>error);
  
            }//fin de error
@@ -118,36 +185,7 @@ export class CreateSignalComponent{
       );
 
 
-          if(this.signal.type_trend=="Alcista"){
-             
-             address_signal="arrow-dropup-circle";
-             color_signal="green";
-
-             
-
-           }else{
-           
-             address_signal="arrow-dropdown-circle";
-             color_signal="red";
-
-
-           }//fin del else
-
-
-          this.signals.push({
-              Instrument: this.signal.instrument,
-              Price_a:  this.signal.open_price,
-              E_Trend: address_signal,
-              E_Color: color_signal,
-              TP1: this.signal.tp1,
-              TP2: this.signal.tp2,
-              SL:  this.signal.sl,
-              Date_A: this.signal.date,
-              Img_E:  this.signal.graph_image
-             
-              });
-
-           this.uploadSingle();
+       this.uploadSingle();
  
   }//fin del metodo saveSignal
   
@@ -168,6 +206,14 @@ export class CreateSignalComponent{
     this.currentUpload = new Upload(file);
     this.upSvc.pushUpload(this.currentUpload,this.signal.graph_image)
   }
+    
+
+ insertFirebase(){
+   
+
+
+  }
+
    
 
 }//fin del componente

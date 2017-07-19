@@ -13,7 +13,6 @@ import { UploadRService } from './uploads/shared/uploadR.service';
 
 import { routing, appRoutingProviders} from './app.routing';
 
-
 import { TranslateModule, TranslateLoader, TranslateStaticLoader, MissingTranslationHandler } from 'ng2-translate';
 
 import { FormsModule } from "@angular/forms";
@@ -42,9 +41,6 @@ export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
 
-
-
- 
 
 
 @NgModule({
