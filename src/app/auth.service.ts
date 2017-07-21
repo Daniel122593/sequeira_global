@@ -10,14 +10,16 @@ import {FirebaseListObservable } from 'angularfire2/database';
 export class AuthService {
  user: Observable<firebase.User>;
  users:FirebaseListObservable<any>;
- 
+ analyst:FirebaseListObservable<any>;
+
 
   constructor(private firebaseAuth: AngularFireAuth,public db:AngularFireDatabase) {
      
        this.user = firebaseAuth.authState;
-
        
-
+       this.analyst = db.list('/analyst');
+       
+       
   }//fin del constructor
    
 
@@ -27,7 +29,12 @@ export class AuthService {
   .auth
   .createUserWithEmailAndPassword(email, password)
   .then( value => {
-
+     
+      this.analyst.push({
+              email_analyst: email,
+              password_analyst: password
+             
+              });
        
       console.log('success!', value);
   })

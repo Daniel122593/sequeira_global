@@ -151,8 +151,6 @@ makeFileRequest(url: string, params: Array<string>, files: Array<File>){
 }
 
 
-
-
 //metodo para agregar las señales
 addUserPartner(user_partner:User_partner){
  let json = JSON.stringify(user_partner);

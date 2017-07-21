@@ -15,7 +15,7 @@
 <section class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 					 
-					 <form #formUserAdministrative ="ngForm">
+					 <form #formUserAnalyst ="ngForm" (ngSubmit)="onSubmitAnalyst()">
 						<!-- main content -->
 						<div class="row">
 							<div class="col-sm-12">
@@ -28,42 +28,52 @@
 
 										<tr>
 											<td>{{'User.IdentityCard' | translate}}</td>
-											<td><input type="text" #identityCard="ngModel"  name="identityCard" [(ngModel)]="user_administrative.identityCard" class="form-control"></td>
+											<td><input type="text" #identityCard_analyst="ngModel"  name="identityCard_analyst" [(ngModel)]="user_analyst.identityCard_analyst" class="form-control"></td>
 										</tr>
 
 										<tr>
 											<td>{{'User.Name' | translate}}</td>
-											<td><input type="text" #name="ngModel"  name="name" [(ngModel)]="user_administrative.name" class="form-control"></td>
+											<td><input type="text" #name_analyst="ngModel"  name="name_analyst" [(ngModel)]="user_analyst.name_analyst" class="form-control"></td>
 										</tr>
 										
 										<tr>
 											<td>Jerarquía</td>
-											<td><input type="text" #hierarchy="ngModel"  name="hierarchy" [(ngModel)]="user_administrative.hierarchy" class="form-control"></td>
+											<td><input type="text" #hierarchy_analyst="ngModel"  name="hierarchy_analyst" [(ngModel)]="user_analyst.hierarchy_analyst" class="form-control"></td>
 										</tr>
 										
 										<tr>
 											<td>{{'User.Email' | translate}}</td>
-											<td><input type="text" #email="ngModel"  name="email" [(ngModel)]="user_administrative.email" class="form-control"></td>
+											<td><input type="text" #correo_analyst="ngModel"  name="correo_analyst" [(ngModel)]="user_analyst.correo_analyst" class="form-control"></td>
 										</tr>
 										
 										<tr>
 											<td>{{'User.Telephone' | translate}}</td>
-											<td><input type="text" #telephone="ngModel"  name="telephone" [(ngModel)]="user_administrative.telephone" class="form-control"></td>
+											<td><input type="text" #telephone_analyst="ngModel"  name="telephone_analyst" [(ngModel)]="user_analyst.telephone_analyst" class="form-control"></td>
 
 										</tr>
 										<tr>
 											<td>{{'User.Country' | translate}}</td>
-											<td><input type="text" #country="ngModel"  name="country" [(ngModel)]="user_administrative.country" class="form-control"></td>
+											<td><input type="text" #country_analyst="ngModel"  name="country_analyst" [(ngModel)]="user_analyst.country_analyst" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>{{'User.Address' | translate}}</td>
-											<td><input type="text" #address="ngModel"  name="address" [(ngModel)]="user_administrative.address" class="form-control"></td>
+											<td><input type="text" #address_analyst="ngModel"  name="address_analyst" [(ngModel)]="user_analyst.address_analyst" class="form-control"></td>
 										</tr>
 										
 										<tr>
 											<td>Fecha</td>
-											<td><input type="text" #date_user_administrative="ngModel"  name="date_user_administrative" [(ngModel)]="user_administrative.date_user_administrative" class="form-control"></td>
+											<td><input type="text" #date_analyst="ngModel"  name="date_analyst" [(ngModel)]="user_analyst.date_analyst" class="form-control"></td>
                                         </tr>
+                                        <tr>
+											<td>Foto de perfil</td>
+											<td>
+												<div class="row">
+												<div class="col-sm-6">
+												 <input type="file" class="form-control" (change)="fileChangeEvent($event)"><br><br>
+												</div>
+												</div>
+											</td>
+										</tr>
 
 										<tr>
 											<td></td>

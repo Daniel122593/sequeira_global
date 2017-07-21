@@ -33,10 +33,12 @@ import { SignalAll } from './components/signalAll.component';
 import { SignalDetailComponent } from './components/signal-detail.component';
 import { SignalEditComponent } from './components/signal-edit.component';
 import { SignalCloseComponent } from './components/signal-close.component';
+import { CreateBankPartner } from './components/createBank-partner.component';
+import { CreateUserAnalystEmailPassword } from './components/createUserAnalystEmailPassword.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { MyMissingTranslationHandler } from './missingtemplate.component';
-import { CreateBankPartner } from './components/createBank-partner.component';
+
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
@@ -69,6 +71,7 @@ export function createTranslateLoader(http: Http) {
     { path: 'signal-edit/:id', component:SignalEditComponent},
     { path: 'signal-close/:id', component:SignalCloseComponent},
     { path: 'createBankPartner', component:CreateBankPartner},
+    { path: 'createUserAnalystEmailPassword', component: CreateUserAnalystEmailPassword},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
     ]),
@@ -95,6 +98,7 @@ export function createTranslateLoader(http: Http) {
     SignalEditComponent,
     SignalCloseComponent,
     CreateBankPartner,
+    CreateUserAnalystEmailPassword,
     HomeComponent,
     AboutComponent,
     ContactComponent

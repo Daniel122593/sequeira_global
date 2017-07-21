@@ -19,10 +19,10 @@ import { SignalAll } from './components/signalAll.component';
 import { SignalDetailComponent } from './components/signal-detail.component';
 import { SignalEditComponent } from './components/signal-edit.component';
 import { SignalCloseComponent } from './components/signal-close.component';
+import { CreateBankPartner } from './components/createBank-partner.component';
+import { CreateUserAnalystEmailPassword } from './components/createUserAnalystEmailPassword.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { CreateBankPartner } from './components/createBank-partner.component';
-
 
 const  appRoutes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -41,6 +41,7 @@ const  appRoutes: Routes = [
     { path: 'signal-edit/:id', component: SignalEditComponent},
     { path: 'signal-close/:id', component: SignalCloseComponent},
     { path: 'createBankPartner', component: CreateBankPartner},
+    { path: 'createUserAnalystEmailPassword', component: CreateUserAnalystEmailPassword},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
 

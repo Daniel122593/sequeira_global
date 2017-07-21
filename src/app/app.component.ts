@@ -19,7 +19,7 @@ export class AppComponent {
   email:string;
   password:string;
   users:FirebaseListObservable<any>;
-
+  
   constructor(private translate: TranslateService, private activatedRoute: ActivatedRoute, public authService:AuthService,
 
     private db:AngularFireDatabase) {
