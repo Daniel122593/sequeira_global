@@ -6,8 +6,6 @@ import {GLOBAL} from '../services/global';
 import {AngularFireDatabase } from 'angularfire2/database';
 import {FirebaseListObservable } from 'angularfire2/database';
 
-
-
 //imports de upload 
 import { UploadService } from '../uploads/shared/upload.service';
 import { Upload } from '../uploads/shared/upload';
@@ -124,7 +122,7 @@ export class CreateSignalComponent{
           this.resultUpload=result;
           console.log(this.resultUpload.name);
           this.signal.graph_image=this.resultUpload.filename;
-      
+                 
           this.getHour();
           this.saveSignal();
           this.insertFirebase();
@@ -142,7 +140,8 @@ export class CreateSignalComponent{
      );
 
 
-       }else {
+       
+}else {
 
   
    this.getHour();
@@ -150,7 +149,6 @@ export class CreateSignalComponent{
    this.insertFirebase();
 
  }//fin del else
-
   }//fin del metodo inSubmitSignal
 
   

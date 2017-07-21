@@ -47,7 +47,7 @@ display: inline;
 <section class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 					<div id="">
-						<form  method="post" action="" name="into" id="into">
+						<form #formUser_partner="ngForm" (ngSubmit)="onSubmitUserPartner()">
 						<!-- main content -->
 						<div class="row">
 							<div class="col-sm-12">
@@ -61,44 +61,69 @@ display: inline;
 										
 										<tr>
 											<td>{{'User.Name' | translate}}</td>
-											<td><input type="text" id="v1" class="form-control"></td>
+											<td><input type="text" #name_partner="ngModel" name="name_partner" [(ngModel)]="user_partner.name_partner" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>{{'User.IdentityCard' | translate}}</td>
-											<td><input type="text" id="v2" class="form-control"></td>
+											<td><input type="text" #identityCard_partner="ngModel" name="identityCard_partner" [(ngModel)]="user_partner.identityCard_partner" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>{{'User.Gender' | translate}}</td>
 											<td >
-												  <input type="radio" name="genero"  value="male" >{{'User.Man' | translate}}  <input type="radio" name="genero" style="margin-left: 15px;" value="female" >  {{'User.Woman' | translate}}<br>
+												  <input type="radio"  #gender_partner="ngModel" name="gender_partner"  value="male"  [(ngModel)]="user_partner.gender_partner" >{{'User.Man' | translate}}  <input type="radio" #gender_partner="ngModel" name="gender_partner" [(ngModel)]="user_partner.gender_partner" style="margin-left: 15px;" value="female" >  {{'User.Woman' | translate}}<br>
 
 											</td>
 										</tr>
 
 										<tr>
 											<td>{{'User.CivilStatus' | translate}}</td>
-											<td><input type="text" id="v4" class="form-control"></td>
+											<td><input type="text" #civil_status_partner="ngModel" name="civil_status_partner" [(ngModel)]="user_partner.civil_status_partner" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>{{'User.Profession' | translate}}</td>
-											<td><input type="text" id="v5" class="form-control"></td>
+											<td><input type="text" #profession_partner="ngModel" name="profession_partner" [(ngModel)]="user_partner.profession_partner" class="form-control"></td>
 										</tr>
 										
 										<tr>
 											<td>{{'User.Email' | translate}}</td>
-											<td><input type="text" id="v6" class="form-control"></td>
+											<td><input type="email" #email_partner="ngModel" name="email_partner" [(ngModel)]="user_partner.email_partner" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>{{'User.Telephone' | translate}}</td>
-											<td><input type="text" id="v7" class="form-control"></td>
+											<td><input type="tel" #telephone_partner="ngModel" name="telephone_partner" [(ngModel)]="user_partner.telephone_partner" class="form-control"></td>
 										</tr>
+
+                                        <tr>
+											<td>Imagen Documento de Identidad</td>
+											<td>
+												<div class="row">
+												<div class="col-sm-6">
+												 <input type="file" class="form-control" (change)="fileChangeEventIdentity($event)"><br><br>
+												</div>
+												</div>
+											</td>
+										</tr>
+
+
+										 <tr>
+											<td>Imagen Voucher</td>
+											<td>
+												<div class="row">
+												<div class="col-sm-6">
+												 <input type="file" class="form-control" (change)="fileChangeEventVoucher($event)"><br><br>
+												</div>
+												</div>
+											</td>
+										</tr>
+
+
 										<tr>
 											<td>{{'User.Country' | translate}}</td>
 											<td>
 												 <div class="col-sm-6 clearfix">
                                                 <h4 class="heading_a">{{'User.SelectCountry' | translate}}</h4>
                                                 <div class="sepH_a">
-													<select id="s2_ext_value" class="form-control">
+													<select #country_partner="ngModel" name="country_partner" [(ngModel)]="user_partner.country_partner" class="form-control">
 														<option value="AF">Afghanistan</option>
 														<option value="AX">Åland Islands</option>
 														<option value="AL">Albania</option>
@@ -355,280 +380,41 @@ display: inline;
 										</tr>
 										<tr>
 											<td>{{'User.Address' | translate}}</td>
-											<td><input type="text" id="v9" class="form-control"></td>
+											<td><input type="text" #address_partner="ngModel" name="address_partner" [(ngModel)]="user_partner.address_partner" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>{{'User.InvestmentAmount' | translate}}</td>
 											
-												<td><input type="text" id="v10" class="form-control"></td>
+												<td><input type="text" #investment_amount_partner="ngModel" name="investment_amount_partner" [(ngModel)]="user_partner.investment_amount_partner" class="form-control"></td>
 											
 										</tr>
 										<tr>
 											<td>{{'User.Time' | translate}}</td>
-											<td><input type="text" id="v11" class="form-control"></td>
+											<td><input type="text" #time_partner="ngModel" name="time_partner" [(ngModel)]="user_partner.time_partner" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>{{'User.Interest' | translate}}</td>
-											<td><input type="text" id="v12" class="form-control"></td>
+											<td><input type="text" #interest_partner="ngModel" name="interest_partner" [(ngModel)]="user_partner.interest_partner" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>{{'User.ReferredToBy' | translate}}</td>
-											<td><input type="text" id="v14" class="form-control"></td>
+											<td><input type="text" #referred_partner="ngModel" name="referred_partner" [(ngModel)]="user_partner.referred_partner" class="form-control"></td>
 										</tr>
-										<tr style="height: 70px;">
+										<tr>
 											<td>{{'User.StartDate' | translate}}</td>
-											<ul style=" margin-top: 50px;" id="fecha">
-											
-
-										
-											
-                                               
-                                              
-                                                    
-
-                                                    <td><select id="s2_ext_value" class="form-control" style="width: 130px; margin-top: 10px; margin-right: 25px;" >
-														
-														<option value="CW">{{'User.Year' | translate}}</option>
-														<option value="CW">2017</option>
-														<option value="CW">2018</option>
-														<option value="CW">2019</option>
-														<option value="CW">2020</option>
-														<option value="CW">2021</option>
-														<option value="CW">2022</option>
-														<option value="CW">2023</option>
-														<option value="CW">2024</option>
-														<option value="CW">2025</option>
-														<option value="CW">2026</option>
-														<option value="CW">2027</option>
-														<option value="CW">2028</option>
-														<option value="CW">2029</option>
-														<option value="CW">2030</option>
-														<option value="CW">2031</option>
-														<option value="CW">2032</option>
-														<option value="CW">2033</option>
-														<option value="CW">2034</option>
-														<option value="CW">2035</option>
-														<option value="CW">2036</option>
-														<option value="CW">2037</option>
-														<option value="CW">2038</option>
-														<option value="CW">2039</option>
-														<option value="CW">2040</option>
-														<option value="CW">2041</option>
-														<option value="CW">2042</option>
-														<option value="CW">2043</option>
-														<option value="CW">2044</option>
-														<option value="CW">2045</option>
-														<option value="CW">2046</option>
-														<option value="CW">2047</option>
-														<option value="CW">2048</option>
-														<option value="CW">2049</option>
-														<option value="CW">2050</option>
-
-
-												
-
-
-
-													</select></td>
-
-
-													<td><select id="s2_ext_value" class="form-control" style=" width: 130px; margin-right: 25px;">
-														
-														
-
-
-												
-                                                          
-                                                        <option value="CW">{{'User.Month' | translate}}</option>
-														<option value="CW">{{'User.January' | translate}}</option>
-														<option value="CW">{{'User.February' | translate}}</option>
-														<option value="CW">{{'User.March' | translate}}</option>
-														<option value="CW">{{'User.April' | translate}}</option>
-														<option value="CW">{{'User.May' | translate}}</option>
-														<option value="CW">{{'User.June' | translate}}</option>
-														<option value="CW">{{'User.July' | translate}}</option>
-														<option value="CW">{{'User.August' | translate}}</option>
-														<option value="CW">{{'User.September' | translate}}</option>
-														<option value="CW">{{'User.October' | translate}}</option>
-														<option value="CW">{{'User.November' | translate}}</option>
-														<option value="CW">{{'User.December' | translate}}</option>
-
-
-													</select></td>
-
-													<td><select id="s2_ext_value" class="form-control" style=" width: 130px;">
-														
-														<option value="CW">{{'User.Day' | translate}}</option>
-														<option value="CW">1</option>
-														<option value="CW">2</option>
-														<option value="CW">3</option>
-														<option value="CW">4</option>
-														<option value="CW">5</option>
-														<option value="CW">6</option>
-														<option value="CW">7</option>
-														<option value="CW">8</option>
-														<option value="CW">9</option>
-														<option value="CW">10</option>
-														<option value="CW">11</option>
-														<option value="CW">12</option>
-														<option value="CW">13</option>
-														<option value="CW">14</option>
-														<option value="CW">15</option>
-														<option value="CW">16</option>
-														<option value="CW">17</option>
-														<option value="CW">18</option>
-														<option value="CW">19</option>
-														<option value="CW">20</option>
-														<option value="CW">21</option>
-														<option value="CW">22</option>
-														<option value="CW">23</option>
-														<option value="CW">24</option>
-														<option value="CW">25</option>
-														<option value="CW">26</option>
-														<option value="CW">27</option>
-														<option value="CW">28</option>
-														<option value="CW">29</option>
-														<option value="CW">30</option>
-														<option value="CW">31</option>
-														
-
-													</select></td>
-				
-
-                                         </ul>
-
+											<td><input type="date" #date_start_partner="ngModel" name="date_start_partner" [(ngModel)]="user_partner.date_start_partner" class="form-control"></td>
 										</tr>
 										<tr>
 											<td>{{'User.EndDate' | translate}}</td>
-											<ul style=" margin-top: 50px;" id="fecha">
-											
-
-										
-											
-                                               
-                                              
-                                                    
-
-                                                    <td><select id="s2_ext_value" class="form-control" style="width: 130px; margin-top: 10px; margin-right: 25px;" >
-														
-														<option value="CW">{{'User.Year' | translate}}</option>
-														<option value="CW">2017</option>
-														<option value="CW">2018</option>
-														<option value="CW">2019</option>
-														<option value="CW">2020</option>
-														<option value="CW">2021</option>
-														<option value="CW">2022</option>
-														<option value="CW">2023</option>
-														<option value="CW">2024</option>
-														<option value="CW">2025</option>
-														<option value="CW">2026</option>
-														<option value="CW">2027</option>
-														<option value="CW">2028</option>
-														<option value="CW">2029</option>
-														<option value="CW">2030</option>
-														<option value="CW">2031</option>
-														<option value="CW">2032</option>
-														<option value="CW">2033</option>
-														<option value="CW">2034</option>
-														<option value="CW">2035</option>
-														<option value="CW">2036</option>
-														<option value="CW">2037</option>
-														<option value="CW">2038</option>
-														<option value="CW">2039</option>
-														<option value="CW">2040</option>
-														<option value="CW">2041</option>
-														<option value="CW">2042</option>
-														<option value="CW">2043</option>
-														<option value="CW">2044</option>
-														<option value="CW">2045</option>
-														<option value="CW">2046</option>
-														<option value="CW">2047</option>
-														<option value="CW">2048</option>
-														<option value="CW">2049</option>
-														<option value="CW">2050</option>
-
-
-												
-
-
-
-													</select></td>
-
-
-													<td><select id="s2_ext_value" class="form-control" style=" width: 130px; margin-right: 25px;">
-														
-														
-
-
-												
-                                                          
-                                                        <option value="CW">{{'User.Month' | translate}}</option>
-														<option value="CW">{{'User.January' | translate}}</option>
-														<option value="CW">{{'User.February' | translate}}</option>
-														<option value="CW">{{'User.March' | translate}}</option>
-														<option value="CW">{{'User.April' | translate}}</option>
-														<option value="CW">{{'User.May' | translate}}</option>
-														<option value="CW">{{'User.June' | translate}}</option>
-														<option value="CW">{{'User.July' | translate}}</option>
-														<option value="CW">{{'User.August' | translate}}</option>
-														<option value="CW">{{'User.September' | translate}}</option>
-														<option value="CW">{{'User.October' | translate}}</option>
-														<option value="CW">{{'User.November' | translate}}</option>
-														<option value="CW">{{'User.December' | translate}}</option>
-
-
-													</select></td>
-
-													<td><select id="s2_ext_value" class="form-control" style=" width: 130px;">
-														
-														<option value="CW">{{'User.Day' | translate}}</option>
-														<option value="CW">1</option>
-														<option value="CW">2</option>
-														<option value="CW">3</option>
-														<option value="CW">4</option>
-														<option value="CW">5</option>
-														<option value="CW">6</option>
-														<option value="CW">7</option>
-														<option value="CW">8</option>
-														<option value="CW">9</option>
-														<option value="CW">10</option>
-														<option value="CW">11</option>
-														<option value="CW">12</option>
-														<option value="CW">13</option>
-														<option value="CW">14</option>
-														<option value="CW">15</option>
-														<option value="CW">16</option>
-														<option value="CW">17</option>
-														<option value="CW">18</option>
-														<option value="CW">19</option>
-														<option value="CW">20</option>
-														<option value="CW">21</option>
-														<option value="CW">22</option>
-														<option value="CW">23</option>
-														<option value="CW">24</option>
-														<option value="CW">25</option>
-														<option value="CW">26</option>
-														<option value="CW">27</option>
-														<option value="CW">28</option>
-														<option value="CW">29</option>
-														<option value="CW">30</option>
-														<option value="CW">31</option>
-														
-														
-
-
-													</select></td>
-
-
-
-
-                                             
-                                                
-                                            
-										
-
-                                         </ul>
+											<td><input type="date" #date_end_partner="ngModel" name="date_end_partner" [(ngModel)]="user_partner.date_end_partner" class="form-control"></td>
 										</tr>
+
+
+                                       <tr>
+											<td>S/L</td>
+											<td><input type="submit" value="Agregar Usuario Preferente" ></td>
+										</tr>
+
 										
 										<!--<tr>
 											<td>Foto de cedula</td>
@@ -667,39 +453,6 @@ display: inline;
 					<BR><BR><BR>
 
 					<!-- main content -->
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h4 class="panel-title">{{'User.BankDetails' | translate}}</h4>
-									</div>
-
-									<table id="dt_basic" class="table table-striped">
-										
-										<tr>
-											<td>{{'User.NameBank' | translate}}</td>
-											<td><input type="text" id="b1" class="form-control"></td>
-										</tr>
-										<tr>
-											<td>{{'User.AccountNumber' | translate}}</td>
-											<td><input type="text" id="b2" class="form-control"></td>
-										</tr>
-
-										<tr>
-											<td>{{'User.SinpeAccount' | translate}}</td>
-											<td><input type="text" id="b3" class="form-control"></td>
-										</tr>
-										<tr>
-											<td></td>
-											<td><input type="button"  value="{{'User.Save' | translate}}"  onclick="save()" style="width:80%;" class="boton-save" id="btnEnviar" /></td>
-										</tr>
-										<tr><td colspan="2"> <label id="myDiv"></label></td></tr>
-								    </table>
-
-									</div>
-                              </div>
-
-                              </div>
 						
 					  </form>
 				

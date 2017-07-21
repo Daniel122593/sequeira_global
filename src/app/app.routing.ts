@@ -21,7 +21,7 @@ import { SignalEditComponent } from './components/signal-edit.component';
 import { SignalCloseComponent } from './components/signal-close.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { CreateBankPartner } from './components/createBank-partner.component';
 
 
 const  appRoutes: Routes = [
@@ -40,6 +40,7 @@ const  appRoutes: Routes = [
     { path: 'signal-detail/:id', component: SignalDetailComponent},
     { path: 'signal-edit/:id', component: SignalEditComponent},
     { path: 'signal-close/:id', component: SignalCloseComponent},
+    { path: 'createBankPartner', component: CreateBankPartner},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
 

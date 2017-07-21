@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 import { UploadService } from './uploads/shared/upload.service';
 import { UploadRService } from './uploads/shared/uploadR.service';
 
-
+import { ServicesInfo } from './services/services_info.services';
 import { routing, appRoutingProviders} from './app.routing';
 
 import { TranslateModule, TranslateLoader, TranslateStaticLoader, MissingTranslationHandler } from 'ng2-translate';
@@ -36,7 +36,7 @@ import { SignalCloseComponent } from './components/signal-close.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { MyMissingTranslationHandler } from './missingtemplate.component';
-
+import { CreateBankPartner } from './components/createBank-partner.component';
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
@@ -68,6 +68,7 @@ export function createTranslateLoader(http: Http) {
     { path: 'signal-detail/:id', component:SignalDetailComponent},
     { path: 'signal-edit/:id', component:SignalEditComponent},
     { path: 'signal-close/:id', component:SignalCloseComponent},
+    { path: 'createBankPartner', component:CreateBankPartner},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
     ]),
@@ -93,6 +94,7 @@ export function createTranslateLoader(http: Http) {
     SignalDetailComponent,
     SignalEditComponent,
     SignalCloseComponent,
+    CreateBankPartner,
     HomeComponent,
     AboutComponent,
     ContactComponent
@@ -102,6 +104,7 @@ export function createTranslateLoader(http: Http) {
     AuthService,
     UploadService,
     UploadRService,
+    ServicesInfo,
     { provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler}
   ],
   bootstrap: [ AppComponent ]

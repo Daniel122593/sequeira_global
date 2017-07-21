@@ -28,7 +28,6 @@ export class AuthService {
   .createUserWithEmailAndPassword(email, password)
   .then( value => {
 
-     
        
       console.log('success!', value);
   })
@@ -41,7 +40,6 @@ export class AuthService {
 
 
 login(email:string, password:string){
-  
 
   var vefiricar:string ="0";
 

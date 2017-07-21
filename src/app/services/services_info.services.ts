@@ -3,6 +3,8 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Signal} from '../models/signal';
+import {User_partner} from '../models/user_partner';
+import {BankPartner} from '../models/bank_partner';
 import { GLOBAL } from './global';
 
 
@@ -21,6 +23,15 @@ public _http: Http
  this.url = GLOBAL.url;
 
 	}
+
+
+ //metodo para obtener a todos los usuarios administradores
+  getUserAdministrative(){
+
+    return this._http.get(this.url+'user_administrative').map(res =>res.json());
+
+   }//fin del metodo getSignal
+
 
 
 //metodo para agregar las señales
@@ -42,6 +53,9 @@ getSignal(){
 return this._http.get(this.url+'signal').map(res =>res.json());
 
 }//fin del metodo getSignal
+
+
+
 
 
 //metodo para mostrar todos los datos de la señal del dia
@@ -137,6 +151,41 @@ makeFileRequest(url: string, params: Array<string>, files: Array<File>){
 }
 
 
+
+
+//metodo para agregar las señales
+addUserPartner(user_partner:User_partner){
+ let json = JSON.stringify(user_partner);
+ let params = 'json='+json;
+ let headers = new Headers ({'Content-Type':'application/x-www-form-urlencoded'});
+ 
+ return this._http.post(this.url+'user_partner', params, {headers: headers})
+                   .map(res => res.json()); 
+
+
+}//fin del metodo addSignal
+
+
+//metodo para el id y nombre de los socios preferentes
+getInfoPartner(){
+
+ return this._http.get(this.url+'user_partner_simple').map(res =>res.json());
+
+}//fin del metodo getSignal
+   
+
+//metodo para agregar las señales
+addBankPartner(bank_partner:BankPartner){
+ let json = JSON.stringify(bank_partner);
+ let params = 'json='+json;
+ let headers = new Headers ({'Content-Type':'application/x-www-form-urlencoded'});
+ 
+ return this._http.post(this.url+'bank_partner', params, {headers: headers})
+                   .map(res => res.json()); 
+
+
+}//fin del metodo addSignal
+ 
 /*
 getProductos(){
  //return "TEXTO DESDE EL SERVICIO";

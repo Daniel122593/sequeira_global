@@ -30,19 +30,28 @@
 									<table id="dt_basic" class="table table-striped">
 										<thead>
 											<tr>
-												<th>ID</th>
+												<th>Cédula</th>
 												<th>{{'User.Name' | translate}}</th>
 												<th>{{'User.Email' | translate}}</th>
 												<th>{{'User.Telephone' | translate}}</th>
 												<th>{{'User.Country' | translate}}</th>
+												<th>Dirección</th>
 												<th>{{'Signal.Date' | translate}}</th>
 												<th>{{'User.Hierarchy' | translate}}</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr><td>1</td><td>Adolfo Sequeira</td><td>asequeira@sequeiraglobal.com</td><td>+506 72708004</td><td>Estados Unidos</td><td>11/06/2017</td><td>CEO</td></tr>
-											<tr><td>2</td><td>Susan Hontintong</td><td>shontintong@sequeiraglobal.com</td><td>+506 </td><td>Costa Rica</td><td>11/06/207</td><td>COO</td></tr>
-								
+											<tr *ngFor=" let user of user_array">
+											<td>{{user.identityCard}}</td>
+											<td>{{user.name_administrative}}</td>
+											<td>{{user.email_administrative}}</td>
+											<td>{{user.telephone_administrative}}</td>
+											<td>{{user.country_administrative}}</td>
+											<td>{{user.address_administrative}}</td>
+											<td>{{user.date_administrative}}</td>
+											<td>{{user.hierarchy_administrative}}</td>
+											
+											</tr>
 											
 										</tbody>
 									</table>

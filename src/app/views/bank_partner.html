@@ -1,0 +1,48 @@
+					
+<br><br><br><br>
+
+					<div class="row">
+
+					  <form #formBankPartner="ngForm" class="ngForm" (ngSubmit)="onSubmitBankPartner()" >
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{'User.BankDetails' | translate}}</h4>
+									</div>
+
+									<table id="dt_basic" class="table table-striped">
+										<tr>
+										 <td>Socio Preferente</td>
+                                             <td>
+												<select    #id_partner="ngModel" name="id_partner" [(ngModel)]="bank_partner.id_partner"  class="form-control">
+													<option *ngFor=" let info_partner of user_partner" value="{{info_partner.id}}">{{info_partner.name_partner}}</option>
+													
+												</select>
+											</td>
+											</tr>
+										<tr>
+											<td>{{'User.NameBank' | translate}}</td>
+											<td><input type="text" #name_bank="ngModel" name="name_bank" class="form-control" [(ngModel)]="bank_partner.name_bank" ></td>
+										</tr>
+										<tr>
+											<td>{{'User.AccountNumber' | translate}}</td>
+											<td><input type="text" #number_count_bank="ngModel" name="number_count_bank" class="form-control" [(ngModel)]="bank_partner.number_count_bank" ></td>
+										</tr>
+
+										<tr>
+											<td>{{'User.SinpeAccount' | translate}}</td>
+											<td><input type="text" #count_sinpe_bank="ngModel" name="count_sinpe_bank" class="form-control" [(ngModel)]="bank_partner.count_sinpe_bank" ></td>
+										</tr>
+                                         
+                                         
+										<tr>
+											<td></td>
+											<td><input type="submit"  value="Agregar cuenta" style="width:80%;" class="boton-save"  /></td>
+										</tr>
+										<tr><td colspan="2"> <label id="myDiv"></label></td></tr>
+								    </table>
+
+									</div>
+                              </div>
+                       </form>
+                     </div>

@@ -14,7 +14,8 @@
 
 <section class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
-					
+					 
+					 <form #formUserAdministrative ="ngForm">
 						<!-- main content -->
 						<div class="row">
 							<div class="col-sm-12">
@@ -24,66 +25,55 @@
 									</div>
 									<table id="dt_basic" class="table table-striped">
 										
-										<tr>
-											<td>{{'User.Name' | translate}}</td>
-											<td><input type="text" id="mask_date" class="form-control"></td>
-										</tr>
+
 										<tr>
 											<td>{{'User.IdentityCard' | translate}}</td>
-											<td><input type="text" id="mask_date" class="form-control"></td>
+											<td><input type="text" #identityCard="ngModel"  name="identityCard" [(ngModel)]="user_administrative.identityCard" class="form-control"></td>
+										</tr>
+
+										<tr>
+											<td>{{'User.Name' | translate}}</td>
+											<td><input type="text" #name="ngModel"  name="name" [(ngModel)]="user_administrative.name" class="form-control"></td>
+										</tr>
+										
+										<tr>
+											<td>Jerarquía</td>
+											<td><input type="text" #hierarchy="ngModel"  name="hierarchy" [(ngModel)]="user_administrative.hierarchy" class="form-control"></td>
 										</tr>
 										
 										<tr>
 											<td>{{'User.Email' | translate}}</td>
-											<td><input type="text" id="mask_date" class="form-control"></td>
-										</tr>
-										<tr>
-											<td>{{'User.Telephone' | translate}}</td>
-											<td><input type="text" id="mask_date" class="form-control"></td>
-										</tr>
-										<tr>
-											<td>{{'User.Country' | translate}}</td>
-											<td><input type="text" id="mask_date" class="form-control"></td>
-										</tr>
-										<tr>
-											<td>{{'User.Address' | translate}}</td>
-											<td><input type="text" id="mask_date" class="form-control"></td>
+											<td><input type="text" #email="ngModel"  name="email" [(ngModel)]="user_administrative.email" class="form-control"></td>
 										</tr>
 										
 										<tr>
-											<td>{{'User.ProfilePicture' | translate}}</td>
-											<td>
-												<div class="row">
-												<div class="col-sm-6">
-													<div class="fileupload fileupload-new" data-provides="fileupload">
-														<div class="input-group">
-															<div class="form-control">
-																<i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span>
-															</div>
-															<div class="input-group-btn">
-																<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
-																<span class="btn btn-default btn-file">
-																	<span class="fileupload-new">Select file</span>
-																	<span class="fileupload-exists">Change</span>
-																	<input type="file" />
-																</span>
-															</div>
-														</div>
-													</div>  
-												</div>
+											<td>{{'User.Telephone' | translate}}</td>
+											<td><input type="text" #telephone="ngModel"  name="telephone" [(ngModel)]="user_administrative.telephone" class="form-control"></td>
 
-												</div>
-											
-									        </tr>
+										</tr>
+										<tr>
+											<td>{{'User.Country' | translate}}</td>
+											<td><input type="text" #country="ngModel"  name="country" [(ngModel)]="user_administrative.country" class="form-control"></td>
+										</tr>
+										<tr>
+											<td>{{'User.Address' | translate}}</td>
+											<td><input type="text" #address="ngModel"  name="address" [(ngModel)]="user_administrative.address" class="form-control"></td>
+										</tr>
+										
+										<tr>
+											<td>Fecha</td>
+											<td><input type="text" #date_user_administrative="ngModel"  name="date_user_administrative" [(ngModel)]="user_administrative.date_user_administrative" class="form-control"></td>
+                                        </tr>
 
 										<tr>
 											<td></td>
-											<td><input type="button" value="{{'User.CreateUser' | translate}}" ></td>
+											<td><input type="submit" value="Volver" ></td>
 										</tr>
 									</table>
 								</div>
 							</div>
-						</div>				
+						</div>	
+						</form>		
 					</div>
 			
 			</section>

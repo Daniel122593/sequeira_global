@@ -29,7 +29,7 @@ import {GLOBAL} from '../services/global';
         ){
  
       this.titulo="Editar Sigal";
-            this.signal = new Signal(0,"","","","","","","","","","","","","","","","","","","","","","");
+            this.signal = new Signal(0,"","","","","","","","","","","","","","","","","","","","","","","");
       this.is_edit=true;
 
 

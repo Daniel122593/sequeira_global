@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { ServicesInfo } from '../services/services_info.services';
 import { Signal } from '../models/signal';
+import {AuthService} from '../auth.service';
 
 @Component ({
 
@@ -20,7 +21,7 @@ export class SignalComponent{
    
    private _services:ServicesInfo, private _route: ActivatedRoute,
 
-        private _router: Router
+        private _router: Router,public authService:AuthService
 
  	){
 
