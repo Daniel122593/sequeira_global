@@ -12,7 +12,7 @@
 
 									<table id="dt_basic" class="table table-striped">
 										<tr>
-										 <td>Socio Preferente</td>
+										 <td>{{'User.PreferredPartner' | translate}}</td>
                                              <td>
 												<select    #id_partner="ngModel" name="id_partner" [(ngModel)]="bank_partner.id_partner"  class="form-control">
 													<option *ngFor=" let info_partner of user_partner" value="{{info_partner.id}}">{{info_partner.name_partner}}</option>
@@ -37,7 +37,7 @@
                                          
 										<tr>
 											<td></td>
-											<td><input type="submit"  value="Agregar cuenta" style="width:80%;" class="boton-save"  /></td>
+											<td><input type="submit"  value="{{'User.AddAccount' | translate}}" style="width:80%;" class="boton-save"  /></td>
 										</tr>
 										<tr><td colspan="2"> <label id="myDiv"></label></td></tr>
 								    </table>

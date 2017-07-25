@@ -56,8 +56,31 @@
        "Trend":"Trend",
        "InitialGraph":"Initial Graph",
        "Buy":"Buy",
-       "Sell":"Sell"
+       "Sell":"Sell",
 
+
+
+       "SeeSignal":"See signal",
+        "See":"See",
+        "UpdateAndDelete":"Update / Delete Signal",
+        "UpdaDelete":"Update / Delete",
+        "CloseSignal":"Close signal",
+        "Close":"Close",
+
+
+        "AddressTrend":"Trend direction",
+        "Analyst":"Analyst",
+        
+        "UpTrend":"Uptrend",
+        "DownTrend":"DownTrend",
+        "Closed":"Closed",
+
+
+        "ClosePrice":"Closing price",
+        "TrendInitial":"Initial trend",
+        "TrendFinal":"Final trend",
+        "Update":"Update",
+        "ChooseFile":"Choose the final graph:"
     },
 
     "User":{
@@ -74,6 +97,7 @@
     "Telephone":"Telephone",
     "Country":"Country",
     "Hierarchy":"Hierarchy",
+     "Password":"Password",
 
     "PartnerBack":"Back to Partner",
     "IdentityCard":"Identity Card",
@@ -117,7 +141,10 @@
     "NameBank":"Name of the bank",
     "AccountNumber":"Account number",
     "SinpeAccount":"Sinpe Account",
-    "Save":"Save"
+    "Save":"Save",
+    "CreateCountPartner":"Create Preferred Partner Account",
+    "PreferredPartner":"Preferred Partner",
+    "AddAccount":"Add Account"
 
 
     }

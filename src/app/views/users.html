@@ -10,7 +10,8 @@
 							
 						<li><a [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
 						<li><a [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
-						<li><a [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>						
+						<li><a [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>
+						<li *ngIf="admin==true"><a>lalalaala</a></li>					
 					</ul>
 				</div>
 			</section>

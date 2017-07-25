@@ -192,7 +192,7 @@ import * as _ from "lodash";
       		 let id= params['id'];
               
             this.signal.date=this.signal.year+'-'+this.signal.month+'-'+this.signal.day;
-            this.signal.date_final=this.signal.year_final+'-'+this.signal.month_final+'-'+this.signal.day_final;
+            //this.signal.date_final=this.signal.year_final+'-'+this.signal.month_final+'-'+this.signal.day_final;
  
 					  console.log(this.signal);
             this._services.editSignal(id, this.signal).subscribe(

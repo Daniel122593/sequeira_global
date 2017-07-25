@@ -32,6 +32,9 @@ export class AppComponent {
           });
         let browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/es|en/) ? browserLang : 'es');
+
+      
+
     }//fin del constructor
 
     changeLanguage(lang){

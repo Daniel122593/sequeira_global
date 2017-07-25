@@ -56,6 +56,7 @@ login(email:string, password:string){
   .then( value => {
        
        console.log('entro acochis');
+       console.log(value);
 
    this.db.list('/users').subscribe(snapshot => {
 

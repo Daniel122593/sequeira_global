@@ -61,11 +61,11 @@
 										</tr>
 										
 										<tr>
-											<td>Fecha</td>
-											<td><input type="text" #date_analyst="ngModel"  name="date_analyst" [(ngModel)]="user_analyst.date_analyst" class="form-control"></td>
+											<td>{{'Signal.Date' | translate}}</td>
+											<td><input type="date" #date_analyst="ngModel"  name="date_analyst" [(ngModel)]="user_analyst.date_analyst" class="form-control"></td>
                                         </tr>
                                         <tr>
-											<td>Foto de perfil</td>
+											<td>{{'User.ProfilePicture' | translate}}</td>
 											<td>
 												<div class="row">
 												<div class="col-sm-6">
@@ -77,7 +77,7 @@
 
 										<tr>
 											<td></td>
-											<td><input type="submit" value="Volver" ></td>
+											<td><input type="submit" value="{{'User.Save' | translate}}" ></td>
 										</tr>
 									</table>
 								</div>

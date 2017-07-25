@@ -30,8 +30,8 @@
 									<table id="dt_basic" class="table table-striped">
 										<thead>
 											<tr>
-												<th>Ver señal</th>
-												<th>Editar / Eliminar señal</th>
+												<th>{{'Signal.SeeSignal' | translate}}</th>
+												<th>{{'Signal.UpdateAndDelete' | translate}}</th>
 												<th>{{'Signal.Instrument' | translate}}</th>
 												<th>{{'Signal.OpenPrice' | translate}}</th>
 												<th>T/P</th>
@@ -39,14 +39,14 @@
 												<th>{{'Signal.Date' | translate}}</th>
 												<th>{{'Signal.Condition' | translate}}</th>
 												<th>{{'Signal.Analyst' | translate}}</th>
-												<th>Cerrar Señal</th>
+												<th>{{'Signal.CloseSignal' | translate}}</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr *ngFor=" let signal of signal_array">
 
-										    <td [routerLink]="['/signal-detail',signal.id]"><a>Ver</a></td>
-										    <td [routerLink]="['/signal-edit',signal.id]"><a>Editar / Eliminar</a></td>
+										    <td [routerLink]="['/signal-detail',signal.id]"><a>{{'Signal.See' | translate}}</a></td>
+										    <td [routerLink]="['/signal-edit',signal.id]"><a>{{'Signal.UpdaDelete' | translate}}</a></td>
 											<td>{{signal.instrument}}</td>
 											<td>{{signal.open_price}}</td>
 											<td>{{signal.tp1}}</td>
@@ -54,7 +54,8 @@
 											<td>{{signal.sl}}</td>
 											<td>{{signal.date}}</td>
 											<td>{{signal.trend}}</td>
-											<td [routerLink]="['/signal-close',signal.id]"><a>Cerrar</a></td>
+											<td  *ngIf="signal.state_signal==1"  [routerLink]="['/signal-close',signal.id]"><a>{{'Signal.Close' | translate}}</a></td>
+											<td  *ngIf="signal.state_signal==2">{{'Signal.Closed' | translate}}</td>
 
 											</tr>
 

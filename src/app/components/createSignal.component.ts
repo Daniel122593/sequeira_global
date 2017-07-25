@@ -158,7 +158,8 @@ export class CreateSignalComponent{
     
     
 
-    this.signal.date=this.signal.year+'-'+this.signal.month+'-'+this.signal.day;
+    
+    //this.signal.date=this.signal.year+'-'+this.signal.month+'-'+this.signal.day;
     this.signal.condition_signal="Abierta";
      
    

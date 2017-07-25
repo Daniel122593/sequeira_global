@@ -58,7 +58,33 @@
        "Trend":"Tendencia",
        "InitialGraph":"Gráfico inicial",
        "Buy":"Comprar",
-       "Sell":"Vender"
+       "Sell":"Vender",
+
+
+
+
+        "SeeSignal":"Ver señal",
+        "See":"Ver",
+        "UpdateAndDelete":"Editar / Eliminar Señal",
+        "UpdaDelete":"Editar / Eliminar",
+        "CloseSignal":"Cerrar Señal",
+        "Close":"Cerrar",
+
+
+
+        "AddressTrend":"Dirección de tendencia",
+        "Analyst":"Analista",
+
+        "UpTrend":"Alcista",
+        "DownTrend":"Bajista",
+        "Closed":"Cerrada",
+
+        "ClosePrice":"Precio de cierre",
+        "TrendInitial":"Tendencia inicial",
+        "TrendFinal":"Tendencia Final",
+        "Update":"Modificar",
+        "ChooseFile":"Seleccione el gráfico final:"
+
 
     },
 
@@ -77,6 +103,7 @@
     "Telephone":"Teléfono",
     "Country":"País",
     "Hierarchy":"Jerarquía",
+    "Password":"Contraseña",
      
     "PartnerBack":"Volver a socios",
     "IdentityCard":"Cédula",
@@ -86,7 +113,7 @@
     "PreferredPartner":"Socios Preferentes",
     "CreatePreferredPartner":"Crear socio preferente",
 
-
+    
 
     "DataPartner":"Datos del socio",
     "Gender":"Género",
@@ -120,7 +147,15 @@
     "NameBank":"Nombre del Banco",
     "AccountNumber":"Número de cuenta",
     "SinpeAccount":"Cuenta Sinpe",
-    "Save":"Guardar"
+    "Save":"Guardar",
+    "CreateCountPartner":"Crear cuenta socio preferente",
+    "PreferredPartner":"Socio preferente",
+    "AddAccount":"Agregar cuenta"
+    
+
+   
+
+
 
     }
 
