@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Signal} from '../models/signal';
 import {User_partner} from '../models/user_partner';
+import {User_administrative} from '../models/user_administrative';
 import {BankPartner} from '../models/bank_partner';
 import { GLOBAL } from './global';
 
@@ -53,8 +54,6 @@ getSignal(){
 return this._http.get(this.url+'signal').map(res =>res.json());
 
 }//fin del metodo getSignal
-
-
 
 
 
@@ -184,6 +183,41 @@ addBankPartner(bank_partner:BankPartner){
 
 }//fin del metodo addSignal
  
+
+
+addUserAdministrative(user_administrative:User_administrative){
+ let json = JSON.stringify(user_administrative);
+ let params = 'json='+json;
+ let headers = new Headers ({'Content-Type':'application/x-www-form-urlencoded'});
+ 
+ return this._http.post(this.url+'user_administrative', params, {headers: headers})
+                   .map(res => res.json()); 
+
+
+}//fin del metodo addSignal
+
+//muestra el detalle de un usuario administrativo en especifico
+getUserAdministrativeDetail(id){
+  
+  return this._http.get(this.url+'user_administrative/'+id).map(res =>res.json());
+
+}//fin del metodo getSignal
+
+
+//metodo para modificar una señal
+updateUserAdministrative(id, user_administrative:User_administrative){
+ 
+ let json= JSON.stringify(user_administrative); 
+ let params = "json="+json;
+ let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+
+ return this._http.post(this.url+'userAdministrative-update/'+id, params, {headers: headers})
+                                   .map(res =>res.json());
+
+}//fin del metodo
+
+
+
 /*
 getProductos(){
  //return "TEXTO DESDE EL SERVICIO";

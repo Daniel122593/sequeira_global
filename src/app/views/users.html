@@ -7,11 +7,12 @@
 				<div class="container">
 					<ul>
 						
-							
+					
+						<li *ngIf="admin==true" ><a [routerLink]="['/createUserAdministrative']">Crear Usuario Administrador</a></li> 	
 						<li><a [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
 						<li><a [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
 						<li><a [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>
-						<li *ngIf="admin==true"><a>lalalaala</a></li>					
+										
 					</ul>
 				</div>
 			</section>
@@ -31,6 +32,8 @@
 									<table id="dt_basic" class="table table-striped">
 										<thead>
 											<tr>
+											    <th>Ver Usuario</th>
+											    <th>Editar Usuario</th>
 												<th>Cédula</th>
 												<th>{{'User.Name' | translate}}</th>
 												<th>{{'User.Email' | translate}}</th>
@@ -43,6 +46,10 @@
 										</thead>
 										<tbody>
 											<tr *ngFor=" let user of user_array">
+											<td *ngIf="admin==true"><a  [routerLink]="['/userAdministrative-detail',user.id]" >Ver</a></td>
+											<td *ngIf="admin!=true">Inhabilitada</td>
+											<td *ngIf="admin==true" ><a [routerLink]="['/userAdministrative-edit',user.id]" >Editar</a></td>
+											<td *ngIf="admin!=true">Inhabilitada</td>
 											<td>{{user.identityCard}}</td>
 											<td>{{user.name_administrative}}</td>
 											<td>{{user.email_administrative}}</td>

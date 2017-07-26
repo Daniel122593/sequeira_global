@@ -67,7 +67,7 @@ import {GLOBAL} from '../services/global';
 
        (error) => {
 
-          console.log(error);
+          console.log(<any>error);
        	}//fin del error
    
 
@@ -160,8 +160,6 @@ import {GLOBAL} from '../services/global';
  
 
  }//fin del metodo
-
-
 
 
 onDeleteSignal(id){

@@ -4,7 +4,7 @@ import * as firebase from 'firebase/app';
 import {Observable} from 'rxjs/Observable';
 import {AngularFireDatabase } from 'angularfire2/database';
 import {FirebaseListObservable } from 'angularfire2/database';
-
+import {Router, ActivatedRoute, Params} from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -13,7 +13,8 @@ export class AuthService {
  analyst:FirebaseListObservable<any>;
 
 
-  constructor(private firebaseAuth: AngularFireAuth,public db:AngularFireDatabase) {
+  constructor(private firebaseAuth: AngularFireAuth,public db:AngularFireDatabase, private _route: ActivatedRoute,
+  private _router:Router) {
      
        this.user = firebaseAuth.authState;
        
@@ -93,7 +94,7 @@ login(email:string, password:string){
   this.firebaseAuth
   .auth
   .signOut();
-
+   this._router.navigate(['/']);
  }//fin del logout
 
 

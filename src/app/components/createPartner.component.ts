@@ -104,15 +104,11 @@ this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload_
  }//fin del else
 
 
-
-
-
   }//fin del metodo onSubmitUserPartner
 
 
 
  saveUser_partner(){
-    
     alert("entra aqui");
     console.log(this.user_partner);
 
@@ -154,15 +150,6 @@ this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload_
      console.log(this.filesToUpload_voucher);
 
      }//fin del metodo fileChangeEventVoucher
-
-
-
-
-
-
-
-
-
 
 
 

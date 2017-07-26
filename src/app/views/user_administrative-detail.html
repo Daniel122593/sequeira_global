@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="assets/css/style.css">
+
+<br><br>
+
+
+<nav id="mobile_navigation"></nav>
+			
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+						<li><a [routerLink]="['/users']">{{'User.AdministrativeUser' | translate}}</a></li>	
+						<li><a [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
+						<li><a [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
+						<li><a [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>
+
+					</ul>
+				
+                  
+				</div>
+			</section>
+
+
+
+
+<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					<div id="">
+						<form #formUser_administrative="ngForm" (ngSubmit)="onSubmitUserAdministrative()">
+						<!-- main content -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{'User.DataPartner' | translate}}</h4>
+									</div>
+									
+									<table id="dt_basic" class="table table-striped">
+									<script src="js/archivo_ajax.js"></script>
+										
+										<tr>
+											<td>{{'User.Name' | translate}}</td>
+											<td><input type="text" #name_administrative="ngModel" name="name_partner" [(ngModel)]="user_administrative.name_administrative" class="form-control" disabled></td>
+										</tr>
+										<tr>
+											<td>{{'User.IdentityCard' | translate}}</td>
+											<td><input type="text" #identityCard="ngModel" name="identityCard" [(ngModel)]="user_administrative.identityCard" class="form-control" disabled></td>
+										</tr>
+
+										<tr>
+											<td>{{'User.Email' | translate}}</td>
+											<td><input type="email" #email_administrative="ngModel" name="email_administrative" [(ngModel)]="user_administrative.email_administrative" class="form-control" disabled></td>
+										</tr>
+										
+
+										<tr>
+											<td>Contraseña</td>
+											<td><input type="text" #password_administrative="ngModel" name="password_administrative" [(ngModel)]="user_administrative.password_administrative" class="form-control" disabled></td>
+										</tr>
+
+										<tr>
+											<td>Jerarquía</td>
+											<td><input type="text" #hierarchy_administrative="ngModel" name="hierarchy_administrative" [(ngModel)]="user_administrative.hierarchy_administrative" class="form-control" disabled></td>
+										</tr>
+
+										<tr>
+											<td>{{'User.Address' | translate}}</td>
+											<td><input type="text" #address_administrative="ngModel" name="address_administrative" [(ngModel)]="user_administrative.address_administrative" class="form-control" disabled></td>
+										</tr>
+
+										<tr>
+											<td>País</td>
+											<td><input type="tel" #country_administrative="ngModel" name="country_administrative" [(ngModel)]="user_administrative.country_administrative" class="form-control" disabled></td>
+										</tr>
+										
+										
+										<tr>
+											<td>{{'User.Telephone' | translate}}</td>
+											<td><input type="tel" #telephone_administrative="ngModel" name="telephone_administrative" [(ngModel)]="user_administrative.telephone_administrative" class="form-control" disabled></td>
+										</tr>
+
+										<tr>
+											<td>Fecha de creación</td>
+											<td><input type="date" #date_administrative="ngModel" name="date_administrative" [(ngModel)]="user_administrative.date_administrative" class="form-control" disabled></td>
+										</tr>
+
+                                   	  
+										
+									</table>
+
+
+
+									
+								</div>
+							</div>
+						</div><br><br>
+					        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Foto de perfil
+					        <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{user_administrative.profile_picture_administrative}} " style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;" />
+                                   
+
+					<BR><BR><BR>
+
+					<!-- main content -->
+						
+					  </form>
+				
+					</div>
+				
+				</div>
+			</section>

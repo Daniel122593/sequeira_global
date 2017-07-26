@@ -21,6 +21,9 @@ import { SignalEditComponent } from './components/signal-edit.component';
 import { SignalCloseComponent } from './components/signal-close.component';
 import { CreateBankPartner } from './components/createBank-partner.component';
 import { CreateUserAnalystEmailPassword } from './components/createUserAnalystEmailPassword.component';
+import { CreateUserAdministrative } from './components/createUserAdministrative.component';
+import { UserAdministrativeDetail } from './components/userAdministrative-detail.component';
+import { UserAdministrativeEdit } from './components/userAdministrative-edit.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
@@ -42,6 +45,9 @@ const  appRoutes: Routes = [
     { path: 'signal-close/:id', component: SignalCloseComponent},
     { path: 'createBankPartner', component: CreateBankPartner},
     { path: 'createUserAnalystEmailPassword', component: CreateUserAnalystEmailPassword},
+    { path: 'createUserAdministrative', component: CreateUserAdministrative},
+    {path: 'userAdministrative-detail/:id', component: UserAdministrativeDetail},
+    {path: 'userAdministrative-edit/:id', component: UserAdministrativeEdit},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
 
