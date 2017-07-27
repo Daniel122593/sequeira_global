@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Signal} from '../models/signal';
 import {User_partner} from '../models/user_partner';
 import {User_administrative} from '../models/user_administrative';
+import {UserAnalyst} from '../models/user_analyst';
 import {BankPartner} from '../models/bank_partner';
 import { GLOBAL } from './global';
 
@@ -204,7 +205,7 @@ getUserAdministrativeDetail(id){
 }//fin del metodo getSignal
 
 
-//metodo para modificar una señal
+//metodo para modificar un usuario administrativo
 updateUserAdministrative(id, user_administrative:User_administrative){
  
  let json= JSON.stringify(user_administrative); 
@@ -216,8 +217,49 @@ updateUserAdministrative(id, user_administrative:User_administrative){
 
 }//fin del metodo
 
+addUserAnalyst(user_analyst:UserAnalyst){
+ let json = JSON.stringify(user_analyst);
+ let params = 'json='+json;
+ let headers = new Headers ({'Content-Type':'application/x-www-form-urlencoded'});
+ 
+ return this._http.post(this.url+'user_analyst', params, {headers: headers})
+                   .map(res => res.json()); 
 
 
+}//fin del metodo addSignal
+
+
+
+
+
+ //metodo para obtener a todos los usuarios administradores
+  getUserAnalyst(){
+
+    return this._http.get(this.url+'user_analyst').map(res =>res.json());
+
+   }//fin del metodo getUserAnalyst
+
+
+   //muestra el detalle de un usuario administrativo en especifico
+getUserAnalystDetail(id){
+  
+  return this._http.get(this.url+'user_analyst/'+id).map(res =>res.json());
+
+}//fin del metodo getSignal
+
+
+//metodo para modificar un usuario administrativo
+updateUserAnalyst(id, user_analyst:UserAnalyst){
+ 
+ let json= JSON.stringify(user_analyst); 
+ let params = "json="+json;
+ let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+
+ return this._http.post(this.url+'userAnalyst-update/'+id, params, {headers: headers})
+                                   .map(res =>res.json());
+
+}//fin del metodo
+ 
 /*
 getProductos(){
  //return "TEXTO DESDE EL SERVICIO";

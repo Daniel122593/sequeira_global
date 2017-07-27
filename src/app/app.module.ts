@@ -23,7 +23,7 @@ import { SignalComponent } from './components/signals.component';
 import { CreateSignalComponent } from './components/createSignal.component';
 import { UsersComponent } from './components/users.component';
 import { HomeComponent } from './components/home.component';
-import { UserAnalyst } from './components/userAnalyst.component';
+import { UserAnalystPrincipal } from './components/userAnalyst.component';
 import { CreateUser } from './components/createUser.component';
 import { ClientUser } from './components/clientUser';
 import { PreferredUser } from './components/preferredUser.component';
@@ -37,6 +37,9 @@ import { CreateBankPartner } from './components/createBank-partner.component';
 import { CreateUserAnalystEmailPassword } from './components/createUserAnalystEmailPassword.component';
 import { CreateUserAdministrative } from './components/createUserAdministrative.component';
 import { UserAdministrativeDetail } from './components/userAdministrative-detail.component';
+import { CreateUserAnalyst } from './components/createUserAnalyst.component';
+import { UserAnalystDetail } from './components/userAnalyst-detail.component';
+import { UserAnalystEdit } from './components/userAnalyst-edit.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { MyMissingTranslationHandler } from './missingtemplate.component';
@@ -64,7 +67,7 @@ export function createTranslateLoader(http: Http) {
     { path: 'signal', component: SignalComponent},
     { path: 'createSignal', component: CreateSignalComponent},
     { path: 'users', component: UsersComponent},
-    { path: 'userAnalyst', component: UserAnalyst},
+    { path: 'userAnalyst', component: UserAnalystPrincipal},
     { path: 'createUser', component: CreateUser},
     { path: 'clientUser', component: ClientUser},
     { path: 'preferredUser', component: PreferredUser},
@@ -77,8 +80,11 @@ export function createTranslateLoader(http: Http) {
     { path: 'createBankPartner', component:CreateBankPartner},
     { path: 'createUserAnalystEmailPassword', component: CreateUserAnalystEmailPassword},
     { path: 'createUserAdministrative', component: CreateUserAdministrative},
-    {path: 'userAdministrative-detail/:id', component: UserAdministrativeDetail},
-    {path: 'userAdministrative-edit/:id', component: UserAdministrativeEdit},
+    { path: 'userAdministrative-detail/:id', component: UserAdministrativeDetail},
+    { path: 'userAdministrative-edit/:id', component: UserAdministrativeEdit},
+    { path: 'createUserAnalyst', component: CreateUserAnalyst},
+    { path: 'userAnalyst-detail/:id', component: UserAnalystDetail},
+    { path: 'userAnalyst-edit/:id', component: UserAnalystEdit},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
     ]),
@@ -94,7 +100,7 @@ export function createTranslateLoader(http: Http) {
     SignalComponent,
     CreateSignalComponent,
     UsersComponent,
-    UserAnalyst,
+    UserAnalystPrincipal,
     CreateUser,
     ClientUser,
     PreferredUser,
@@ -109,6 +115,9 @@ export function createTranslateLoader(http: Http) {
     CreateUserAdministrative,
     UserAdministrativeDetail,
     UserAdministrativeEdit,
+    CreateUserAnalyst,
+    UserAnalystDetail,
+    UserAnalystEdit,
     HomeComponent,
     AboutComponent,
     ContactComponent

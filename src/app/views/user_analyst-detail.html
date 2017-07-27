@@ -73,25 +73,17 @@
 											<td>{{'Signal.Date' | translate}}</td>
 											<td><input type="date" #date_analyst="ngModel"  name="date_analyst" [(ngModel)]="user_analyst.date_analyst" class="form-control"></td>
                                         </tr>
-                                        <tr>
-											<td>{{'User.ProfilePicture' | translate}}</td>
-											<td>
-												<div class="row">
-												<div class="col-sm-6">
-												 <input type="file" class="form-control" (change)="fileChangeEvent($event)"><br><br>
-												</div>
-												</div>
-											</td>
-										</tr>
-
-										<tr>
-											<td></td>
-											<td><input type="submit" value="{{'User.Save' | translate}}" ></td>
-										</tr>
+                                       
 									</table>
 								</div>
 							</div>
 						</div>	
+
+
+						<br><br>
+					        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Foto de perfil
+					        <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{user_analyst.profile_picture_analyst}} " style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;" />
 						</form>		
 					</div>
 			

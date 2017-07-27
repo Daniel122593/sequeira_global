@@ -9,7 +9,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 @Injectable()
 export class AuthService {
  user: Observable<firebase.User>;
- users:FirebaseListObservable<any>;
+ userWeb:FirebaseListObservable<any>;
  analyst:FirebaseListObservable<any>;
 
 
@@ -19,7 +19,7 @@ export class AuthService {
        this.user = firebaseAuth.authState;
        
        this.analyst = db.list('/analyst');
-       
+       this.userWeb = db.list('/userWeb');
        
   }//fin del constructor
    
@@ -56,15 +56,15 @@ login(email:string, password:string){
   .signInWithEmailAndPassword(email, password)
   .then( value => {
        
-       console.log('entro acochis');
+       this._router.navigate(['/home']);
        console.log(value);
 
-   this.db.list('/users').subscribe(snapshot => {
+   this.db.list('/userWeb').subscribe(snapshot => {
 
-   	  console.log('entro acochis tambien');
+   	
           for (let user of snapshot){
                
-              if(user.Email==email){
+              if(user.EmailAdministrative==email){
 
                   vefiricar="1";
               }//fin de if
@@ -74,11 +74,12 @@ login(email:string, password:string){
           
           console.log(vefiricar);
           if(vefiricar=="1"){
-             this.logout();
-
+            
           }else{
 
-          }
+             this.logout();
+
+          }//fin del else
 
       console.log('success!', value);
   })
@@ -94,7 +95,7 @@ login(email:string, password:string){
   this.firebaseAuth
   .auth
   .signOut();
-   this._router.navigate(['/']);
+   this._router.navigate(['/home']);
  }//fin del logout
 
 

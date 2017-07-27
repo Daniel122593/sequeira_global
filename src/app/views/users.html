@@ -7,17 +7,15 @@
 				<div class="container">
 					<ul>
 						
-					
-						<li *ngIf="admin==true" ><a [routerLink]="['/createUserAdministrative']">Crear Usuario Administrador</a></li> 	
-						<li><a [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
-						<li><a [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
-						<li><a [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>
+					    <li *ngIf="admin==true" ><a [routerLink]="['/createUserAdministrative']">Crear Usuario Administrador</a></li> 	
+						<li><a *ngIf="admin==true" [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
+						<li><a *ngIf="admin==true" [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
+						<li><a *ngIf="admin==true" [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>
 										
 					</ul>
 				</div>
 			</section>
-
-
+			
 			<section class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 				
@@ -27,9 +25,10 @@
 							<div class="col-sm-12">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<h4 class="panel-title">{{'User.AdministrativeUser' | translate}}</h4>
+										<h4 *ngIf="admin==true" class="panel-title">{{'User.AdministrativeUser' | translate}}</h4>
+										<h4 *ngIf="admin!=true" class="panel-title">Información restringida</h4>
 									</div>
-									<table id="dt_basic" class="table table-striped">
+									<table *ngIf="admin==true" id="dt_basic" class="table table-striped">
 										<thead>
 											<tr>
 											    <th>Ver Usuario</th>

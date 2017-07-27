@@ -24,7 +24,7 @@ public resultUpload;
 
 
 userWeb:FirebaseListObservable<any>;
-  
+administrative:FirebaseListObservable<any>; 
  
   constructor(private _services: ServicesInfo, private _route: ActivatedRoute,
 
@@ -34,7 +34,7 @@ userWeb:FirebaseListObservable<any>;
 this.user_administrative = new User_administrative(0,"","","","","","","","","","");
  
 this.userWeb = db.list('/userWeb');
-
+this.administrative = db.list('/administrative');
 
   }//fin del constructor
   
@@ -66,7 +66,7 @@ onSubmitUserAdministrative(){
 
      (error) => {
 
-     	console.log(error);
+     	console.log(<any>error);
 
      }//fin del error
 
@@ -74,7 +74,6 @@ onSubmitUserAdministrative(){
 
   }else{
     
-
 
   }//fin del else
 
@@ -90,9 +89,7 @@ saveUser_administrative(){
      if(response.code==200){
 
 
-
      	}else{
-
 
      	}//fin del else
 
@@ -112,6 +109,15 @@ saveUser_administrative(){
               
              
               });
+        
+
+       this.administrative.push({
+             
+              email_administrative: this.user_administrative.email_administrative,
+              password_administrative: this.user_administrative.password_administrative
+              
+             
+              });
 
 }//fin del metodo saveUser_administrative
 
@@ -122,7 +128,7 @@ saveUser_administrative(){
      console.log(this.filesToUpload);
 
     
-    }//fin del metodo fileChangeEventIdentity
+    }//fin del metodo fileChange
 
 
 

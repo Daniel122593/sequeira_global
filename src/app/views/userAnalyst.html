@@ -13,8 +13,8 @@
 						<li><a [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>					
 					</ul>
 					<ul>
-					 <li><a [routerLink]="['/createUserAnalystEmailPassword']">Crear cuenta usuario analyst</a></li>
-						<li><a [routerLink]="['/createUser']">{{'User.CreateUser' | translate}}</a></li>				
+					 
+						<li><a *ngIf="admin==true" [routerLink]="['/createUserAnalyst']">{{'User.CreateUser' | translate}}</a></li>				
 					</ul>
 				</div>
 			</section>
@@ -29,34 +29,45 @@
 							<div class="col-sm-12">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<h4 class="panel-title">{{'User.AnalystUser' | translate}}</h4>
+										<h4 *ngIf="admin==true" class="panel-title">{{'User.AdministrativeUser' | translate}}</h4>
+										<h4 *ngIf="admin!=true" class="panel-title">Información restringida</h4>
 									</div>
-									<table id="dt_basic" class="table table-striped">
+									<table *ngIf="admin==true" id="dt_basic" class="table table-striped">
 										<thead>
 											<tr>
-												<th>ID</th>
+											    <th>Ver Usuario</th>
+											    <th>Editar Usuario</th>
+												<th>Cédula</th>
 												<th>{{'User.Name' | translate}}</th>
 												<th>{{'User.Email' | translate}}</th>
 												<th>{{'User.Telephone' | translate}}</th>
 												<th>{{'User.Country' | translate}}</th>
+												<th>Dirección</th>
 												<th>{{'Signal.Date' | translate}}</th>
 												<th>{{'User.Hierarchy' | translate}}</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr><td>1</td><td><a href="admin_users_analitics_edit.html"> Gonzalo lopez</a></td><td>asequeira@sequeiraglobal.com</td><td>+506 72708004</td><td>Londres</td><td>11/06/2017</td><td>Analista</td></tr>
-											<tr><td>2</td><td><a href="admin_users_analitics_edit.html">Marcela Solis</a></td><td>shontintong@sequeiraglobal.com</td><td>+506 60565050 </td><td>Costa Rica</td><td>11/06/207</td><td>Analista</td></tr>
+											<tr *ngFor=" let user of user_array">
+											<td ><a  [routerLink]="['/userAnalyst-detail',user.id]" >Ver</a></td>
+										    <td ><a [routerLink]="['/userAnalyst-edit',user.id]" >Editar</a></td>
+											<td>{{user.identityCard_analyst}}</td>
+											<td>{{user.name_analyst}}</td>
+											<td>{{user.email_analyst}}</td>
+											<td>{{user.telephone_analyst}}</td>
+											<td>{{user.country_analyst}}</td>
+											<td>{{user.address_analyst}}</td>
+											<td>{{user.date_analyst}}</td>
+											<td>{{user.hierarchy_analyst}}</td>
 											
+											</tr>
 											
 										</tbody>
 									</table>
 								</div>
-						
-					     	</div>
-				 
-				      	</div>
-						
-					
+							</div>
+						</div>
+	
 					</div>
 				
 			</section>

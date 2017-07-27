@@ -6,7 +6,6 @@ import {ServicesInfo} from '../services/services_info.services';
 import {Signal} from '../models/signal';
 
 
-
 @Component({
   
     selector: 'signal-detail',

@@ -23,7 +23,7 @@ export class CreateUser {
   constructor(private _services: ServicesInfo, private activatedRoute: ActivatedRoute, private _router: Router, private db:AngularFireDatabase){
     
      
-   this.user_analyst = new UserAnalyst(0,"","","","","","","","","");
+   this.user_analyst = new UserAnalyst(0,"","","","","","","","","","");
 
     db.list('/analyst').subscribe(snapshot => {
           for (let user of snapshot){

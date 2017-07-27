@@ -27,7 +27,7 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
       
        //este metodo me muestra los datos del usuario actualmente conectado  
       this.auth.authState.subscribe(data =>{
-         
+           
            this.verificarAdmin(data.email);
 
         })
@@ -59,7 +59,7 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
     }//fin del error
 
 
-   	)
+   	)//fin del subscribe
   
 
  }//fin del metodo ngOnInit
@@ -70,24 +70,24 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
 
  verificarAdmin(email:string){
   
-   this.db.list('/analyst', {
+   this.db.list('/administrative', {
       query: {
 
-        indexOn: 'email_analyst',
-        orderByChild: 'email_analyst',
+        indexOn: 'email_administrative',
+        orderByChild: 'email_administrative',
         equalTo: email
       
       }
 
     }).subscribe(snapshot => {
  
-     var analyst_length = snapshot.length;
+     var administrative_length = snapshot.length;
 
-     if(analyst_length>=1){ 
+     if(administrative_length>=1){ 
 
          for(let user of snapshot){
           
-             if(user.email_analyst){
+             if(user.email_administrative){
                
                this.admin=true;
 
@@ -103,8 +103,6 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
       }//fin del if
 
        else{
-
-        
 
        }
 

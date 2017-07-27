@@ -1,22 +1,24 @@
 import {Component} from '@angular/core';
 import {Router, ActivatedRoute, Params } from '@angular/router';
 import {ServicesInfo} from '../services/services_info.services';
-import {User_administrative} from '../models/user_administrative';
+import {UserAnalyst} from '../models/user_analyst';
 import {GLOBAL} from '../services/global';
+
+
 
 @Component({
    
-    selector:'userAdministrative-edit',
-    templateUrl:'../views/userAdministrative-edit.html',
+    selector:'user_analyst_edit',
+    templateUrl:'../views/user_analyst-edit.html',
     providers:[ServicesInfo]
 
 	})
 
 
-export class UserAdministrativeEdit {
+export class UserAnalystEdit {
 
- 
-  public user_administrative: User_administrative;
+
+public user_analyst: UserAnalyst;
  	public filesToUpload;
  	public resultUpload;
  	public is_edit;
@@ -31,33 +33,31 @@ constructor(
         ){
  
      
-            this.user_administrative = new User_administrative(0,"","","","","","","","","","");
+            this.user_analyst = new UserAnalyst(0,"","","","","","","","","","");
 
             this.is_edit=true;
 
 
  	}//fin del constructor
+  
+  ngOnInit(){
 
- 
- ngOnInit(){
+  	this.getUserAnalyst();
 
-    this.getUserAdministrative();
+  }//fin del metodo ngOnInit
+  
+  onSubmitAnalyst(){
 
- }//fin del metodo ngOnInit
-
-
-onSubmitUserAdministrative(){
-
-if(this.filesToUpload && this.filesToUpload.length>=1){
-
-
- 	this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) =>{
+    if(this.filesToUpload && this.filesToUpload.length>=1){
+          
+		this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) =>{
 
 			 this.resultUpload=result;
-          	 this.user_administrative.profile_picture_administrative=this.resultUpload.filename;
+          	 this.user_analyst.profile_picture_analyst=this.resultUpload.filename;
 
-          	 this.updateUserAdmi();
- 		},
+          	 this.updateUserAna();
+ 			
+ 			},
 
  		error =>{
 
@@ -66,21 +66,25 @@ if(this.filesToUpload && this.filesToUpload.length>=1){
  		}//fin del error
  	);
 
-}else{
 
- this.updateUserAdmi();
-}//fin del else
+    }  else{
 
-}//fin del metodo
+ 	  this.updateUserAna();
 
-updateUserAdmi(){
+    }//fin del else
+
+  }//fin del metodo onSubmitAnalyst
+
+
+ 
+updateUserAna(){
 
  this._route.params.forEach((params:Params) => {
           
          //con esto capturo el id de la URL 
       		 let id= params['id'];
-               
-              this._services.updateUserAdministrative(id, this.user_administrative).subscribe(
+              
+              this._services.updateUserAnalyst(id, this.user_analyst).subscribe(
 				response => {
 					if(response.code == 200){
 						this._router.navigate(['/users']);
@@ -102,6 +106,11 @@ updateUserAdmi(){
 }//fin del metodo updateUserAdministrative
 
 
+
+
+
+
+
   //toma las imagenes y las guarda en un array
  fileChangeEvent(fileInput: any){
 
@@ -111,7 +120,10 @@ updateUserAdmi(){
 }//fin del metodo
 
 
- getUserAdministrative(){
+
+
+
+ getUserAnalyst(){
  
    this._route.params.forEach((params:Params) => {
           
@@ -119,13 +131,13 @@ updateUserAdmi(){
       		 let id= params['id'];
 
 
-      	 this._services.getUserAdministrativeDetail(id).subscribe(
+      	 this._services.getUserAnalystDetail(id).subscribe(
 
                response => {
                  
                   if(response.code==200){
 
-                  	   this.user_administrative = response.data;
+                  	   this.user_analyst = response.data;
 
                   	}else{
 
@@ -142,12 +154,7 @@ updateUserAdmi(){
       	 	);//fin del subscribe
 
  });
- 
 
- }//fin del metodo
+   }//fin del metodo getUserAnalyst
 
-}//fin del metodo UserAdministrativeEdit
-
-
-
-
+}//fin de la clase

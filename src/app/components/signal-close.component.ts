@@ -28,6 +28,8 @@ import * as _ from "lodash";
  	  public is_edit;
     public hour;
     history_signals:FirebaseListObservable<any>;
+    signals:FirebaseListObservable<any>;
+
     
   //estos son para la imagen en firebase
   selectedFiles: FileList;
@@ -47,8 +49,9 @@ import * as _ from "lodash";
       this.is_edit=true;
 
       this.history_signals = db.list('/history');
+      this.signals = db.list('/signals');
 
-
+     
  	}//fin del constructor
     
 
@@ -65,9 +68,9 @@ import * as _ from "lodash";
                 
 
                 this.hour=result.data;
-                alert(result.data);
+               
 
-                  alert("firebase");
+              
 
               var address_signal:string;
               var color_signal:string;
@@ -115,7 +118,9 @@ import * as _ from "lodash";
                 Final_Hour: this.hour
 
             });
-             
+              
+                
+               this.verificarSignal(this.signal.time_initial);
 
             
             }else{
@@ -254,7 +259,7 @@ import * as _ from "lodash";
 
                   	   this.signal = response.data;
 
-                  	}else{
+                  	}else{ 
 
                   		this._router.navigate(['/signal']);
                   	}
@@ -274,6 +279,41 @@ import * as _ from "lodash";
 
  }//fin del metodo
 
+
+ verificarSignal(hour_initial:string){
+  
+   this.db.list('/signals', {
+      query: {
+
+        indexOn: 'Initial_Hour',
+        orderByChild: 'Initial_Hour',
+        equalTo: hour_initial
+      
+      }
+
+    }).subscribe(snapshot => {
+ 
+     var signal_length = snapshot.length;
+
+     if(signal_length>=1){ 
+
+         for(let user of snapshot){
+
+             //elimina un objeto especifico del json
+            this.db.list("/signals/"+user.$key).remove();
+
+          }//fin del for
+       
+
+      }//fin del if
+
+       else{
+
+       }
+
+   }).closed;//fin del subscribe
+
+ }//fin del metodo verificarAdmin
 
 
 
