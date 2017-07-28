@@ -7,12 +7,8 @@
 			<section id="breadcrumbs">
 				<div class="container">
 					<ul>
-						<li><a href="#">{{'Desktop' | translate}}</a></li>
-						<li><a href="#"><b>{{'Signal.SignalToday' | translate}}</b></a></li>	
-						<li><a href="alerts_tranding_new.html">{{'Signal.CreateSignal' | translate}}</a></li>							
-						<li><a href="#">{{'Signal.SignalMonth' | translate}}</a></li>
-						<li><a href="#">{{'Signal.TotalSignal' | translate}}</a></li>	
-								
+						<li><a [routerLink]="['/signal']" >{{'Signal.BackSignal' | translate}}</a></li>
+									
 					</ul>
 				</div>
 			</section>
@@ -68,12 +64,12 @@
 										</tr>
 
 										 <tr>
-                                        <td>Condición</td> 
+                                        <td>{{'Signal.Condition' | translate}}</td> 
 										<td>
-												<select #condition_signal="ngModel"  name="condition_signal" [(ngModel)]="signal.condition_signal" class="form-control">
+												<select #condition_signal="ngModel"  name="condition_signal" [(ngModel)]="signal.condition_signal" class="form-control" disabled>
 												
-													<option value="Abierta">Abierta</option>
-													<option value="Cerrada">Cerrada</option>
+													<option value="Abierta">{{'Signal.OpenCondition' | translate}}</option>
+													<option value="Cerrada">{{'Signal.CloseCondition' | translate}}</option>
 													
 												</select>
 											</td>
@@ -81,7 +77,7 @@
 
 
 										<tr>
-											<td>Analista</td>
+											<td>{{'Signal.Analyst' | translate}}</td>
 											<td><input type="text" #analyst="ngModel" name="analyst" [(ngModel)]="signal.id_analyst" class="form-control"></td>
 										</tr>
 										
@@ -227,8 +223,8 @@
                                                <table>
 												<tr>
 										
-											<td><input type="submit" value="Modificar" style="margin-left: 490px;" ></td>
-											<td><input type="submit" (click)="onDeleteSignal(signal.id)" value="Eliminar" style="margin-left: 20px;" ></td>
+											<td><input type="submit" value="{{'Signal.Update' | translate}}" style="margin-left: 490px;" ></td>
+											<td><input type="submit" (click)="onDeleteSignal(signal.id)" value="{{'Signal.Delete' | translate}}" style="margin-left: 20px;" ></td>
 										</tr>
 									</table>
 										

@@ -31,6 +31,7 @@ import { CreatePartner } from './components/createPartner.component';
 import { SignalMonth } from './components/signalMonth.component';
 import { SignalAll } from './components/signalAll.component';
 import { SignalDetailComponent } from './components/signal-detail.component';
+import { SignalCloseDetailComponent } from './components/signalClose-detail.component';
 import { SignalEditComponent } from './components/signal-edit.component';
 import { SignalCloseComponent } from './components/signal-close.component';
 import { CreateBankPartner } from './components/createBank-partner.component';
@@ -75,6 +76,7 @@ export function createTranslateLoader(http: Http) {
     { path: 'signalMonth', component: SignalMonth},
     { path: 'signalAll', component:SignalAll},
     { path: 'signal-detail/:id', component:SignalDetailComponent},
+    { path: 'signalClose-detail/:id', component: SignalCloseDetailComponent},
     { path: 'signal-edit/:id', component:SignalEditComponent},
     { path: 'signal-close/:id', component:SignalCloseComponent},
     { path: 'createBankPartner', component:CreateBankPartner},
@@ -108,6 +110,7 @@ export function createTranslateLoader(http: Http) {
     SignalMonth,
     SignalAll,
     SignalDetailComponent,
+    SignalCloseDetailComponent,
     SignalEditComponent,
     SignalCloseComponent,
     CreateBankPartner,

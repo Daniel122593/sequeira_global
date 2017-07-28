@@ -248,17 +248,11 @@ margin: 0; padding:0 ;
             </div>
         </footer>
 
-
-
-
 			</body>
 
 			</html>
 
-
 </div>
-
-
 
 <html>
 
@@ -271,11 +265,10 @@ margin: 0; padding:0 ;
 
 <div *ngIf="!(authService.user | async)">
 
-<body style=" background-color: #F4DEF1; height: 930px;  margin: 0; padding:0;font-family:'Open Sans', sans-serif;">
+<body style=" background-color: #e31a8f; height: 930px;  margin: 0; padding:0;font-family:'Open Sans', sans-serif;">
 
 
 <div  class="login"  >
-
 
 <div class="login-triangle"></div>
   
@@ -288,7 +281,7 @@ margin: 0; padding:0 ;
     <p><input type="password" [(ngModel)]="password" placeholder="Password"></p>
     <br><br>
     <p><button value="Log in"  (click)="login()" [disabled]="!email || !password">Login</button></p>
-
+    
   </div>
 
  </div>

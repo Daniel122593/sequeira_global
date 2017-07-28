@@ -62,7 +62,7 @@ export class AppComponent {
   
   login(){
      this.authService.login(this.email, this.password);
-     this.email = this.password  ="";
+     this.password = "";
 
     }//fin del metodo login
 

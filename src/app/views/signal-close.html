@@ -7,11 +7,8 @@
 			<section id="breadcrumbs">
 				<div class="container">
 					<ul>
-						<li><a href="#">{{'Desktop' | translate}}</a></li>
-						<li><a href="#"><b>{{'Signal.SignalToday' | translate}}</b></a></li>	
-						<li><a href="alerts_tranding_new.html">{{'Signal.CreateSignal' | translate}}</a></li>							
-						<li><a href="#">{{'Signal.SignalMonth' | translate}}</a></li>
-						<li><a href="#">{{'Signal.TotalSignal' | translate}}</a></li>	
+						<li><a [routerLink]="['/signal']" >{{'Signal.BackSignal' | translate}}</a></li>
+							
 								
 					</ul>
 				</div>
@@ -67,22 +64,10 @@
 											<td><input type="text" #sl="ngModel" name="sl" [(ngModel)]="signal.sl" class="form-control" disabled></td>
 										</tr>
 
-										 <tr>
-                                        <td>Condición</td> 
-										<td>
-												<select #condition_signal="ngModel"  name="condition_signal" [(ngModel)]="signal.condition_signal" class="form-control">
-												
-													<option value="Abierta">Abierta</option>
-													<option value="Cerrada">Cerrada</option>
-													
-												</select>
-											</td>
-										</tr>
-
-
+								
 										<tr>
 											<td>{{'Signal.Analyst' | translate}}</td>
-											<td><input type="text" #analyst="ngModel" name="analyst" [(ngModel)]="signal.id_analyst" class="form-control" disabled></td>
+											<td><input type="text" #id_analyst="ngModel" name="analyst" [(ngModel)]="signal.id_analyst" class="form-control" disabled></td>
 										</tr>
 										
 
@@ -93,7 +78,15 @@
 
 										<tr>
 											<td>{{'Signal.TrendInitial' | translate}}</td>
-											<td><input type="text" #type_trend="ngModel" name="type_trend" [(ngModel)]="signal.type_trend" class="form-control" disabled></td>
+											<td>
+
+											<select #type_trend="ngModel"  name="type_trend" [(ngModel)]="signal.type_trend" class="form-control" disabled>
+												
+													<option value="Alcista">{{'Signal.UpTrend' | translate}}</option>
+													<option value="Bajista">{{'Signal.DownTrend' | translate}}</option>
+													
+												</select>
+											</td>
 										</tr>
 										
 
@@ -108,8 +101,8 @@
 										<td>
 												<select #type_trend_final="ngModel"  name="type_trend_final" [(ngModel)]="signal.type_trend_final" class="form-control">
 												
-													<option value="Alcista">Alcista</option>
-													<option value="Bajista">Bajista</option>
+													<option value="Alcista">{{'Signal.UpTrend' | translate}}</option>
+													<option value="Bajista">{{'Signal.DownTrend' | translate}}</option>
 													
 												</select>
 											</td>
@@ -153,15 +146,18 @@
 											
 												<div class="row">
 												<div class="col-sm-6">
-												<div *ngIf="is_edit">
+												<div *ngIf="is_edit"><br><br>
+
+
 
    <img src="http://localhost/sequeira-global-backend/uploads/{{signal.graph_image}}" style="width: 280px; height: 150px; margin-left: 400px; border-radius: 5px;" /><br>
-                                                <h5 style="margin-left: 470px; ">Grafico inicial</h5>
+                                                <h5 style="margin-left: 470px; ">
+                                                {{'Signal.GraphInitial' | translate}}</h5>
                                                 </div>
 												</div>
 												</div> 
-											    <br>
-											    <br><hr>
+											    <br><br><hr>
+											    
                                     
 
                                                 <h4>{{'Signal.ChooseFile' | translate}}</h4><br>

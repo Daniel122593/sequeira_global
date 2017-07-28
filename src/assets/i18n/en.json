@@ -80,7 +80,23 @@
         "TrendInitial":"Initial trend",
         "TrendFinal":"Final trend",
         "Update":"Update",
-        "ChooseFile":"Choose the final graph:"
+        "ChooseFile":"Choose the final graph:",
+
+
+        "BackSignal":"Back to today´s signal list",
+        "GraphInitial":"Initial Graph",
+        "GraphFinal":"Resultant graph",
+
+         "OpenCondition":"Open",
+         "CloseCondition":"Close",
+         "Delete":"Delete",
+         "Disable":"Disable"
+
+ 
+
+
+
+
     },
 
     "User":{

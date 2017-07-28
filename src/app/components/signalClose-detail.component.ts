@@ -5,24 +5,23 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {ServicesInfo} from '../services/services_info.services';
 import {Signal} from '../models/signal';
 
-
 @Component({
   
-    selector: 'signal-detail',
-    templateUrl: '../views/signal-detail.html',
+    selector: 'signalClose-detail',
+    templateUrl: '../views/signalClose-detail.html',
     providers:[ServicesInfo]
 
 	})
- 
-  export class SignalDetailComponent{
+
+
+
+
+  export class SignalCloseDetailComponent{
      
+     public signal:Signal;
+    
 
     
-     public signal:Signal;
-
-   
-
-
  constructor(
 
 
@@ -30,18 +29,20 @@ import {Signal} from '../models/signal';
 
         private _router: Router
 
-){
+ ){
 
   
  }//fin del constructor
 
+ 
  ngOnInit(){
 
-   console.log('producto-detail.component');
-   this.getSignal();
+  this.getSignal();
 
- }
- 
+ }//fin del metodo
+
+
+
  getSignal(){
  
    this._route.params.forEach((params:Params) => {
@@ -51,7 +52,7 @@ import {Signal} from '../models/signal';
            
 
 
-      	 this._services.getSignalDetail(id).subscribe(
+      	 this._services.getSignalDetailClose(id).subscribe(
 
                response => {
                  
@@ -62,8 +63,9 @@ import {Signal} from '../models/signal';
 
                   	}else{
 
-                     alert("No se puede mirar los detalles en este momento");
-
+                  	
+                  		alert("No se puede mirar los detalles en este momento");
+                  	
                   	}//fin del else
             
 
@@ -80,5 +82,7 @@ import {Signal} from '../models/signal';
  
 
  }//fin del metodo
-    
-  }//fin del class 
+
+
+
+  }//fin de la clase

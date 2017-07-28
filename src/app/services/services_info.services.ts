@@ -87,7 +87,12 @@ getSignalDetail(id){
 
 }//fin del metodo getSignal
 
+//muestra el detalle de una señal en especifico que se encuentra cerrada
+getSignalDetailClose(id){
+  
+  return this._http.get(this.url+'signalClose/'+id).map(res =>res.json());
 
+}//fin del metodo getSignal
 
 //metodo para modificar una señal
 editSignal(id, signal:Signal){

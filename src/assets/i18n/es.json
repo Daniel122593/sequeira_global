@@ -83,8 +83,16 @@
         "TrendInitial":"Tendencia inicial",
         "TrendFinal":"Tendencia Final",
         "Update":"Modificar",
-        "ChooseFile":"Seleccione el gráfico final:"
+        "ChooseFile":"Seleccione el gráfico final:",
 
+        "BackSignal":"Volver a lista de señales de hoy",
+        "GraphInitial":"Gráfico inicial",
+        "GraphFinal":"Gráfico resultante",
+
+          "OpenCondition":"Abierta",
+          "CloseCondition":"Cerrada",
+          "Delete":"Eliminar",
+          "Disable":"Inhabilitado"
 
     },
 

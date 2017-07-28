@@ -308,7 +308,7 @@ import * as _ from "lodash";
       }//fin del if
 
        else{
-
+         
        }
 
    }).closed;//fin del subscribe

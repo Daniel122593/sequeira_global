@@ -1,0 +1,165 @@
+
+<link rel="stylesheet" href="assets/css/style.css"> 
+
+
+<br><br>
+<nav id="mobile_navigation"></nav>
+			
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+						<li><a [routerLink]="['/signal']" >{{'Signal.BackSignal' | translate}}</a></li>	
+								
+					</ul>
+				</div>
+			</section>
+
+          <section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					<div id="">
+						<form class="ngForm">
+						<!-- main content -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{'Signal.CreateSignal' | translate}}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										<tr>
+											<td>{{'Signal.Instrument' | translate}}</td>
+											<td>
+												<input type="text" value="{{signal.instrument}}"  class="form-control" disabled/>
+											</td>
+										</tr>
+										<tr>
+											<td>{{'Signal.OpenPrice' | translate}}</td>
+											<td><input type="text" value="{{signal.open_price}}"  class="form-control"  disabled></td>
+										</tr>
+										<tr>
+											<td>{{'Signal.Trend' | translate}}</td>
+											<td>
+											<select #trend="ngModel"  name="trend" [(ngModel)]="signal.trend" class="form-control" disabled>
+												
+													<option value="comprar">{{'Signal.Buy' | translate}}</option>
+													<option value="vender">{{'Signal.Sell' | translate}}</option>
+													
+											</select>
+											</td>
+										</tr>
+										<tr>
+											<td>T/P 1</td>
+											<td><input type="text" value="{{signal.tp1}}" class="form-control" disabled></td>
+										</tr>
+										<tr>
+											<td>T/P 2</td>
+											<td><input type="text" value="{{signal.tp2}}" class="form-control" disabled></td>
+										</tr>
+										<tr>
+											<td>S/L</td>
+											<td><input type="text" value="{{signal.sl}}"  class="form-control" disabled></td>
+										</tr>
+
+										<tr>
+											<td>{{'Signal.Analyst' | translate}}</td>
+											<td><input type="text" #id_analyst="ngModel" name="analyst" [(ngModel)]="signal.id_analyst" class="form-control" disabled></td>
+										</tr>
+
+
+
+                                        <tr>
+											<td>{{'Signal.ClosePrice' | translate}}</td>
+											<td><input type="text" #close_price="ngModel" name="close_price" [(ngModel)]="signal.close_price" class="form-control" disabled></td>
+										</tr>
+
+
+										<tr>
+											<td>{{'Signal.TrendInitial' | translate}}</td>
+											<td>
+
+
+											<select #type_trend="ngModel"  name="type_trend" [(ngModel)]="signal.type_trend" class="form-control" disabled>
+												
+													<option value="Alcista">{{'Signal.UpTrend' | translate}}</option>
+													<option value="DownTrend">{{'Signal.TrendFinal' | translate}}</option>
+													
+											</select>
+											</td>
+										</tr>
+
+										<tr>
+											<td>Pips</td>
+											<td><input type="text" #pip="ngModel" name="pip" [(ngModel)]="signal.pip" class="form-control" disabled></td>
+										</tr>
+
+
+										 <tr>
+                                        <td>{{'Signal.TrendFinal' | translate}}</td> 
+										<td>
+												<select #type_trend_final="ngModel"  name="type_trend_final" [(ngModel)]="signal.type_trend_final" class="form-control" disabled>
+												
+													<option value="Alcista">{{'Signal.UpTrend' | translate}}</option>
+													<option value="DownTrend">{{'Signal.TrendFinal' | translate}}</option>
+													
+												</select>
+											</td>
+
+
+
+										</tr>
+
+										  <tr>
+											
+											<td><input type="hidden" #time_initial="ngModel" name="time_initial" [(ngModel)]="signal.time_initial" class="form-control" disabled></td>
+										</tr>
+
+										<tr>
+											<td>{{'User.StartDate' | translate}}</td>
+											<td><input type="date" #date_signal="ngModel" name="date_signal" [(ngModel)]="signal.date_signal" class="form-control" disabled></td>
+										</tr>
+
+										<tr>
+											<td>{{'User.EndDate' | translate}}</td>
+											<td><input type="date" #date_final="ngModel" name="date_final" [(ngModel)]="signal.date_final" class="form-control" disabled></td>
+										</tr>
+
+									
+									</table>
+								</div>
+							</div>
+						</div>
+						         
+
+										 <div><br><br>
+										 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{'Signal.GraphInitial' | translate}}
+										 <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{signal.graph_image}}" style="width: 40%; height: 170px; margin-left: 330px;  border-radius:10px;" />
+										 </div>
+
+										 <div>
+										 <br>
+										 </div>
+
+                                         <hr>
+										 <div><br><br><br>
+										 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{'Signal.GraphFinal' | translate}}
+										 <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{signal.graph_final}}" style="width: 40%; height: 170px; margin-left: 330px;  border-radius:10px;" />
+										 </div>
+
+										 <div>
+										 <br>
+										 </div>
+
+
+
+
+						</form>
+					</div>
+						
+					
+					</div>
+
+
+          </section>

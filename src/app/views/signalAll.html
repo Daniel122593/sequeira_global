@@ -16,7 +16,6 @@
 				</div>
 			</section>
 
-
 <section class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 
@@ -25,7 +24,7 @@
 							<div class="col-sm-12">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<h4 class="panel-title">{{'Signal.SignalToday' | translate}} 11/06/2017</h4>
+										<h4 class="panel-title">{{'Signal.SignalAll' | translate}}</h4>
 									</div>
 									<table id="dt_basic" class="table table-striped">
 										<thead>
@@ -45,8 +44,12 @@
 										<tbody>
 											<tr *ngFor=" let signal of signal_array">
 
-										    <td [routerLink]="['/signal-detail',signal.id]"><a>{{'Signal.See' | translate}}</a></td>
-										    <td [routerLink]="['/signal-edit',signal.id]"><a>{{'Signal.UpdaDelete' | translate}}</a></td>
+										    <td *ngIf="signal.state_signal==1" [routerLink]="['/signal-detail',signal.id]"><a>{{'Signal.See' | translate}}</a></td>
+										    <td *ngIf="signal.state_signal==2" [routerLink]="['/signalClose-detail',signal.id]"><a>{{'Signal.See' | translate}}</a></td>
+
+										    <td *ngIf="signal.state_signal==1" [routerLink]="['/signal-edit',signal.id]"><a>{{'Signal.UpdaDelete' | translate}}</a></td>
+										    <td *ngIf="signal.state_signal==2">{{'Signal.Disable' | translate}}</td>
+										    
 											<td>{{signal.instrument}}</td>
 											<td>{{signal.open_price}}</td>
 											<td>{{signal.tp1}}</td>

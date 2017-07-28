@@ -58,34 +58,40 @@ login(email:string, password:string){
        
        this._router.navigate(['/home']);
        console.log(value);
+        
+   
+     this.db.list('/userWeb', {
+      query: {
 
-   this.db.list('/userWeb').subscribe(snapshot => {
+        indexOn: 'EmailAdministrative',
+        orderByChild: 'EmailAdministrative',
+        equalTo: email
+      
+      }//fin del query
 
-   	
-          for (let user of snapshot){
-               
-              if(user.EmailAdministrative==email){
+    }).subscribe(snapshot => {
 
-                  vefiricar="1";
-              }//fin de if
-              
-            }//fin del for
-          });
-          
-          console.log(vefiricar);
-          if(vefiricar=="1"){
-            
-          }else{
+     var user_length = snapshot.length;
 
-             this.logout();
+     if(user_length>=1){ 
 
-          }//fin del else
+    
+
+      }else{
+
+        this.logout();
+
+        }//fin del else
+
+        }).closed;
+
+
 
       console.log('success!', value);
   })
   .catch(err => {
 
-       console.log("Error en autenticación");
+       alert("Correo y contraseña no coinciden / Email and password don´t match.");
   	});
 
  }//fin del login
