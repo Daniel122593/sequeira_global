@@ -37,9 +37,8 @@
 												<th>{{'Signal.OpenPrice' | translate}}</th>
 												<th>T/P</th>
 												<th>T/L</th>
+												<th>S/L</th>
 												<th>{{'Signal.Date' | translate}}</th>
-												<th>{{'Signal.Condition' | translate}}</th>
-												<th>{{'Signal.Analyst' | translate}}</th>
 												<th>{{'Signal.CloseSignal' | translate}}</th>
 											</tr>
 										</thead>
@@ -51,13 +50,13 @@
 										    
 										    <td *ngIf="signal.state_signal==1" [routerLink]="['/signal-edit',signal.id]"><a>{{'Signal.UpdaDelete' | translate}}</a></td>
 										    <td *ngIf="signal.state_signal==2">{{'Signal.Disable' | translate}}</td>
+
 											<td>{{signal.instrument}}</td>
 											<td>{{signal.open_price}}</td>
 											<td>{{signal.tp1}}</td>
 											<td>{{signal.tp2}}</td>
 											<td>{{signal.sl}}</td>
-											<td>{{signal.date_signal}}</td>
-											<td>{{signal.trend}}</td>
+											<td>{{signal.date_signal}}</td>		
 											<td  *ngIf="signal.state_signal==1"  [routerLink]="['/signal-close',signal.id]"><a>{{'Signal.Close' | translate}}</a></td>
 											<td  *ngIf="signal.state_signal==2">{{'Signal.Closed' | translate}}</td>
 

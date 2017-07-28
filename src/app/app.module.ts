@@ -45,7 +45,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { MyMissingTranslationHandler } from './missingtemplate.component';
 import { UserAdministrativeEdit } from './components/userAdministrative-edit.component';
-
+import { FinanceComponent } from './components/finance.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -87,6 +87,7 @@ export function createTranslateLoader(http: Http) {
     { path: 'createUserAnalyst', component: CreateUserAnalyst},
     { path: 'userAnalyst-detail/:id', component: UserAnalystDetail},
     { path: 'userAnalyst-edit/:id', component: UserAnalystEdit},
+    { path: 'finance', component: FinanceComponent},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
     ]),
@@ -122,8 +123,7 @@ export function createTranslateLoader(http: Http) {
     UserAnalystDetail,
     UserAnalystEdit,
     HomeComponent,
-    AboutComponent,
-    ContactComponent
+    FinanceComponent
   ],
   providers: [
     appRoutingProviders,

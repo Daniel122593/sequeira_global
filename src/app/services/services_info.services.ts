@@ -264,6 +264,21 @@ updateUserAnalyst(id, user_analyst:UserAnalyst){
                                    .map(res =>res.json());
 
 }//fin del metodo
+
+
+//metodo para el id y nombre de los usuarios analistas
+getInfoAnalyst(){
+
+ return this._http.get(this.url+'user_analyst_simple').map(res =>res.json());
+
+}//fin del metodo getInfoAnalyst
+
+getNameAnalyst(id){
+
+ return this._http.get(this.url+'user_analyst_name/'+id).map(res =>res.json());
+
+}//fin del metodo getInfoAnalyst
+
  
 /*
 getProductos(){

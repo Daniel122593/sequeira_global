@@ -5,7 +5,7 @@ import {Signal} from '../models/signal';
 import {GLOBAL} from '../services/global';
 import {AngularFireDatabase } from 'angularfire2/database';
 import {FirebaseListObservable } from 'angularfire2/database';
-
+import {UserAnalyst} from '../models/user_analyst';
 //imports de upload 
 import { UploadService } from '../uploads/shared/upload.service';
 import { Upload } from '../uploads/shared/upload';
@@ -23,6 +23,7 @@ import * as _ from "lodash";
 export class CreateSignalComponent{
   
   public signal: Signal;
+  public user_analyst:UserAnalyst;
   public filesToUpload;
   public resultUpload;
   public hour;
@@ -43,7 +44,37 @@ export class CreateSignalComponent{
   this.signals = db.list('/signals');
 
 
+
+
  }//fin del constructor
+
+ ngOnInit(){ 
+ 
+ this._services.getInfoAnalyst().subscribe(
+
+  response => {
+
+    if(response.code==200){
+
+      this.user_analyst=response.data;
+    }else{
+
+    }//fin del else
+
+
+  },
+
+  error => {
+    
+   console.log(<any>error);
+
+  }//fin del error
+
+
+  );
+
+
+ }//fin del metodo ngOnInit
 
  getHour(){
 

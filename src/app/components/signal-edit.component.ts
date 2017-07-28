@@ -3,6 +3,7 @@ import {Router, ActivatedRoute, Params } from '@angular/router';
 import {ServicesInfo} from '../services/services_info.services';
 import {Signal} from '../models/signal';
 import {GLOBAL} from '../services/global';
+import {UserAnalyst} from '../models/user_analyst';
 
 @Component({
    
@@ -16,6 +17,7 @@ import {GLOBAL} from '../services/global';
 
  	public titulo: string;
  	public signal: Signal;
+  public user_analyst:UserAnalyst;
  	public filesToUpload;
  	public resultUpload;
  	public is_edit;
@@ -140,6 +142,7 @@ import {GLOBAL} from '../services/global';
                   if(response.code==200){
 
                   	   this.signal = response.data;
+                        this.getName()
 
                   	}else{
 
@@ -193,6 +196,33 @@ onDeleteSignal(id){
 
 
 
+ getName(){
+    
+      this._services.getNameAnalyst(this.signal.id_analyst).subscribe(
+         
+         response => {
+
+          if(response.code==200){
+
+             this.user_analyst = response.data;
+             
+          }else{
+             
+            
+            }//fin del else
+
+          },
+
+          error =>{
+
+             console.log(<any>error);
+
+          }//fin del error
+
+
+        );
+
+ }//fin del metodo
 
 
 

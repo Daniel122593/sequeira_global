@@ -92,7 +92,8 @@
           "OpenCondition":"Abierta",
           "CloseCondition":"Cerrada",
           "Delete":"Eliminar",
-          "Disable":"Inhabilitado"
+          "Disable":"Inhabilitado",
+          "AllSignal":"Todas las señales"
 
     },
 

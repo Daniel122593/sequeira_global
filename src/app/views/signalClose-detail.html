@@ -40,17 +40,16 @@
 										<tr>
 											<td>{{'Signal.Trend' | translate}}</td>
 											<td>
-											<select #trend="ngModel"  name="trend" [(ngModel)]="signal.trend" class="form-control" disabled>
-												
-													<option value="comprar">{{'Signal.Buy' | translate}}</option>
+												<select #trend="ngModel"  name="trend" [(ngModel)]="signal.trend" class="form-control" disabled>
+													<option value="">- {{'Signal.Instrument' | translate}} -</option>
+													<option value="comprar">{{'Signal.Buy' | translate}} </option>
 													<option value="vender">{{'Signal.Sell' | translate}}</option>
-													
-											</select>
+												</select>
 											</td>
 										</tr>
 										<tr>
 											<td>T/P 1</td>
-											<td><input type="text" value="{{signal.tp1}}" class="form-control" disabled></td>
+											<td><input type="text" #tp1="ngModel" name="tp1" [(ngModel)]="signal.tp1"  class="form-control" disabled></td>
 										</tr>
 										<tr>
 											<td>T/P 2</td>
@@ -63,7 +62,7 @@
 
 										<tr>
 											<td>{{'Signal.Analyst' | translate}}</td>
-											<td><input type="text" #id_analyst="ngModel" name="analyst" [(ngModel)]="signal.id_analyst" class="form-control" disabled></td>
+											<td><input type="text"  value="{{user_analyst.name_analyst}}" name="analyst" class="form-control" disabled></td>
 										</tr>
 
 

@@ -4,6 +4,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 
 import {ServicesInfo} from '../services/services_info.services';
 import {Signal} from '../models/signal';
+import {UserAnalyst} from '../models/user_analyst';
 
 @Component({
   
@@ -14,14 +15,11 @@ import {Signal} from '../models/signal';
 	})
 
 
-
-
   export class SignalCloseDetailComponent{
      
      public signal:Signal;
-    
-
-    
+     public user_analyst:UserAnalyst;
+      
  constructor(
 
 
@@ -60,6 +58,7 @@ import {Signal} from '../models/signal';
 
                   	   this.signal = response.data;
                        console.log(this.signal);
+                       this.getName();
 
                   	}else{
 
@@ -84,5 +83,32 @@ import {Signal} from '../models/signal';
  }//fin del metodo
 
 
+ getName(){
+    
+      this._services.getNameAnalyst(this.signal.id_analyst).subscribe(
+         
+         response => {
+
+          if(response.code==200){
+
+             this.user_analyst = response.data;
+             
+          }else{
+             
+            
+            }//fin del else
+
+          },
+
+          error =>{
+
+             console.log(<any>error);
+
+          }//fin del error
+
+
+        );
+
+ }//fin del metodo
 
   }//fin de la clase

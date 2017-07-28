@@ -91,7 +91,16 @@
 
 										<tr>
 											<td>{{'Signal.Analyst' | translate}}</td>
-											<td><input type="text" #analyst="ngModel" name="analyst" [(ngModel)]="signal.analyst" class="form-control"></td>
+											<td>
+
+											<select name="analyst" #analyst="ngModel"
+											[(ngModel)]="signal.analyst" class="form-control">
+
+											<option *ngFor=" let user of user_analyst" value="{{user.id}}">{{user.name_analyst}}</option>
+
+											</select> 
+
+											</td>
 										</tr>
 
 									

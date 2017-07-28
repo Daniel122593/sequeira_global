@@ -90,7 +90,9 @@
          "OpenCondition":"Open",
          "CloseCondition":"Close",
          "Delete":"Delete",
-         "Disable":"Disable"
+         "Disable":"Disable",
+
+         "AllSignal":"All signals"
 
  
 

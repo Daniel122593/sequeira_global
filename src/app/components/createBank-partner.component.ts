@@ -81,7 +81,7 @@ export class CreateBankPartner{
       error =>{
 
       	 console.log(<any>error);
-      }
+      }//fin del error
 
 
    	);

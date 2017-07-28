@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {ServicesInfo} from '../services/services_info.services';
 import {Signal} from '../models/signal';
+import {UserAnalyst} from '../models/user_analyst';
 import {GLOBAL} from '../services/global';
 import {AngularFireDatabase } from 'angularfire2/database';
 import {FirebaseListObservable } from 'angularfire2/database';
@@ -18,11 +19,11 @@ import * as _ from "lodash";
    providers: [ServicesInfo]
 
 	})
-
  export class SignalCloseComponent {
     
     public titulo: string;
  	  public signal: Signal;
+    public user_analyst:UserAnalyst;
    	public filesToUpload;
   	public resultUpload;
  	  public is_edit;
@@ -258,6 +259,8 @@ import * as _ from "lodash";
                   if(response.code==200){
 
                   	   this.signal = response.data;
+                      this.getName();
+
 
                   	}else{ 
 
@@ -316,6 +319,33 @@ import * as _ from "lodash";
  }//fin del metodo verificarAdmin
 
 
+ getName(){
+    
+      this._services.getNameAnalyst(this.signal.id_analyst).subscribe(
+         
+         response => {
+
+          if(response.code==200){
+
+             this.user_analyst = response.data;
+             
+          }else{
+             
+            
+            }//fin del else
+
+          },
+
+          error =>{
+
+             console.log(<any>error);
+
+          }//fin del error
+
+
+        );
+
+ }//fin del metodo
 
 
  }//fin de la clase 

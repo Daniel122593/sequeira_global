@@ -28,8 +28,8 @@ import { UserAdministrativeEdit } from './components/userAdministrative-edit.com
 import { CreateUserAnalyst } from './components/createUserAnalyst.component';
 import { UserAnalystDetail } from './components/userAnalyst-detail.component';
 import { UserAnalystEdit } from './components/userAnalyst-edit.component';
-import { AboutComponent } from './about/about.component'; 
-import { ContactComponent } from './contact/contact.component';
+import { FinanceComponent } from './components/finance.component';
+
 
 const  appRoutes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -56,6 +56,7 @@ const  appRoutes: Routes = [
     { path: 'createUserAnalyst', component: CreateUserAnalyst},
     { path: 'userAnalyst-detail/:id', component: UserAnalystDetail},
     { path: 'userAnalyst-edit/:id', component: UserAnalystEdit},
+    { path: 'finance', component: FinanceComponent},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
 
