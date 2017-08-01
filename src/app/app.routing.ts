@@ -30,6 +30,7 @@ import { UserAnalystDetail } from './components/userAnalyst-detail.component';
 import { UserAnalystEdit } from './components/userAnalyst-edit.component';
 import { FinanceComponent } from './components/finance.component';
 import { UserPartnerDetail } from './components/userPartner-detail.component';
+import { UserPartnerEdit } from './components/userPartner-edit.component';
 
 
 const  appRoutes: Routes = [
@@ -59,8 +60,8 @@ const  appRoutes: Routes = [
     { path: 'userAnalyst-edit/:id', component: UserAnalystEdit},
     { path: 'finance', component: FinanceComponent},
     { path: 'user_partner-detail/:id', component: UserPartnerDetail},
+    { path: 'user_partner-edit/:id', component: UserPartnerEdit},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
-
 
 ];
 

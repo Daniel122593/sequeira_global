@@ -47,7 +47,7 @@
 
 											<tr *ngFor=" let user of user_array ">
 											<th><a [routerLink]="['/user_partner-detail',user.id]" >{{'Signal.See' | translate}}</a></th>
-											<th><a>{{'User.Edit' | translate}}</a></th>
+											<th><a [routerLink]="['/user_partner-edit',user.id]" >{{'User.Edit' | translate}}</a></th>
 											<td>{{user.name_partner}}</td>
 											<td>{{user.email_partner}}</td>
 											<td>{{user.telephone_partner}}</td>

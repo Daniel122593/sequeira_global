@@ -47,6 +47,7 @@ import { MyMissingTranslationHandler } from './missingtemplate.component';
 import { UserAdministrativeEdit } from './components/userAdministrative-edit.component';
 import { FinanceComponent } from './components/finance.component';
 import { UserPartnerDetail } from './components/userPartner-detail.component';
+import { UserPartnerEdit } from './components/userPartner-edit.component';
 
 
 export function createTranslateLoader(http: Http) {
@@ -91,6 +92,7 @@ export function createTranslateLoader(http: Http) {
     { path: 'userAnalyst-edit/:id', component: UserAnalystEdit},
     { path: 'finance', component: FinanceComponent},
     { path: 'user_partner-detail/:id', component: UserPartnerDetail},
+    { path: 'user_partner-edit/:id', component: UserPartnerEdit},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
     ]),
@@ -127,7 +129,8 @@ export function createTranslateLoader(http: Http) {
     UserAnalystEdit,
     HomeComponent,
     FinanceComponent,
-    UserPartnerDetail
+    UserPartnerDetail,
+    UserPartnerEdit
   ],
   providers: [
     appRoutingProviders,

@@ -109,7 +109,7 @@ this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload_
 
 
  saveUser_partner(){
-    alert("entra aqui");
+    
     console.log(this.user_partner);
 
    this._services.addUserPartner(this.user_partner).subscribe(
@@ -118,16 +118,16 @@ this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload_
        
        if(response.code==200){
              
-
+          this._router.navigate(['/preferredUser']);
        }else{
 
-          
+          this._router.navigate(['/preferredUser']);
        }//fin del else
 
      }, error =>{
 
        console.log(<any>error);
-
+         this._router.navigate(['/preferredUser']);
      }//fin del error
 
    	);

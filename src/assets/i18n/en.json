@@ -175,7 +175,10 @@
     "CreateUserAdministrative":"Create administrative user",
     "CopyIdentityCard":"Copy of identity card",
     "CopyReceipt":"Copy of receipt",
-    "CreateUserPreferent":"Create preferred user"
+    "CreateUserPreferent":"Create preferred user",
+    "NewCopyIdentityCard":"New copy of identity card",
+    "EditUserPartner":"Edit User Preferred",
+    "BackUserPartner":"Return to the list of preferred users"
 
 
     }

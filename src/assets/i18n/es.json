@@ -172,7 +172,11 @@
     "CreateUserAdministrative":"Crear usuario administrativo",
     "CopyIdentityCard":"Copia de cédula de identidad",
     "CopyReceipt":"Copia de recibo",
-    "CreateUserPreferent":"Crear usuario preferente"
+    "CreateUserPreferent":"Crear usuario preferente",
+    "NewCopyIdentityCard":"Nueva copia de cedula de identidad",
+    "EditUserPartner":"Editar Usuario Preferente",
+    "BackUserPartner":"Volver a lista de usuarios preferentes"
+
     
 
    
