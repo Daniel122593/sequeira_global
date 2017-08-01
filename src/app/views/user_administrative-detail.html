@@ -54,12 +54,12 @@
 										
 
 										<tr>
-											<td>Contraseña</td>
+											<td>{{'User.Password' | translate}}</td>
 											<td><input type="text" #password_administrative="ngModel" name="password_administrative" [(ngModel)]="user_administrative.password_administrative" class="form-control" disabled></td>
 										</tr>
 
 										<tr>
-											<td>Jerarquía</td>
+											<td>{{'User.Hierarchy' | translate}}</td>
 											<td><input type="text" #hierarchy_administrative="ngModel" name="hierarchy_administrative" [(ngModel)]="user_administrative.hierarchy_administrative" class="form-control" disabled></td>
 										</tr>
 
@@ -69,7 +69,7 @@
 										</tr>
 
 										<tr>
-											<td>País</td>
+											<td>{{'User.Country' | translate}}</td>
 											<td><input type="tel" #country_administrative="ngModel" name="country_administrative" [(ngModel)]="user_administrative.country_administrative" class="form-control" disabled></td>
 										</tr>
 										
@@ -80,7 +80,7 @@
 										</tr>
 
 										<tr>
-											<td>Fecha de creación</td>
+											<td>{{'User.DateCreate' | translate}}</td>
 											<td><input type="date" #date_administrative="ngModel" name="date_administrative" [(ngModel)]="user_administrative.date_administrative" class="form-control" disabled></td>
 										</tr>
 
@@ -95,7 +95,7 @@
 							</div>
 						</div><br><br>
 					        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Foto de perfil
+					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{'User.ProfilePicture' | translate}}
 					        <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{user_administrative.profile_picture_administrative}} " style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;" />
                                    
 

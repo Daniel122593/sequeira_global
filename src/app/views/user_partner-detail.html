@@ -38,11 +38,11 @@ display: inline;
 			</section>
 
 
-
 <section class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 					<div id="">
-						<form #formUser_partner="ngForm" (ngSubmit)="onSubmitUserPartner()">
+						<form #
+						formUser_partner="ngForm" (ngSubmit)="onSubmitUserPartner()">
 						<!-- main content -->
 						<div class="row">
 							<div class="col-sm-12">
@@ -86,29 +86,6 @@ display: inline;
 										<tr>
 											<td>{{'User.Telephone' | translate}}</td>
 											<td><input type="tel" #telephone_partner="ngModel" name="telephone_partner" [(ngModel)]="user_partner.telephone_partner" class="form-control"></td>
-										</tr>
-
-                                        <tr>
-											<td>{{'User.CopyIdentityCard' | translate}}</td>
-											<td>
-												<div class="row">
-												<div class="col-sm-6">
-												 <input type="file" class="form-control" (change)="fileChangeEventIdentity($event)"><br><br>
-												</div>
-												</div>
-											</td>
-										</tr>
-
-
-										 <tr>
-											<td>{{'User.CopyReceipt' | translate}}</td>
-											<td>
-												<div class="row">
-												<div class="col-sm-6">
-												 <input type="file" class="form-control" (change)="fileChangeEventVoucher($event)"><br><br>
-												</div>
-												</div>
-											</td>
 										</tr>
 
 
@@ -443,11 +420,18 @@ display: inline;
 								</div>
 							</div>
 						</div>
-					
 
 					<BR><BR><BR>
 
-					<!-- main content -->
+					<br><br>
+					        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{'User.CopyIdentityCard' | translate}}
+					        <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{user_partner.img_identity_partner}} " style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;"/>
+
+		                    <br><br>
+					        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{'User.CopyReceipt' | translate}}
+					        <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{user_partner.img_voucher_partner}} " style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;"/>
 						
 					  </form>
 				

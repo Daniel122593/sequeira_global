@@ -6,7 +6,7 @@
 				<div class="container">
 					<ul>
 						
-						<li><a [routerLink]="['/users']">{{'User.PartnerBack' | translate}}</a></li>					
+						<li><a [routerLink]="['/userAnalyst']">{{'User.PartnerBack' | translate}}</a></li>					
 					</ul>
 				</div>
 			</section>
@@ -44,7 +44,7 @@
 										
 
 										<tr>
-											<td>Jerarquía</td>
+											<td>{{'User.Hierarchy' | translate}}</td>
 											<td><input type="text" #hierarchy_analyst="ngModel"  name="hierarchy_analyst" [(ngModel)]="user_analyst.hierarchy_analyst" class="form-control"></td>
 										</tr>
 										
@@ -77,7 +77,7 @@
 
 						<br><br>
 					        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Foto de perfil
+					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{'User.ProfilePicture' | translate}}
 					        <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{user_analyst.profile_picture_analyst}} " style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;" />
 						</form>		
 					</div>

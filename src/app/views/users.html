@@ -7,7 +7,7 @@
 				<div class="container">
 					<ul>
 						
-					    <li *ngIf="admin==true" ><a [routerLink]="['/createUserAdministrative']">Crear Usuario Administrador</a></li> 	
+					    <li *ngIf="admin==true" ><a [routerLink]="['/createUserAdministrative']">{{'User.CreateUserAdministrative' | translate}}</a></li> 	
 						<li><a *ngIf="admin==true" [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
 						<li><a *ngIf="admin==true" [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
 						<li><a *ngIf="admin==true" [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>
@@ -31,23 +31,23 @@
 									<table *ngIf="admin==true" id="dt_basic" class="table table-striped">
 										<thead>
 											<tr>
-											    <th>Ver Usuario</th>
-											    <th>Editar Usuario</th>
-												<th>Cédula</th>
+											    <th>{{'User.SeeUser' | translate}}</th>
+											    <th>{{'User.EditUser' | translate}}</th>
+												<th>{{'User.IdentityCard' | translate}}</th>
 												<th>{{'User.Name' | translate}}</th>
 												<th>{{'User.Email' | translate}}</th>
 												<th>{{'User.Telephone' | translate}}</th>
 												<th>{{'User.Country' | translate}}</th>
-												<th>Dirección</th>
+												<th>{{'User.Address' | translate}}</th>
 												<th>{{'Signal.Date' | translate}}</th>
 												<th>{{'User.Hierarchy' | translate}}</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr *ngFor=" let user of user_array">
-											<td *ngIf="admin==true"><a  [routerLink]="['/userAdministrative-detail',user.id]" >Ver</a></td>
+											<td *ngIf="admin==true"><a  [routerLink]="['/userAdministrative-detail',user.id]" >{{'Signal.See' | translate}}</a></td>
 											<td *ngIf="admin!=true">Inhabilitada</td>
-											<td *ngIf="admin==true" ><a [routerLink]="['/userAdministrative-edit',user.id]" >Editar</a></td>
+											<td *ngIf="admin==true" ><a [routerLink]="['/userAdministrative-edit',user.id]" >{{'User.Edit' | translate}}</a></td>
 											<td *ngIf="admin!=true">Inhabilitada</td>
 											<td>{{user.identityCard}}</td>
 											<td>{{user.name_administrative}}</td>

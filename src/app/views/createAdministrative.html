@@ -32,7 +32,7 @@
 							<div class="col-sm-12">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<h4 class="panel-title">{{'User.DataPartner' | translate}}</h4>
+										<h4 class="panel-title">{{'User.AddUserAdministrative' | translate}}</h4>
 									</div>
 									
 									<table id="dt_basic" class="table table-striped">
@@ -54,12 +54,12 @@
 										
 
 										<tr>
-											<td>Contraseña</td>
+											<td>{{'User.Password' | translate}}</td>
 											<td><input type="text" #password_administrative="ngModel" name="password_administrative" [(ngModel)]="user_administrative.password_administrative" class="form-control"></td>
 										</tr>
 
 										<tr>
-											<td>Jerarquía</td>
+											<td>{{'User.Hierarchy' | translate}}</td>
 											<td><input type="text" #hierarchy_administrative="ngModel" name="hierarchy_administrative" [(ngModel)]="user_administrative.hierarchy_administrative" class="form-control"></td>
 										</tr>
 
@@ -69,7 +69,7 @@
 										</tr>
 
 										<tr>
-											<td>País</td>
+											<td>{{'User.Country' | translate}}</td>
 											<td><input type="tel" #country_administrative="ngModel" name="country_administrative" [(ngModel)]="user_administrative.country_administrative" class="form-control"></td>
 										</tr>
 										
@@ -80,12 +80,12 @@
 										</tr>
 
 										<tr>
-											<td>Fecha de creación</td>
+											<td>{{'User.DateCreate' | translate}}</td>
 											<td><input type="date" #date_administrative="ngModel" name="date_administrative" [(ngModel)]="user_administrative.date_administrative" class="form-control"></td>
 										</tr>
 
                                         <tr>
-											<td>Foto de perfil</td>
+											<td>{{'User.ProfilePicture' | translate}}</td>
 											<td>
 												<div class="row">
 												<div class="col-sm-6">
@@ -97,7 +97,7 @@
 
 									    <tr>
 											<td></td>
-											<td><input type="submit" value="Agregar Usuario Administrativo"></td>
+											<td><input type="submit" value="{{'User.AddUserAdministrative' | translate}}"></td>
 										</tr>
 
 										

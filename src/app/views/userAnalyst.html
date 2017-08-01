@@ -14,7 +14,7 @@
 					</ul>
 					<ul>
 					 
-						<li><a *ngIf="admin==true" [routerLink]="['/createUserAnalyst']">{{'User.CreateUser' | translate}}</a></li>				
+						<li><a *ngIf="admin==true" [routerLink]="['/createUserAnalyst']">{{'User.CreateUserAnalyst' | translate}}</a></li>				
 					</ul>
 				</div>
 			</section>
@@ -29,28 +29,28 @@
 							<div class="col-sm-12">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<h4 *ngIf="admin==true" class="panel-title">{{'User.AdministrativeUser' | translate}}</h4>
+										<h4 *ngIf="admin==true" class="panel-title">{{'User.AnalystUser' | translate}}</h4>
 										<h4 *ngIf="admin!=true" class="panel-title">Información restringida</h4>
 									</div>
 									<table *ngIf="admin==true" id="dt_basic" class="table table-striped">
 										<thead>
 											<tr>
-											    <th>Ver Usuario</th>
-											    <th>Editar Usuario</th>
-												<th>Cédula</th>
+											    <th>{{'User.SeeUser' | translate}}</th>
+											    <th>{{'User.EditUser' | translate}}</th>
+												<th>{{'User.IdentityCard' | translate}}</th>
 												<th>{{'User.Name' | translate}}</th>
 												<th>{{'User.Email' | translate}}</th>
 												<th>{{'User.Telephone' | translate}}</th>
 												<th>{{'User.Country' | translate}}</th>
-												<th>Dirección</th>
+												<th>{{'User.Address' | translate}}</th>
 												<th>{{'Signal.Date' | translate}}</th>
 												<th>{{'User.Hierarchy' | translate}}</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr *ngFor=" let user of user_array">
-											<td ><a  [routerLink]="['/userAnalyst-detail',user.id]" >Ver</a></td>
-										    <td ><a [routerLink]="['/userAnalyst-edit',user.id]" >Editar</a></td>
+											<td ><a  [routerLink]="['/userAnalyst-detail',user.id]" >{{'Signal.See' | translate}}</a></td>
+										    <td ><a [routerLink]="['/userAnalyst-edit',user.id]" >{{'User.Edit' | translate}}</a></td>
 											<td>{{user.identityCard_analyst}}</td>
 											<td>{{user.name_analyst}}</td>
 											<td>{{user.email_analyst}}</td>

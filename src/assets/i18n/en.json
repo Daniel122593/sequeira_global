@@ -115,7 +115,7 @@
     "Telephone":"Telephone",
     "Country":"Country",
     "Hierarchy":"Hierarchy",
-     "Password":"Password",
+    "Password":"Password",
 
     "PartnerBack":"Back to Partner",
     "IdentityCard":"Identity Card",
@@ -162,7 +162,20 @@
     "Save":"Save",
     "CreateCountPartner":"Create Preferred Partner Account",
     "PreferredPartner":"Preferred Partner",
-    "AddAccount":"Add Account"
+    "AddAccount":"Add Account",
+
+    "SeeUser":"See User",
+    "EditUser":"Edit User",
+    "IdentityCard":"Identity Card",
+    "Edit":"Edit",
+    "DateCreate":"Creation Date",
+    "AddUserAdministrative":"Add user administrative",
+    "EditUserAdministrative":"Edit User Administrative",
+    "CreateUserAnalyst":"Create User Analyst",
+    "CreateUserAdministrative":"Create administrative user",
+    "CopyIdentityCard":"Copy of identity card",
+    "CopyReceipt":"Copy of receipt",
+    "CreateUserPreferent":"Create preferred user"
 
 
     }

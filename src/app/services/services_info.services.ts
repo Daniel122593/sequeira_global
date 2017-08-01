@@ -279,73 +279,37 @@ getNameAnalyst(id){
 
 }//fin del metodo getInfoAnalyst
 
+
+
+//metodo para mostrar todos los datos de la señal del dia
+getUserPartner(){
+
+return this._http.get(this.url+'user_partner').map(res =>res.json());
+
+}//fin del metodo getSignal
+
  
-/*
-getProductos(){
- //return "TEXTO DESDE EL SERVICIO";
 
- //con el return se hace el llamado de la peticion
- return this._http.get(this.url+'productos').map(res =>res.json());
+//muestra el detalle de un usuario preferente especifico
+getUserPartnerDetail(id){
+  
+  return this._http.get(this.url+'user_partner/'+id).map(res =>res.json());
 
-}
-*/
+}//fin del metodo getSignal
 
 
+//metodo para modificar un usuario preferente especifico
+updateUserPartner(id, user_partner:User_partner){
+ 
+ let json= JSON.stringify(user_partner); 
+ let params = "json="+json;
+ let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
 
-/*
-addProducto(producto: Producto){
-		let json = JSON.stringify(producto);
-		let params = 'json='+json;
-		let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+ return this._http.post(this.url+'user_partner-update/'+id, params, {headers: headers})
+                                   .map(res =>res.json());
 
-		return this._http.post(this.url+'productos', params, {headers: headers})
-						 .map(res => res.json());
-	}
-*/
+}//fin del metodo
 
-
-
-/*
-makeFileRequest(url: string, params: Array<string>, files: Array<File>){
-
- return new Promise((resolve, reject) =>{
-
- 	var formData : any = new FormData();
-
- 	var xhr = new XMLHttpRequest();
-
- 	for(var i=0; i< files.length; i++){
-
-
- 		formData.append('uploads[]', files[i], files[i].name);
- 	}
-
- 	xhr.onreadystatechange = function(){
-
-      if(xhr.readyState==4){
-
-      	if(xhr.status==200){
-
-             resolve(JSON.parse(xhr.response));
-          
-      	}else{
-            
-             reject(xhr.response);
-      	}
-      
-
-      }
-
- 	};
-     
-      xhr.open("POST", url, true);
-      xhr.send(formData);
-
- });
-
-}
-
-*/
 
 
 }//fin de la clase

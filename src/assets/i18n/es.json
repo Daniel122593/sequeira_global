@@ -159,7 +159,20 @@
     "Save":"Guardar",
     "CreateCountPartner":"Crear cuenta socio preferente",
     "PreferredPartner":"Socio preferente",
-    "AddAccount":"Agregar cuenta"
+    "AddAccount":"Agregar cuenta", 
+
+    "SeeUser":"Ver Usuario",
+    "EditUser":"Editar Usuario",
+    "IdentityCard":"Cédula",
+    "Edit":"Editar",
+    "DateCreate":"Fecha de creación",
+    "AddUserAdministrative":"Agregar Usuario Administrativo",
+    "EditUserAdministrative":"Editar Usuario Administrativo",
+    "CreateUserAnalyst":"Crear usuario analista",
+    "CreateUserAdministrative":"Crear usuario administrativo",
+    "CopyIdentityCard":"Copia de cédula de identidad",
+    "CopyReceipt":"Copia de recibo",
+    "CreateUserPreferent":"Crear usuario preferente"
     
 
    

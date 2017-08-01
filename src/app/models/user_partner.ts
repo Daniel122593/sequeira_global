@@ -21,9 +21,7 @@ public date_end_partner:string,
 public img_identity_partner:string,
 public img_voucher_partner:string
 
-
-
-	){
+){
 
 
 }//fin del constructor
