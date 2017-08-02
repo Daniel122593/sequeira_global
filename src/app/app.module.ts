@@ -12,7 +12,7 @@ import { UploadRService } from './uploads/shared/uploadR.service';
 
 import { ServicesInfo } from './services/services_info.services';
 import { routing, appRoutingProviders} from './app.routing';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader, MissingTranslationHandler } from 'ng2-translate';
 
 import { FormsModule } from "@angular/forms";
@@ -61,6 +61,7 @@ export function createTranslateLoader(http: Http) {
     BrowserModule,
     HttpModule,
     FormsModule,
+    NgxPaginationModule,
     AngularFireModule.initializeApp (environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,

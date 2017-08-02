@@ -11,9 +11,6 @@
 						<li><a *ngIf="admin==true" [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
 						<li><a *ngIf="admin==true" [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
 						<li><a *ngIf="admin==true" [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>
-
-
-						<li><a *ngIf="admin==true" [routerLink]="['/paginacion']">Prueba Paginacion</a></li>
 										
 					</ul>
 				</div>
@@ -47,7 +44,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr *ngFor=" let user of user_array">
+											<tr *ngFor=" let user of user_array | paginate: { itemsPerPage:10, currentPage: step }">
 											<td *ngIf="admin==true"><a  [routerLink]="['/userAdministrative-detail',user.id]" >{{'Signal.See' | translate}}</a></td>
 											<td *ngIf="admin!=true">Inhabilitada</td>
 											<td *ngIf="admin==true" ><a [routerLink]="['/userAdministrative-edit',user.id]" >{{'User.Edit' | translate}}</a></td>
@@ -63,8 +60,10 @@
 											
 											</tr>
 											
+											
 										</tbody>
 									</table>
+									<pagination-controls (pageChange)= "step = $event"></pagination-controls>
 								</div>
 							</div>
 						</div>

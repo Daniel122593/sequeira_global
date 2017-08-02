@@ -43,7 +43,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr *ngFor=" let signal of signal_array">
+											<tr *ngFor=" let signal of signal_array | paginate: { itemsPerPage:10, currentPage: step }">
 
 										    <td *ngIf="signal.state_signal==1" [routerLink]="['/signal-detail',signal.id]"><a>{{'Signal.See' | translate}}</a></td>
 										    <td *ngIf="signal.state_signal==2" [routerLink]="['/signalClose-detail',signal.id]"><a>{{'Signal.See' | translate}}</a></td>
@@ -65,6 +65,7 @@
 											
 										</tbody>
 									</table>
+									<pagination-controls (pageChange)= "step = $event"></pagination-controls>
 								</div>
 							</div>
 						</div>

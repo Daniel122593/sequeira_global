@@ -45,7 +45,7 @@
 										</thead>
 										<tbody>
 
-											<tr *ngFor=" let user of user_array ">
+											<tr *ngFor=" let user of user_array | paginate: { itemsPerPage:10, currentPage: step }">
 											<th><a [routerLink]="['/user_partner-detail',user.id]" >{{'Signal.See' | translate}}</a></th>
 											<th><a [routerLink]="['/user_partner-edit',user.id]" >{{'User.Edit' | translate}}</a></th>
 											<td>{{user.name_partner}}</td>
@@ -57,6 +57,7 @@
 											
 										</tbody>
 									</table>
+									<pagination-controls (pageChange)= "step = $event"></pagination-controls>
 								</div>
 							</div>
 						</div>
