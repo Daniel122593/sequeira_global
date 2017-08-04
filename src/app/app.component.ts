@@ -27,18 +27,11 @@ export class AppComponent {
   constructor(private translate: TranslateService, private activatedRoute: ActivatedRoute, public authService:AuthService,
 
     private db:AngularFireDatabase) {
-        translate.addLangs(["es", "en"]);
-        translate.setDefaultLang('es');
-        db.list('/users').subscribe(snapshot => {
-          for (let user of snapshot){
-            console.log(user.Email);
-            }
-          });
+       
         let browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/es|en/) ? browserLang : 'es');
 
   
-
     }//fin del constructor
 
     changeLanguage(lang){
@@ -54,12 +47,16 @@ export class AppComponent {
             this.translate.use(locale);
         }
       });
+     
+     
 
-      
+       
      //console.log(this.users);
   }//fin del ngOnInit
  
-  
+    
+
+
   login(){
      this.authService.login(this.email, this.password);
      this.password = "";
@@ -77,6 +74,6 @@ export class AppComponent {
     this.subscription.unsubscribe();
   }//fin del metodo ngOnDestroy
 
-
+  
 
 }//fin de la clase

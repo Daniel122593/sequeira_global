@@ -8,6 +8,7 @@ import {User_administrative} from '../models/user_administrative';
 import {UserAnalyst} from '../models/user_analyst';
 import {BankPartner} from '../models/bank_partner';
 import { GLOBAL } from './global';
+import {UserClient} from '../models/user_client';
 
 
 @Injectable()
@@ -311,6 +312,17 @@ updateUserPartner(id, user_partner:User_partner){
 }//fin del metodo
 
 
+//metodo para agregar usuarios clientes
+addUserClient(user_client:UserClient[]){
+ let json = JSON.stringify(user_client);
+ let params = 'json='+json;
+ let headers = new Headers ({'Content-Type':'application/x-www-form-urlencoded'});
+ 
+ return this._http.post(this.url+'user_client', params, {headers: headers})
+                   .map(res => res.json()); 
+
+
+}//fin del metodo addSignal
 
 }//fin de la clase
 
