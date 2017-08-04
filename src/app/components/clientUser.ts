@@ -19,15 +19,14 @@ import {UserClient} from '../models/user_client';
 
  	public user_cli=[];
  	  users:FirebaseListObservable<any>;
+ 	  usersClient:FirebaseListObservable<any>;
 
 constructor(private _services:ServicesInfo, private _route: ActivatedRoute, private _router: Router, private auth: AngularFireAuth,
   private db: AngularFireDatabase) {
       
- 
+      this.usersClient = db.list('/users');
        
     }//fin del constructor
-
-
 
 
 saveClients(){
@@ -41,14 +40,38 @@ saveClients(){
                 if(user.Sql=="0"){
              
               this.user_cli.push(user);
-               
-                   }
+
+            
+          }//fin del if
+            
+       }//fin del for
+
+
+       for (var user of snapshot){
                  
-          }//fin del for
+              this.usersClient.push({
+              Country: user.Country,
+              Date:  user.Date,
+              Email: user.Date,
+              Intro: user.Intro,
+              Name:  user.Name,
+              ReferCode: user.ReferCode,
+              Sql: "1",
+              Telephone: user.Telephone
+          
+              });
+
+
+            this.db.list("/users/"+user.$key).remove();
             
+           
             
+       }//fin del for
+
+
+
             
-            
+       
  this._services.addUserClient(this.user_cli).subscribe(
 
      response => {
@@ -75,19 +98,11 @@ saveClients(){
 
 
 
-          }); 
+
+ }); 
                    
 
 }//fin del saveClients
-
-
-
-
-
-
-
-
-
 
 
 
