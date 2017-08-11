@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" type="text/javascript" href="assets/bootstrap/css/bootstrap.min.css">
+
+<br><br>
+<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+						<li><a *ngIf="admin==true" [routerLink]="['/userClient']">{{'User.PartnerBack' | translate}}</a></li>					
+					</ul>
+				</div>
+			</section>
+ 
+<div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
+<section *ngIf="admin==true"  class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					 
+					 <form #formUserAnalyst ="ngForm" (ngSubmit)="onSubmitClient()">
+						<!-- main content -->
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{'User.ClientUser' | translate}}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										
+
+										<tr>
+											<td>{{'User.Name' | translate}}</td>
+											<td><input type="text" #name_client="ngModel"  name="name_client" [(ngModel)]="user_client.name_client" class="form-control" disabled></td>
+										</tr>
+
+										<tr>
+											<td>{{'User.Email' | translate}}</td>
+											<td><input type="text" #email_client="ngModel"  name="email_client" [(ngModel)]="user_client.email_client" class="form-control" disabled ></td>
+										</tr>
+
+										
+										<tr>
+											<td>{{'User.Hierarchy' | translate}}</td>
+											<td><input type="text" #referCode_client="ngModel"  name="referCode_client" [(ngModel)]="user_client.referCode_client" class="form-control" disabled ></td>
+										</tr>
+										
+										<tr>
+											<td>{{'User.Country' | translate}}</td>
+											<td><input type="text" #country_client="ngModel"  name="country_client" [(ngModel)]="user_client.country_client" class="form-control" disabled ></td>
+										</tr>
+										
+										<tr>
+											<td>{{'User.Telephone' | translate}}</td>
+											<td><input type="text" #telephone_client="ngModel"  name="telephone_client" [(ngModel)]="user_client.telephone_client" class="form-control" disabled ></td>
+
+										</tr>
+										
+										<tr>
+											<td>{{'Signal.Date' | translate}}</td>
+											<td><input type="text" #date_client="ngModel"  name="date_client" [(ngModel)]="user_client.date_client" class="form-control" disabled></td>
+										</tr>
+										
+                                       
+									</table>
+								</div>
+							</div>
+						</div>	
+						</form>		
+					</div>
+			
+			</section>
+
+
+
+

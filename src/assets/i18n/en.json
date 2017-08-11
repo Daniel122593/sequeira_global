@@ -178,7 +178,11 @@
     "CreateUserPreferent":"Create preferred user",
     "NewCopyIdentityCard":"New copy of identity card",
     "EditUserPartner":"Edit User Preferred",
-    "BackUserPartner":"Return to the list of preferred users"
+    "BackUserPartner":"Return to the list of preferred users",
+
+    "ClientUser":"Client user",
+
+    "RestrictedAccess":"Restricted access"
 
 
     }

@@ -15,18 +15,20 @@
 					</ul>
 				</div>
 			</section>
+
+			<div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
 			
-			<section class="container clearfix main_section">
+			<section *ngIf="admin==true" class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 				
-						
+						<div *ngIf="admin!=true" class="error"><b>Informacíon restringida</b></div>
 						<!-- main content -->
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="panel panel-default">
-									<div class="panel-heading">
+									<div *ngIf="admin==true" class="panel-heading">
 										<h4 *ngIf="admin==true" class="panel-title">{{'User.AdministrativeUser' | translate}}</h4>
-										<h4 *ngIf="admin!=true" class="panel-title">Información restringida</h4>
+										
 									</div>
 									<table *ngIf="admin==true" id="dt_basic" class="table table-striped">
 										<thead>
@@ -63,7 +65,7 @@
 											
 										</tbody>
 									</table>
-									<pagination-controls (pageChange)= "step = $event"></pagination-controls>
+									<pagination-controls *ngIf="admin==true" (pageChange)= "step = $event"></pagination-controls>
 								</div>
 							</div>
 						</div>

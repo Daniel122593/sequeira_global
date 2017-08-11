@@ -1,0 +1,55 @@
+
+.threed:hover
+{
+box-shadow:
+1px 1px #000000,
+2px 2px #000000,
+3px 3px #000000;
+-webkit-transform: translateX(-3px);
+transform: translateX(-3px);
+}
+
+
+/*Ejemplo 1*/
+.ejemplo-1 img {
+transition: all 0.2s linear;
+}
+.ejemplo-1 .mascara {
+opacity: 0;
+background-color: rgba(46,157,120, 0.7);
+transition: all 0.3s ease-in-out;
+}
+.ejemplo-1 h2 {
+transform: translateX(-200px);/*Desplazamos a la izquierda*/
+opacity: 0;
+transition: all 0.7s ease-in-out;
+}
+.ejemplo-1 p {
+transform: translateX(200px);/*Desplazamos a la derecha*/
+opacity: 0;
+transition: all 0.4s linear;
+}
+.ejemplo-1 a.linka{
+opacity: 0;
+transition: all 0.4s ease-in-out;
+transform: translateY(100px)/*Desplazamos para abajo*/
+}
+.ejemplo-1:hover img {
+transform: scale(1.1);/*Damos un ligero zoom a la imagen*/
+}
+.ejemplo-1:hover .mascara {
+opacity: 1;
+}
+.ejemplo-1:hover h2,
+.ejemplo-1:hover p,
+.ejemplo-1:hover a.linka {
+opacity: 1;
+transform: translateX(0px);/*Regresamos a las posiciones originales*/
+}
+.ejemplo-1:hover p {
+transition-delay: 0.1s;
+}
+.ejemplo-1:hover a.linka {
+transition-delay: 0.2s; /*Aplicamos un pequeño retardo para que se muestre al final*/
+transform: translateY(0px);
+}

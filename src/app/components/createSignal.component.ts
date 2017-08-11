@@ -41,7 +41,7 @@ export class CreateSignalComponent{
   
       this.signal = new Signal(0,"","","","","","","","","","","","","","","","","","","","","","","");
 
-  this.signals = db.list('/signals');
+      this.signals = db.list('/signals');
 
 
 
@@ -187,9 +187,7 @@ export class CreateSignalComponent{
 
   saveSignal(){
     
-    
 
-    
     //this.signal.date=this.signal.year+'-'+this.signal.month+'-'+this.signal.day;
     this.signal.condition_signal="Abierta";
      

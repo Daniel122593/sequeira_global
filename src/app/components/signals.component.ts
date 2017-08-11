@@ -58,4 +58,4 @@ export class SignalComponent{
 
  }//fin del metodo ngOnInit
 
-}
+}//fin de la clase

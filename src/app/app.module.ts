@@ -48,7 +48,7 @@ import { UserAdministrativeEdit } from './components/userAdministrative-edit.com
 import { FinanceComponent } from './components/finance.component';
 import { UserPartnerDetail } from './components/userPartner-detail.component';
 import { UserPartnerEdit } from './components/userPartner-edit.component';
-
+import { UserClientDetail } from './components/userClient-detail.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -94,9 +94,11 @@ export function createTranslateLoader(http: Http) {
     { path: 'finance', component: FinanceComponent},
     { path: 'user_partner-detail/:id', component: UserPartnerDetail},
     { path: 'user_partner-edit/:id', component: UserPartnerEdit},
+    { path: 'user_client-detail/:id', component: UserClientDetail},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
     ]),
+
     TranslateModule.forRoot({
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),
@@ -131,7 +133,8 @@ export function createTranslateLoader(http: Http) {
     HomeComponent,
     FinanceComponent,
     UserPartnerDetail,
-    UserPartnerEdit
+    UserPartnerEdit,
+    UserClientDetail
   ],
   providers: [
     appRoutingProviders,

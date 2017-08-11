@@ -175,7 +175,11 @@
     "CreateUserPreferent":"Crear usuario preferente",
     "NewCopyIdentityCard":"Nueva copia de cedula de identidad",
     "EditUserPartner":"Editar Usuario Preferente",
-    "BackUserPartner":"Volver a lista de usuarios preferentes"
+    "BackUserPartner":"Volver a lista de usuarios preferentes",
+
+    "ClientUser":"Usuario cliente",
+
+    "RestrictedAccess":"Accesso restringido"
 
     
 

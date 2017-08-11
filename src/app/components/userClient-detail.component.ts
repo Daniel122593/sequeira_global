@@ -1,61 +1,63 @@
 import { Component } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {ServicesInfo} from '../services/services_info.services';
-import {User_partner} from '../models/user_partner';
+import {UserClient} from '../models/user_client';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   
-    selector: 'user_partner-detail',
-    templateUrl: '../views/user_partner-detail.html',
+    selector: 'user_client-detail',
+    templateUrl: '../views/userClient-detail.html',
     providers:[ServicesInfo]
 
 	})
 
 
-export class UserPartnerDetail{
 
- public user_partner = User_partner;
+export class UserClientDetail{
+
+ 
+ public user_client = UserClient;
  public admin;
 
-
-
+  
  constructor(private _services: ServicesInfo, private _route: ActivatedRoute,
 
  private _router: Router, private auth: AngularFireAuth, private db: AngularFireDatabase){
    
-   //este metodo me muestra los datos del usuario actualmente conectado  
+     //este metodo me muestra los datos del usuario actualmente conectado  
       this.auth.authState.subscribe(data =>{
            console.log(data.email);
            //console.log(data.password);
            this.verificarAdmin(data.email);
 
         })
-  
+
  }//fin del metodo constructor
- 
 
  ngOnInit(){
 
-  this.getUserPartner();
+ this.getUserClient();
 
- }//fin del metodo 
 
- getUserPartner(){
+ }//fin del metodo ngOnInit
+
+ getUserClient(){
 
    this._route.params.forEach((params:Params) => {
           
          //con esto capturo el id de la URL 
       		 let id= params['id'];
- 
- this._services.getUserPartnerDetail(id).subscribe(
+             
+          
+ this._services.getClientDetail(id).subscribe(
 
                response => {
                  
                   if(response.code==200){
 
-                  	   this.user_partner = response.data;
+                  	   this.user_client = response.data;
                        
 
                   	}else{
@@ -65,7 +67,7 @@ export class UserPartnerDetail{
                   	}//fin del else
             
 
-                    },
+               },
 
                error =>{
 
@@ -73,13 +75,14 @@ export class UserPartnerDetail{
 
                }//fin del error
 
-      	 	   );//fin del subscribe
+      	 	);//fin del subscribe
 
 
-               });
+      		  });
 
 
-  }//fin del metodo getUserPartner
+ }//fin del metodo getUserAnalyst
+
 
 
 
@@ -126,5 +129,11 @@ export class UserPartnerDetail{
 
  }//fin del metodo verificarAdmin
 
- 
+
+
+
+
+
+
+
 }//fin de la clase

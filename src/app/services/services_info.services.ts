@@ -25,7 +25,7 @@ public _http: Http
 
  this.url = GLOBAL.url;
 
-	}
+	}//fin del constructor
 
 
  //metodo para obtener a todos los usuarios administradores
@@ -45,7 +45,6 @@ addSignal(signal:Signal){
  
  return this._http.post(this.url+'signal', params, {headers: headers})
                    .map(res => res.json()); 
-
 
 }//fin del metodo addSignal
 
@@ -322,7 +321,25 @@ addUserClient(user_client:UserClient[]){
                    .map(res => res.json()); 
 
 
-}//fin del metodo addSignal
+}//fin del metodo addUserClient
+
+
+//metodo para obtener a todos los usuarios clientes
+getUserClient(){
+
+ return this._http.get(this.url+'user_client').map(res =>res.json());
+
+}//fin del metodo getSignal
+
+
+//muestra el detalle de un cliente en especifico
+getClientDetail(id){
+  
+  return this._http.get(this.url+'user_client/'+id).map(res =>res.json());
+
+}//fin del metodo getClientDetail
+
+
 
 }//fin de la clase
 

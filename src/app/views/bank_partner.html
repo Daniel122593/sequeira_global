@@ -1,7 +1,9 @@
-					
-<br><br><br><br>
+<link rel="stylesheet" href="assets/css/style.css">				
 
-					<div class="row">
+<br><br><br><br>
+                    <div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
+				
+					<div *ngIf="admin==true" class="row">
 
 					  <form #formBankPartner="ngForm" class="ngForm" (ngSubmit)="onSubmitBankPartner()" >
 							<div class="col-sm-12">

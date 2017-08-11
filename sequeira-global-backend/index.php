@@ -114,7 +114,7 @@ $app->get('/signalMonth', function() use($db, $app){
 
 
 	$sql = 'SELECT * FROM signal_app WHERE year="'.$anno.'" AND 
-	 month="'.$mes.'"';
+	 month="'.$mes.'" ORDER BY id DESC';
 	$query = $db->query($sql);
 
 	$signal_array = array();
@@ -141,7 +141,7 @@ $app->get('/signalAll', function() use($db, $app){
 	$mes=(String)
 
 
-	$sql = 'SELECT * FROM signal_app';
+	$sql = 'SELECT * FROM signal_app ORDER BY id DESC';
 	$query = $db->query($sql);
 
 	$signal_array = array();
@@ -331,7 +331,7 @@ $app->post('/signal', function() use($app, $db){
 		$result = array(
 			'status' => 'success',
 			'code'	 => 200,
-			'message' => 'Producto creado correctamente'
+			'message' => 'Signal creada correctamente'
 		);
 	}
 
@@ -918,42 +918,19 @@ $app->post('/user_client', function() use($app, $db){
 	for($i=0;$i<count($data);$i++){
 
 	$data[$i] = (object) $data[$i];
+    
   
-       if($data[$i]->Name==""){
-         
-         $data[$i]->Name="Daniel";
+                                                                            
+    $sql='SELECT email_client from user_client WHERE email_client="'.$data[$i]->Email.'"';
+    $queryEmail = $db->query($sql);
 
-       }
+    //$email= $queryEmail->fetch_assoc();
+    
+    if($queryEmail->num_rows == 1){
+      
 
-        if($data[$i]->Email==""){
-         
-         $data[$i]->Email="Daniel";
 
-       }
-
-        if($data[$i]->ReferCode==""){
-         
-         $data[$i]->ReferCode="Daniel";
-
-       }
-
-        if($data[$i]->Country==""){
-         
-         $data[$i]->Country="Daniel";
-
-       }
-
-        if($data[$i]->Telephone==""){
-         
-         $data[$i]->Telephone="Daniel";
-
-       }
-
-        if($data[$i]->Date==""){
-         
-         $data[$i]->Date="Daniel";
-
-       }
+ } else {
 
 
 	$query = "INSERT INTO user_client VALUES(NULL,".
@@ -968,8 +945,61 @@ $app->post('/user_client', function() use($app, $db){
 
 	      $insert = $db->query($query);
 
+
+ }//fin del else
+
 	}//fin del for
 
+});
+
+
+
+
+//LISTAR TODOS LOS USUARIOS CLIENTES
+$app->get('/user_client', function() use($db, $app){
+
+
+	$sql = 'SELECT * FROM user_client ORDER BY id DESC';
+	$query = $db->query($sql);
+
+	$user_array = array();
+	while ($user = $query->fetch_assoc()) {
+		$user_array[] = $user;
+	}
+
+	$result = array(
+			'status' => 'success',
+			'code'	 => 200,
+			'data' => $user_array
+		);
+
+	echo json_encode($result);
+});
+
+
+// MOSTRAR EL DETALLE DE UN CLIENTE EN ESPECIFICO
+$app->get('/user_client/:id', function($id) use($db, $app){
+	$sql = 'SELECT * FROM user_client WHERE id = '.$id;
+	$query = $db->query($sql);
+
+	$result = array(
+		'status' 	=> 'error',
+		'code'		=> 404,
+		'message' 	=> 'User no disponible'
+	);
+
+	if($query->num_rows == 1){
+		$user_client = $query->fetch_assoc();
+
+		$result = array(
+			'status' 	=> 'success',
+			'code'		=> 200,
+			'data' 	=> $user_client
+		);
+
+	}//fin del if
+
+	echo json_encode($result);
 });
 
 $app->run();

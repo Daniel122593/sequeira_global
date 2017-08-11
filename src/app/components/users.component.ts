@@ -27,7 +27,8 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
       
        //este metodo me muestra los datos del usuario actualmente conectado  
       this.auth.authState.subscribe(data =>{
-           
+           console.log(data.email);
+           //console.log(data.password);
            this.verificarAdmin(data.email);
 
         })
@@ -65,9 +66,7 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
  }//fin del metodo ngOnInit
  
 
-
-
-
+//verifica que tipo de usuario es el que esta actualmente conectado
  verificarAdmin(email:string){
   
    this.db.list('/administrative', {
@@ -109,7 +108,9 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
    }).closed;//fin del subscribe
 
  }//fin del metodo verificarAdmin
+  
 
+ 
 
 }//fin de la clase 
 

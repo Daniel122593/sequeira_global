@@ -6,6 +6,7 @@ import {GLOBAL} from '../services/global';
 import {AngularFireDatabase } from 'angularfire2/database';
 import {FirebaseListObservable } from 'angularfire2/database';
 import {AuthService} from '../auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 @Component ({
@@ -16,26 +17,36 @@ import {AuthService} from '../auth.service';
 
 	})
 
-
 export class CreateUserAnalyst{
 
 public user_analyst: UserAnalyst;
 public filesToUpload;
 public resultUpload;
+public email_auth;
+public admin;
 
 userWeb:FirebaseListObservable<any>;
 analyst:FirebaseListObservable<any>;
 
-
 constructor(private _services: ServicesInfo, private _route: ActivatedRoute,
 
-        private _router: Router, public db:AngularFireDatabase, public authService:AuthService){
+        private _router: Router, public db:AngularFireDatabase, public authService:AuthService, private auth: AngularFireAuth){
 
       
 this.user_analyst = new UserAnalyst(0,"","","","","","","","","","");
  
 this.userWeb = db.list('/userWeb');
 this.analyst = db.list('/analyst');
+
+ //este metodo me muestra los datos del usuario actualmente conectado  
+      this.auth.authState.subscribe(data =>{
+           console.log(data.email);
+           //console.log(data.password);
+           this.verificarAdmin(data.email);
+
+        })
+ //este metodo me muestra los datos del usuario actualmente conectado  
+      
 
   }//fin del constructor
 
@@ -120,15 +131,13 @@ saveUser_analyst(){
               
               });
 
-
        this.analyst.push({
              
-              email_analyst: this.user_analyst.email_analyst,
-              password_analyst : this.user_analyst.email_analyst
+              email_analyst: this.user_analyst.email_analyst
               
               });
 
-
+     
 }//fin del metodo saveUser_analyst
 
 
@@ -143,7 +152,48 @@ saveUser_analyst(){
 
 
 
+//verifica que tipo de usuario es el que esta actualmente conectado
+ verificarAdmin(email:string){
+  
+   this.db.list('/administrative', {
+      query: {
 
+        indexOn: 'email_administrative',
+        orderByChild: 'email_administrative',
+        equalTo: email
+      
+      }
+
+    }).subscribe(snapshot => {
+ 
+     var administrative_length = snapshot.length;
+
+     if(administrative_length>=1){ 
+
+         for(let user of snapshot){
+          
+             if(user.email_administrative){
+               
+               this.admin=true;
+
+              }else{
+              
+               this.admin=false;
+
+              }
+
+          }//fin del for
+       
+
+      }//fin del if
+
+       else{
+
+       }
+
+   }).closed;//fin del subscribe
+
+ }//fin del metodo verificarAdmin
 
 
 }//fin de la clase

@@ -22,11 +22,11 @@
   margin-right: auto;
   margin-left: auto;
   border: 12px solid transparent;
-  border-bottom-color: #e31a8f;
+  border-bottom-color: #5e42a6;
 }
 
 .login-header {
-  background: #e31a8f;
+  background: #5e42a6;
   padding: 20px;
   font-size: 1.4em;
   font-weight: normal;
@@ -65,18 +65,20 @@
 .login input[type="email"],
 .login input[type="password"] {
   background: #fff;
-  border-color: #bbb;
-  color: #555;
+  border-color: #5e42a6;
+  color: #000000;
 }
 
 /* Text fields' focus effect */
-.login input[type="email"]:focus,
+.login input[type="email"]:focus{
+   border-color: #5e42a6;
+  },
 .login input[type="password"]:focus {
-  border-color: #888;
+  border-color: #5e42a6;
 }
 
 .login button {
-  background: #e31a8f;
+  background: #5e42a6;
   border-color: transparent;
   color: #fff;
   cursor: pointer;
@@ -87,10 +89,10 @@
 }
 
 .login button:hover {
-  background: #e31a8f;
+  background: #5e42a6;
 }
 
 /* Buttons' focus effect */
 .login button:focus {
-  border-color: #e31a8f;
+  border-color: #5e42a6;
 }

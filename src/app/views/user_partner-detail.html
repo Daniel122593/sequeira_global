@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="assets/css/style.css">
-
+<link rel="stylesheet" href="assets/style_img.css">
 <br><br>
 
 <style type="text/css">
@@ -26,7 +26,7 @@ display: inline;
 				<div class="container">
 					<ul>
 						
-						<li><a [routerLink]="['/preferredUser']">{{'User.BackUserPartner' | translate}}</a></li>	
+						<li><a *ngIf="admin==true" [routerLink]="['/preferredUser']">{{'User.BackUserPartner' | translate}}</a></li>	
 
 					</ul>
 				
@@ -34,8 +34,9 @@ display: inline;
 				</div>
 			</section>
 
+<div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
 
-<section class="container clearfix main_section">
+<section *ngIf="admin==true" class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 					<div id="">
 						<form #formUser_partner="ngForm" (ngSubmit)="onSubmitUserPartner()">
@@ -164,34 +165,7 @@ display: inline;
 											<td><input type="date" #date_end_partner="ngModel" name="date_end_partner" [(ngModel)]="user_partner.date_end_partner" class="form-control"></td>
 										</tr>
 
-		
-										<!--<tr>
-											<td>Foto de cedula</td>
-											<td>
-												<div class="row">
-												<div class="col-sm-6">
-													<div class="fileupload fileupload-new" data-provides="fileupload">
-														<div class="input-group">
-															<div class="form-control">
-																<i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span>
-															</div>
-															<div class="input-group-btn">
-																<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
-																<span class="btn btn-default btn-file">
-																	<span class="fileupload-new">Select file</span>
-																	<span class="fileupload-exists">Change</span>
-																	<input type="file" />
-																</span>
-															</div>
-														</div>
-													</div>  
-												</div>
-											</td>
-										</tr>-->
-										
-										
-                                            
-										
+			
 									</table>
 									
 								</div>
@@ -203,14 +177,18 @@ display: inline;
 					<br><br>
 					        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{'User.CopyIdentityCard' | translate}}
-					        <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{user_partner.img_identity_partner}} " style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;"/><br><br>
+
+					        <br><br><div class="contenedora-img ejemplo-1">
+					        <img src="http://localhost/sequeira-global-backend/uploads/{{user_partner.img_identity_partner}} " class="threed" style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;"/><br><br></div>
 
 					        <hr>
+
 
 		                    <br><br>
 					        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{'User.CopyReceipt' | translate}}
-					        <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{user_partner.img_voucher_partner}} " style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;"/>
+					        <br><br><div class="contenedora-img ejemplo-1">
+					        <img src="http://localhost/sequeira-global-backend/uploads/{{user_partner.img_voucher_partner}} " class="threed" style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;"/></div>
 						
 					  </form>
 				

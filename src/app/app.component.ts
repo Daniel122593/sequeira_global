@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
-
 import {AuthService} from './auth.service';
 import {AngularFireDatabase } from 'angularfire2/database';
 import {FirebaseListObservable } from 'angularfire2/database';
@@ -21,7 +20,6 @@ export class AppComponent {
   password:string;
   users:FirebaseListObservable<any>;
   public admin;
-
 
    
   constructor(private translate: TranslateService, private activatedRoute: ActivatedRoute, public authService:AuthService,
@@ -49,14 +47,10 @@ export class AppComponent {
       });
      
      
-
-       
      //console.log(this.users);
   }//fin del ngOnInit
  
     
-
-
   login(){
      this.authService.login(this.email, this.password);
      this.password = "";

@@ -17,7 +17,6 @@ export class AuthService {
   private _router:Router) {
      
        this.user = firebaseAuth.authState;
-       
        this.analyst = db.list('/analyst');
        this.userWeb = db.list('/userWeb');
        
@@ -30,21 +29,25 @@ export class AuthService {
   .auth
   .createUserWithEmailAndPassword(email, password)
   .then( value => {
-     
+      
       this.analyst.push({
               email_analyst: email,
               password_analyst: password
              
-              });
-       
+              }); 
+         alert("Por seguridad debera loguearse nuevamente / For security you should login again");
+         this.logout();
       console.log('success!', value);
+
   })
   .catch(err => {
 
        console.log("Error en autenticación");
   	});
-
+  
+ 
  }//fin del signup
+
 
 
 login(email:string, password:string){

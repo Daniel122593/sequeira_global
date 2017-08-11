@@ -6,13 +6,13 @@
 				<div class="container">
 					<ul>
 						
-						<li><a [routerLink]="['/userAnalyst']">{{'User.PartnerBack' | translate}}</a></li>					
+						<li><a *ngIf="admin==true" [routerLink]="['/userAnalyst']">{{'User.PartnerBack' | translate}}</a></li>					
 					</ul>
 				</div>
 			</section>
  
-
-<section class="container clearfix main_section">
+<div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
+<section *ngIf="admin==true" class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 					 
 					 <form #formUserAnalyst ="ngForm" (ngSubmit)="onSubmitAnalyst()">
@@ -28,18 +28,23 @@
 
 										<tr>
 											<td>{{'User.IdentityCard' | translate}}</td>
-											<td><input type="text" #identityCard_analyst="ngModel"  name="identityCard_analyst" [(ngModel)]="user_analyst.identityCard_analyst" class="form-control"></td>
+											<td><input type="text" #identityCard_analyst="ngModel"  name="identityCard_analyst" [(ngModel)]="user_analyst.identityCard_analyst" class="form-control" disabled ></td>
 										</tr>
 
 										<tr>
 											<td>{{'User.Name' | translate}}</td>
-											<td><input type="text" #name_analyst="ngModel"  name="name_analyst" [(ngModel)]="user_analyst.name_analyst" class="form-control"></td>
+											<td><input type="text" #name_analyst="ngModel"  name="name_analyst" [(ngModel)]="user_analyst.name_analyst" class="form-control" disabled ></td>
 										</tr>
 
 										<tr>
 											<td>{{'User.Email' | translate}}</td>
-											<td><input type="text" #email_analyst="ngModel"  name="email_analyst" [(ngModel)]="user_analyst.email_analyst" class="form-control"></td>
+											<td><input type="text" #email_analyst="ngModel"  name="email_analyst" [(ngModel)]="user_analyst.email_analyst" class="form-control" disabled ></td>
 										</tr>
+
+										<tr>
+											<td>{{'Signal.Date' | translate}}</td>
+											<td><input type="date" #date_analyst="ngModel"  name="date_analyst" [(ngModel)]="user_analyst.date_analyst" class="form-control" disabled ></td>
+                                        </tr>
 
 										
 
@@ -64,10 +69,7 @@
 											<td><input type="text" #address_analyst="ngModel"  name="address_analyst" [(ngModel)]="user_analyst.address_analyst" class="form-control"></td>
 										</tr>
 										
-										<tr>
-											<td>{{'Signal.Date' | translate}}</td>
-											<td><input type="date" #date_analyst="ngModel"  name="date_analyst" [(ngModel)]="user_analyst.date_analyst" class="form-control"></td>
-                                        </tr>
+										
                                        
 									</table>
 								</div>
@@ -78,7 +80,23 @@
 						<br><br>
 					        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 					         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{'User.ProfilePicture' | translate}}
-					        <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{user_analyst.profile_picture_analyst}} " style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;" />
+					        <br><br><img src="http://localhost/sequeira-global-backend/uploads/{{user_analyst.profile_picture_analyst}} " style="width:30%; height: 180px; margin-left: 330px; border-radius: 10px;" /><br><br><br><br>
+
+
+
+										{{'User.NewCopyIdentityCard' | translate}}
+										
+												<div class="row"><br>
+												<div class="col-sm-6">
+												<input type="file" class="form-control" (change)="fileChangeEvent($event)"><br><br>
+												</div>
+												</div>
+
+					        <hr>
+
+
+					        <input type="submit" value="{{'User.EditUserPartner' | translate}}" style="margin-left: 420px;">
+
 						</form>		
 					</div>
 			

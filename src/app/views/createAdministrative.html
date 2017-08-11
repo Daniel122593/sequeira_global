@@ -1,11 +1,14 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
+
+
 <br><br>
+
 
 
 <nav id="mobile_navigation"></nav>
 			
-			<section id="breadcrumbs">
+			<section id="breadcrumbs" *ngIf="admin==true">
 				<div class="container">
 					<ul>
 						
@@ -23,7 +26,10 @@
 
 
 
-<section class="container clearfix main_section">
+<div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
+
+
+<section class="container clearfix main_section" *ngIf="admin==true">
 				<div id="main_content_outer" class="clearfix">
 					<div id="">
 						<form #formUser_administrative="ngForm" (ngSubmit)="onSubmitUserAdministrative()">

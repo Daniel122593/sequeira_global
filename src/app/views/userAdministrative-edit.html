@@ -9,22 +9,19 @@
 				<div class="container">
 					<ul>
 						
-						<li><a [routerLink]="['/users']">{{'User.AdministrativeUser' | translate}}</a></li>	
-						<li><a [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
-						<li><a [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
-						<li><a [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>
+						<li><a *ngIf="admin==true" [routerLink]="['/users']">{{'User.AdministrativeUser' | translate}}</a></li>	
+						<li><a *ngIf="admin==true" [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
+						<li><a *ngIf="admin==true" [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
+						<li><a *ngIf="admin==true" [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>
 
 					</ul>
 				
                   
 				</div>
 			</section>
-
-
-
-
-<section class="container clearfix main_section">
-				<div id="main_content_outer" class="clearfix">
+ <div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
+ <section *ngIf="admin==true" class="container clearfix main_section">
+				<div id="main_content_outer" class= bh"clearfix">
 					<div id="">
 						<form #formUser_administrative="ngForm" (ngSubmit)="onSubmitUserAdministrative()">
 						<!-- main content -->
@@ -111,5 +108,4 @@
 				
 					</div>
 				
-				</div>
 			</section>
