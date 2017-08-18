@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/style_img.css">
 
 <br><br>
 
@@ -21,7 +22,7 @@
 			</section>
  <div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
  <section *ngIf="admin==true" class="container clearfix main_section">
-				<div id="main_content_outer" class= bh"clearfix">
+				<div id="main_content_outer" class="clearfix">
 					<div id="">
 						<form #formUser_administrative="ngForm" (ngSubmit)="onSubmitUserAdministrative()">
 						<!-- main content -->
@@ -106,6 +107,7 @@
 						
 					  </form>
 				
+					</div>
 					</div>
 				
 			</section>

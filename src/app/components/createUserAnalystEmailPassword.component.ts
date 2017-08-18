@@ -18,12 +18,5 @@ constructor(private activatedRoute: ActivatedRoute, public authService:AuthServi
 }//fin del metodo
 
 //metodo para crear usuarios analistas de la applicacion
-signup(){
-
-this.authService.signup(this.email, this.password);
-this.email=this.password = '';
-
-}//fin del metodo singup
-
 
 }//fin de la clase CreateUserAnalystEmailPassword

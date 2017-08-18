@@ -1,0 +1,192 @@
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style type="text/css">
+	
+span{
+
+color: blue;
+
+}
+</style>
+
+<br><br>
+<nav id="mobile_navigation"></nav>
+			
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+                        <li><a *ngIf="admin==true" [routerLink]="['/users']">{{'User.AdministrativeUser' | translate}}</a></li>	
+						<li><a *ngIf="admin==true" [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
+						<li><a *ngIf="admin==true" [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>						
+					
+					</ul>
+				</div>
+			</section>
+
+
+
+
+<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					
+						
+						<!-- main content -->
+						<div class="row">
+							<div class="col-sm-12">
+							 <!--muestra la cantidad de usuarios miembros de la red de este usuario en especifico-->
+							 <div  class="cantidad">La cantidad de usuarios en la red de mercado es de {{cant_total_member}} del cliente {{name_client_actual}}<b></b></div>
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{name_client_actual}} | Sus referencias | Linea 1 | Cantidad de usuarios {{cantLine1}}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										<thead>
+											<tr>
+												<th>Nombre</th>
+												<th>Correo electrónico</th>
+												<th>Codigo referido</th>
+												
+											
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor=" let lineaNumero1 of linea1">
+									     	<td><a>{{lineaNumero1.Name}}</a></td>
+											<td>{{lineaNumero1.Email}}</td>
+											<td>{{lineaNumero1.Reference}}</td>
+											
+										    </tr>
+	
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+
+						
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{name_client_actual}} | Sus referencias | Linea 2 | Cantidad de usuarios {{cantLine2}}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										<thead>
+											<tr>
+												<th>Nombre</th>
+												<th>Correo electrónico</th>
+												<th>Codigo referido</th>
+												
+											
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor=" let lineaNumero2 of linea2">
+									     	<td><a>{{lineaNumero2.Name}}</a></td>
+											<td>{{lineaNumero2.Email}}</td>
+											<td>{{lineaNumero2.Reference}}</td>
+											
+										    </tr>
+	
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+
+						
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{name_client_actual}} | Sus referencias | Linea 3 | Cantidad de usuarios {{cantLine3}}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										<thead>
+											<tr>
+												<th>Nombre</th>
+												<th>Correo electrónico</th>
+												<th>Codigo referido</th>
+												
+											
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor=" let lineaNumero3 of linea3">
+									     	<td><a>{{lineaNumero3.Name}}</a></td>
+											<td>{{lineaNumero3.Email}}</td>
+											<td>{{lineaNumero3.Reference}}</td>
+											
+										    </tr>
+	
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{name_client_actual}} | Sus referencias | Linea 4 | Cantidad de usuarios {{cantLine4}}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										<thead>
+											<tr>
+												<th>Nombre</th>
+												<th>Correo electrónico</th>
+												<th>Codigo referido</th>
+												
+											
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor=" let lineaNumero4 of linea4">
+									     	<td><a>{{lineaNumero4.Name}}</a></td>
+											<td>{{lineaNumero4.Email}}</td>
+											<td>{{lineaNumero4.Reference}}</td>
+											
+										    </tr>
+	
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+                       
+                            <div class="row">
+							<div class="col-sm-12">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">{{name_client_actual}} | Sus referencias | Linea 5 | Cantidad de usuarios {{cantLine5}}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										<thead>
+											<tr>
+												<th>Nombre</th>
+												<th>Correo electrónico</th>
+												<th>Codigo referido</th>
+ 	
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor=" let lineaNumero5 of linea5">
+									     	<td><a>{{lineaNumero5.Name}}</a></td>
+											<td>{{lineaNumero5.Email}}</td>
+											<td>{{lineaNumero5.Reference}}</td>
+											
+										 </tr>
+	
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+				</div>
+			
+	</section>

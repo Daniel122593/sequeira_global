@@ -37,6 +37,7 @@
 												<th>{{'User.Telephone' | translate}}</th>
 												<th>{{'User.Country' | translate}}</th>
 												<th>{{'Signal.Date' | translate}}</th>
+												<th>Ver red de mercado</th>
 											
 											</tr>
 										</thead>
@@ -47,8 +48,9 @@
 											<td>{{userClient.email_client}}</td>
 											<td>{{userClient.telephone_client}}</td>
 											<td>{{userClient.country_client}}</td>
-											<td>{{userClient.date_client}}</td>
-										
+											<td>{{userClient.date_client}}</td> 
+											<td><a [routerLink]="['/userMember',userClient.referCode_client,userClient.name_client]">Ir a red</a></td>
+
 											</tr>
 											
 								

@@ -36,7 +36,7 @@ constructor(
         ){
  
      
-            this.user_analyst = new UserAnalyst(0,"","","","","","","","","","");
+            this.user_analyst = new UserAnalyst(0,"","","","","","","","","","","");
 
             this.is_edit=true;
         

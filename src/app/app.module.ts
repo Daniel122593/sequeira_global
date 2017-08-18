@@ -49,11 +49,11 @@ import { FinanceComponent } from './components/finance.component';
 import { UserPartnerDetail } from './components/userPartner-detail.component';
 import { UserPartnerEdit } from './components/userPartner-edit.component';
 import { UserClientDetail } from './components/userClient-detail.component';
+import { UserMember } from './components/userMember.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
-
 
 
 @NgModule({
@@ -95,6 +95,7 @@ export function createTranslateLoader(http: Http) {
     { path: 'user_partner-detail/:id', component: UserPartnerDetail},
     { path: 'user_partner-edit/:id', component: UserPartnerEdit},
     { path: 'user_client-detail/:id', component: UserClientDetail},
+    { path: 'userMember/:referCode_client/:name_client', component: UserMember},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
     ]),
@@ -134,7 +135,8 @@ export function createTranslateLoader(http: Http) {
     FinanceComponent,
     UserPartnerDetail,
     UserPartnerEdit,
-    UserClientDetail
+    UserClientDetail,
+    UserMember
   ],
   providers: [
     appRoutingProviders,

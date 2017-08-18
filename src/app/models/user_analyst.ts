@@ -12,8 +12,8 @@ constructor(
  public country_analyst:string,
  public telephone_analyst: string,
  public date_analyst:string,
- public profile_picture_analyst:string
- 
+ public profile_picture_analyst:string,
+ public confirmPassword:string
  ){
  
 }//fin del constructor

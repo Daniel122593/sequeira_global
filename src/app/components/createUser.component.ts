@@ -18,10 +18,12 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 
 export class CreateUser {
-   
+  
+  analyst:FirebaseListObservable<any>;
   public user_analyst: UserAnalyst;
   public admin;
-  analyst:FirebaseListObservable<any>;
+  public presentEmail;
+  
 
   constructor(private _services: ServicesInfo, private activatedRoute: ActivatedRoute, private _router: Router, private db:AngularFireDatabase,  private auth: AngularFireAuth){
      
@@ -29,11 +31,12 @@ export class CreateUser {
       this.auth.authState.subscribe(data =>{
            console.log(data.email);
            //console.log(data.password);
+           this.presentEmail=data.email;
            this.verificarAdmin(data.email);
 
         })
      
-   this.user_analyst = new UserAnalyst(0,"","","","","","","","","","");
+   this.user_analyst = new UserAnalyst(0,"","","","","","","","","","","");
 
     db.list('/analyst').subscribe(snapshot => {
           for (let user of snapshot){

@@ -9,7 +9,6 @@ box-shadow:
 transform: translateX(-3px);
 }
 
-
 /*Ejemplo 1*/
 .ejemplo-1 img {
 transition: all 0.2s linear;
@@ -50,6 +49,6 @@ transform: translateX(0px);/*Regresamos a las posiciones originales*/
 transition-delay: 0.1s;
 }
 .ejemplo-1:hover a.linka {
-transition-delay: 0.2s; /*Aplicamos un pequeño retardo para que se muestre al final*/
+transition-delay: 0.1s; /*Aplicamos un pequeño retardo para que se muestre al final*/
 transform: translateY(0px);
 }

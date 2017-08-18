@@ -21,6 +21,7 @@ public user_administrative: User_administrative;
 public filesToUpload;
 public resultUpload;
 public admin;
+public presentEmail;
 
 userWeb:FirebaseListObservable<any>;
 administrative:FirebaseListObservable<any>; 
@@ -30,14 +31,14 @@ administrative:FirebaseListObservable<any>;
         private _router: Router, public db:AngularFireDatabase, public authService:AuthService, private auth: AngularFireAuth){
 
       
-this.user_administrative = new User_administrative(0,"","","","","","","","","","");
+this.user_administrative = new User_administrative(0,"","","","","","","","","","","");
  
 this.userWeb = db.list('/userWeb');
 this.administrative = db.list('/administrative');
 
 this.auth.authState.subscribe(data =>{
            console.log(data.email);
-           //console.log(data.password);
+           this.presentEmail=data.email;
            this.verificarAdmin(data.email);
 
         })
@@ -106,7 +107,7 @@ saveUser_administrative(){
 
  	);
       
-       this.authService.signup(this.user_administrative.email_administrative, this.user_administrative.password_administrative);
+       this.authService.signup(this.user_administrative.email_administrative, this.user_administrative.password_administrative, this.presentEmail, this.user_administrative.confirmPassword);
 
        this.userWeb.push({
              
@@ -144,7 +145,6 @@ saveUser_administrative(){
         indexOn: 'email_administrative',
         orderByChild: 'email_administrative',
         equalTo: email
-      
       }
 
     }).subscribe(snapshot => {

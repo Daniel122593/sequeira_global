@@ -32,6 +32,16 @@ export class UserPartnerDetail{
            this.verificarAdmin(data.email);
 
         })
+
+this._route.params.forEach((params:Params) => {
+          
+         //con esto capturo el id de la URL 
+           let id= params['id'];
+           alert(id);
+
+
+               });
+
   
  }//fin del metodo constructor
  
@@ -56,7 +66,7 @@ export class UserPartnerDetail{
                   if(response.code==200){
 
                   	   this.user_partner = response.data;
-                       
+                       console.log(this.user_partner);
 
                   	}else{
 

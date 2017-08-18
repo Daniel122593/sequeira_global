@@ -112,7 +112,7 @@ this._services.getUserClient().subscribe(
  	}else{
       
       this.userClient_array=result.data;
-
+      console.log(this.userClient_array);
  	}//fin del else
 
 
@@ -128,8 +128,6 @@ this._services.getUserClient().subscribe(
 
     }//fin del metodo getUserClient
      
-
-
 
 //verifica que tipo de usuario es el que esta actualmente conectado
  verificarAdmin(email:string){

@@ -23,29 +23,77 @@ export class AuthService {
   }//fin del constructor
    
 
- signup(email:string, password:string){
+ signup(email:string, password:string, presentEmail:string, presentPassword:string){
+
+ 
+
+this.firebaseAuth
+  .auth
+  .signInWithEmailAndPassword(presentEmail, presentPassword)
+  .then( value => {
+       
+   console.log(value);
+         
+     
+   
+     this.db.list('/userWeb', {
+      query: {
+
+        indexOn: 'EmailAdministrative',
+        orderByChild: 'EmailAdministrative',
+        equalTo: presentEmail
+      
+      }//fin del query
+
+    }).subscribe(snapshot => {
+
+     var user_length = snapshot.length;
+
+     if(user_length>=1){ 
+
+      
+    //al comprobar que existe el user se agrega el nuevo usuario
 
   this.firebaseAuth
   .auth
   .createUserWithEmailAndPassword(email, password)
   .then( value => {
       
-      this.analyst.push({
-              email_analyst: email,
-              password_analyst: password
-             
-              }); 
-         alert("Por seguridad debera loguearse nuevamente / For security you should login again");
-         this.logout();
+    this.login(presentEmail, presentPassword);
+
+        // alert("Por seguridad debera loguearse nuevamente / For security you should login again");
+         //this.logout();
       console.log('success!', value);
 
   })
   .catch(err => {
 
        console.log("Error en autenticación");
-  	});
-  
- 
+    });
+
+
+
+      }else{
+
+        this.logout();
+
+        }//fin del else
+
+        }).closed;
+
+
+
+      console.log('success!', value);
+  })
+  .catch(err => {
+
+       alert("Contraseña incorrecta. / Incorrect password.");
+    });
+
+
+
+
+
  }//fin del signup
 
 
@@ -98,7 +146,8 @@ login(email:string, password:string){
   	});
 
  }//fin del login
-
+ 
+ 
  logout(){
   
   this.firebaseAuth

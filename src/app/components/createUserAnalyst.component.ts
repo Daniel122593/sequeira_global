@@ -22,7 +22,7 @@ export class CreateUserAnalyst{
 public user_analyst: UserAnalyst;
 public filesToUpload;
 public resultUpload;
-public email_auth;
+public present_email;
 public admin;
 
 userWeb:FirebaseListObservable<any>;
@@ -33,7 +33,7 @@ constructor(private _services: ServicesInfo, private _route: ActivatedRoute,
         private _router: Router, public db:AngularFireDatabase, public authService:AuthService, private auth: AngularFireAuth){
 
       
-this.user_analyst = new UserAnalyst(0,"","","","","","","","","","");
+this.user_analyst = new UserAnalyst(0,"","","","","","","","","","","");
  
 this.userWeb = db.list('/userWeb');
 this.analyst = db.list('/analyst');
@@ -42,6 +42,7 @@ this.analyst = db.list('/analyst');
       this.auth.authState.subscribe(data =>{
            console.log(data.email);
            //console.log(data.password);
+           this.present_email=data.email;
            this.verificarAdmin(data.email);
 
         })
@@ -121,7 +122,7 @@ saveUser_analyst(){
 
  	);
       
-       this.authService.signup(this.user_analyst.email_analyst, this.user_analyst.password_analyst);
+       this.authService.signup(this.user_analyst.email_analyst, this.user_analyst.password_analyst, this.present_email, this.user_analyst.confirmPassword);
          
          //agregar en firebase para saber que este usuario puede entrar en la aplicacion
 

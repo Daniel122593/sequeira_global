@@ -1001,7 +1001,7 @@
 			.search_item_body {clear:both}
 		}
 		
-.info, .correcto, .ojo, .error, .validation {
+.info, .correcto, .ojo, .error, .validation, .cantidad {
     border: 1px solid;
     margin: 10px 0px;
     padding:15px 10px 15px 50px;
@@ -1035,6 +1035,14 @@
     background-image: url('imagenes/error.jpg');
 }
 
+.cantidad{
+color: #ffffff;
+background-color:#5e42a6;
+font-size: 17px;
+text-align: center;
+}
+
+
 
 input[type="submit"] {
  background-color: #5e42a6;
@@ -1043,11 +1051,13 @@ input[type="submit"] {
  width: 110px;
  border: 2px solid #5e42a6;
  margin-left:150px;
+ width: 25%;
 }
 
 input[type="submit"]:hover {
  background: rgba(0,0,0,0);
  color: #3a7999;
  box-shadow: inset 0 0 0 3px white;
+ width: 25%;
 }
 

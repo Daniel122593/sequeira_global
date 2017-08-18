@@ -13,6 +13,7 @@ constructor(
  public telephone_administrative: string,
  public date_administrative:string,
  public profile_picture_administrative:string,
+ public confirmPassword:string
 	){
  
 

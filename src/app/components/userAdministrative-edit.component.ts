@@ -41,7 +41,7 @@ constructor(
            this.verificarAdmin(data.email);
 
         })
-            this.user_administrative = new User_administrative(0,"","","","","","","","","","");
+            this.user_administrative = new User_administrative(0,"","","","","","","","","","","");
 
             this.is_edit=true;
 
