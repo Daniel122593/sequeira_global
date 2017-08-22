@@ -3,23 +3,23 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import { ServicesInfo } from '../services/services_info.services';
 import {AuthService} from '../auth.service';
 import {FirebaseListObservable } from 'angularfire2/database';
-import {User_administrative} from '../models/user_administrative';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
 
-      selector:'users',
-      templateUrl:'../views/users.html'
+      selector:'info',
+      templateUrl:'../views/info.html'
 
 	})
 
 
-export class UsersComponent{
+export class InfoComponent{
  
-public user_array : User_administrative[];
-public admin;
 
+public admin;
+public info_data=[];
+info:FirebaseListObservable<any>;
 
 constructor(private _services:ServicesInfo, private _route: ActivatedRoute, private _router: Router, private auth: AngularFireAuth,
   private db: AngularFireDatabase) {
@@ -31,24 +31,48 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
            this.verificarAdmin(data.email);
 
         })
+
+      this.info = db.list('/info');
        
     }//fin del constructor
 
     
- ngOnInit(){
+ 
+ //inserta los registros que se subieron a mysql con excel a firebase
+ insertFirebase(){
 
-   this._services.getUserAdministrative().subscribe(
+
+ this._services.getInfo().subscribe(
 
 
     result=>{
 
        if(result.code!=200){
 
-       	}else{
+        }else{
 
-         this.user_array=result.data;
-         console.log(this.user_array);
-       	}//fin del else
+         this.info_data=result.data;
+          
+         for(var i=0; i<this.info_data.length; i++){
+            
+            
+
+            this.info.push({
+
+               Name: this.info_data[i].nombres,
+               Apellido: this.info_data[i].apellidos,
+               Direccion: this.info_data[i].direccion,
+               Cel: this.info_data[i].celular,
+               Email: this.info_data[i].email
+
+
+
+              });
+
+
+         }//fin del for
+
+        }//fin del else
 
     },
   
@@ -59,11 +83,13 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
     }//fin del error
 
 
-   	)//fin del subscribe
-  
+    )//fin del subscribe
 
- }//fin del metodo ngOnInit
- 
+ }//fin del metodo insertFirebase
+
+
+
+
 
 //verifica que tipo de usuario es el que esta actualmente conectado
  verificarAdmin(email:string){

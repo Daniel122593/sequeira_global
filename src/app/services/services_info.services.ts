@@ -340,6 +340,17 @@ getClientDetail(id){
 }//fin del metodo getClientDetail
 
 
+//metodo para obtener todos los datos para firebase
+  getInfo(){
+
+    return this._http.get(this.url+'info').map(res =>res.json());
+
+ }//fin del metodo getInfo
+
+
+
+
+
 
 }//fin de la clase
 

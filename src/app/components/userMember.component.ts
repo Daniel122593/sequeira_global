@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
-import {ServicesInfo} from '../services/services_info.services';
+import { ServicesInfo } from '../services/services_info.services';
 import {UserClient} from '../models/user_client';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';

@@ -50,6 +50,7 @@ import { UserPartnerDetail } from './components/userPartner-detail.component';
 import { UserPartnerEdit } from './components/userPartner-edit.component';
 import { UserClientDetail } from './components/userClient-detail.component';
 import { UserMember } from './components/userMember.component';
+import { InfoComponent} from './components/info.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -96,6 +97,7 @@ export function createTranslateLoader(http: Http) {
     { path: 'user_partner-edit/:id', component: UserPartnerEdit},
     { path: 'user_client-detail/:id', component: UserClientDetail},
     { path: 'userMember/:referCode_client/:name_client', component: UserMember},
+    { path: 'info', component: InfoComponent},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
     ]),
@@ -136,7 +138,8 @@ export function createTranslateLoader(http: Http) {
     UserPartnerDetail,
     UserPartnerEdit,
     UserClientDetail,
-    UserMember
+    UserMember,
+    InfoComponent
   ],
   providers: [
     appRoutingProviders,
