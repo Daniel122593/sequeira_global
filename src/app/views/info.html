@@ -9,35 +9,35 @@
 						
 						<li><a *ngIf="admin==true" [routerLink]="['/users']">{{'User.AdministrativeUser' | translate}}</a></li>	
 						<li><a *ngIf="admin==true" [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
+						<li><a *ngIf="admin==true" [routerLink]="['/clientUser']">{{'User.ClientSignal' | translate}}</a></li>
 						<li><a *ngIf="admin==true" [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>						
 					</ul>
 				</div>
 			</section>
 
-            <input type="submit" value="Agregar clientes nuevos" (click)="insertFirebase()" style="float: right;" name=""><br>
+            
 			<section class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 				
 				<div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
+				
+
 						<!-- main content -->
 						<div class="row">
 							<div class="col-sm-12">
-								<div class="panel panel-default">
-									<div  *ngIf="admin==true"  class="panel-heading">
+	
+                                 <input  *ngIf="admin==true" type="button" value="Agregar información" (click)="insertFirebase()" style="float: left; background-color: #5e42a6; width: 250px; height: 30px; color:#ffffff; border-radius: 7px;" name="" ><br> 
+								<br>
 
-										<h4 *ngIf="admin==true"  class="panel-title">{{'User.AdministrativeUser' | translate}} Usuarios clientes</h4>
-									</div>
-
-									 
-
-									<pagination-controls *ngIf="admin==true"  (pageChange)= "step = $event"></pagination-controls>
-								
-								</div>
 							</div>
+
 						</div>
 			
 						
 					
 					</div>
-				
+ 
+
 			</section>
+
+

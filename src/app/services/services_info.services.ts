@@ -15,7 +15,7 @@ import {UserClient} from '../models/user_client';
 export class ServicesInfo{
 
 public url:string;
-
+public info=[];
 
 constructor(
 
@@ -348,7 +348,18 @@ getClientDetail(id){
  }//fin del metodo getInfo
 
 
+//metodo que modifica el estado de la los registros de info
+updateState(this,info=[]){
+  
+ let json= JSON.stringify(info); 
+ let params = "json="+json;
+ let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
 
+ return this._http.post(this.url+'update-info', params, {headers: headers})
+                                   .map(res =>res.json());
+
+
+}//fin del metodo updateState
 
 
 

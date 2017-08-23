@@ -9,7 +9,15 @@
 						
 						<li><a *ngIf="admin==true" [routerLink]="['/users']">{{'User.AdministrativeUser' | translate}}</a></li>	
 						<li><a *ngIf="admin==true" [routerLink]="['/userAnalyst']">{{'User.AnalystUser' | translate}}</a></li>
-						<li><a *ngIf="admin==true" [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li>						
+						<li><a *ngIf="admin==true" [routerLink]="['/preferredUser']">{{'User.PreferredPartnerUsers' | translate}}</a></li> 
+									
+					</ul>
+
+					<ul>
+						
+						<li><a href="http://localhost/subir-ficheros-en-php-y-mysql/">Cargar Excel</a></li>
+						<li><a  *ngIf="admin==true" [routerLink]="['/info']">Subir datos</a></li>
+						
 					</ul>
 				</div>
 			</section>

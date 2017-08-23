@@ -71,6 +71,11 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
 
 
          }//fin del for
+              
+
+          this.update();
+
+          alert("Informacion agregada / Information added ");
 
         }//fin del else
 
@@ -88,7 +93,33 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
  }//fin del metodo insertFirebase
 
 
+ 
+ update(){
 
+  
+  this._services.updateState(this.info_data).subscribe(
+        response => {
+          if(response.code == 200){
+
+            //location.reload();
+           
+          }else{
+            
+          }
+        },
+
+        error => {
+          //location.reload();
+          console.log(<any>error);
+        }
+        
+         );
+
+
+
+
+
+ }//fin del metodo update
 
 
 //verifica que tipo de usuario es el que esta actualmente conectado

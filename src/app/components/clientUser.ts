@@ -52,9 +52,8 @@ saveClients(){
 
           
           for (var user of snapshot){
-          	console.log("entro");
-            console.log(user.Email+user.Country);
-            
+          	
+
             this.user_cli.push(user);
             
        }//fin del for
@@ -174,10 +173,4 @@ this._services.getUserClient().subscribe(
 
 
 
-
-
-
-
-
-
- }//fin de la clase
+}//fin de la clase

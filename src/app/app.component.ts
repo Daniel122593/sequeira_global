@@ -20,15 +20,54 @@ export class AppComponent {
   password:string;
   users:FirebaseListObservable<any>;
   public admin;
+  public userActive=[];
+  public userDesactive=[];
+  public cantActive;
+  public cantDesactive;
+  public fecha = "2017-08-22";
+
 
    
   constructor(private translate: TranslateService, private activatedRoute: ActivatedRoute, public authService:AuthService,
 
     private db:AngularFireDatabase) {
-       
+         
+
+        
         let browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/es|en/) ? browserLang : 'es');
 
+         
+      
+
+  
+         this.db.list('/users').subscribe(snapshot => {
+
+          
+          for (var user of snapshot){
+                 
+                 if(user.State=="1"){
+                   
+                   this.userActive.push(user);
+
+                 }else{
+                  
+                   this.userDesactive.push(user);
+                 
+                 }//fin del else
+ 
+
+                
+              }//fin del for
+               
+                console.log(this.userActive);
+                console.log(this.userDesactive);
+                
+                this.cantActive=this.userActive.length;
+                this.cantDesactive=this.userDesactive.length;
+
+
+            });
   
     }//fin del constructor
 
@@ -60,6 +99,7 @@ export class AppComponent {
    logout(){
     
      this.authService.logout();
+
     }//fin del metodo logout
 
 
