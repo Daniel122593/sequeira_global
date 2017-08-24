@@ -179,8 +179,15 @@
 
     "ClientUser":"Usuario cliente",
 
-    "RestrictedAccess":"Accesso restringido"
+    "RestrictedAccess":"Accesso restringido",
 
+
+     "AddNewClient":"Agregar nuevos clientes",
+     "SeeMarketNetwork":"Ver red de mercado",
+     "GoNetwork":"Ir a la red",
+     "UploadExcel":"Cargar archivo excel",
+     "UploadData":"Subir datos",
+     "UserClient":"Usuarios clientes"
     
 
    

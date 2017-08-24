@@ -15,14 +15,14 @@
 
 					<ul>
 						
-						<li><a href="http://localhost/subir-ficheros-en-php-y-mysql/">Cargar Excel</a></li>
-						<li><a  *ngIf="admin==true" [routerLink]="['/info']">Subir datos</a></li>
+						<li><a href="http://localhost/subir-ficheros-en-php-y-mysql/">{{'User.UploadExcel' | translate}}</a></li>
+						<li><a  *ngIf="admin==true" [routerLink]="['/info']">{{'User.UploadData' | translate}}</a></li>
 						
 					</ul>
 				</div>
 			</section>
 
-            <input type="submit" value="Agregar clientes nuevos" (click)="saveClients()" style="float: right;" name=""><br>
+            <input type="submit" value="{{'User.AddNewClient' | translate}}" (click)="saveClients()" style="float: right;" name=""><br>
 			<section class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 				
@@ -33,31 +33,31 @@
 								<div class="panel panel-default">
 									<div  *ngIf="admin==true"  class="panel-heading">
 
-										<h4 *ngIf="admin==true"  class="panel-title">{{'User.AdministrativeUser' | translate}} Usuarios clientes</h4>
+										<h4 *ngIf="admin==true"  class="panel-title">{{'User.UserClient' | translate}}</h4>
 									</div>
 
 									<table *ngIf="admin==true"  id="dt_basic" class="table table-striped">
 										<thead>
 											<tr>
-												<th>{{'User.SeeUser' | translate}}
+												<th>{{'User.SeeUser' | translate}}</th>
 												<th>{{'User.Name' | translate}}</th>
 												<th>{{'User.Email' | translate}}</th>
 												<th>{{'User.Telephone' | translate}}</th>
 												<th>{{'User.Country' | translate}}</th>
 												<th>{{'Signal.Date' | translate}}</th>
-												<th>Ver red de mercado</th>
+												<th>{{'User.SeeMarketNetwork' | translate}}</th>
 											
 											</tr>
 										</thead>
 										<tbody>
 											<tr *ngFor=" let userClient of userClient_array | paginate: { itemsPerPage:50, currentPage: step } " >
-											<td><a [routerLink]="['/user_client-detail',userClient.id]">Ver</a></td>
+											<td><a [routerLink]="['/user_client-detail',userClient.id]">{{'Signal.See' | translate}}</a></td>
 											<td>{{userClient.name_client}}</td>
 											<td>{{userClient.email_client}}</td>
 											<td>{{userClient.telephone_client}}</td>
 											<td>{{userClient.country_client}}</td>
 											<td>{{userClient.date_client}}</td> 
-											<td><a [routerLink]="['/userMember',userClient.referCode_client,userClient.name_client]">Ir a red</a></td>
+											<td><a [routerLink]="['/userMember',userClient.referCode_client,userClient.name_client]">{{'User.GoNetwork' | translate}}</a></td>
 
 											</tr>
 											

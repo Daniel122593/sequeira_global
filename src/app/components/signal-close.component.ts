@@ -28,8 +28,11 @@ import * as _ from "lodash";
   	public resultUpload;
  	  public is_edit;
     public hour;
+    public month_number:number;
+    public month_current:string;
     history_signals:FirebaseListObservable<any>;
     signals:FirebaseListObservable<any>;
+     
 
     
   //estos son para la imagen en firebase
@@ -51,6 +54,34 @@ import * as _ from "lodash";
 
       this.history_signals = db.list('/history');
       this.signals = db.list('/signals');
+        
+
+      //obtener numero del mes actual
+               var d = new Date();
+               var n = d.getMonth();
+               
+               var month = new Array();
+
+            
+
+              month[0] = "January";
+              month[1] = "February";
+              month[2] = "March";
+              month[3] = "April";
+              month[4] = "May";
+              month[5] = "June";
+              month[6] = "July";
+              month[7] = "August";
+              month[8] = "September";
+              month[9] = "October";
+              month[10] = "November";
+              month[11] = "December";
+
+              this.month_number=month[n];
+
+           
+
+
 
      
  	}//fin del constructor
@@ -101,7 +132,12 @@ import * as _ from "lodash";
               address_signal_final="arrow-dropup-circle";
               color_signal_final="green";
               }
-             
+                  
+
+
+    
+                this.month_current = this.month_number.toString();
+                
                 console.log(this.signal.graph_image+'eerferferf');
                 this.history_signals.push({
                 Instrument: this.signal.instrument,
@@ -116,7 +152,9 @@ import * as _ from "lodash";
                 R_Color: color_signal_final,
                 Date_C: this.signal.date_final,
                 Initial_Hour: this.signal.time_initial,
-                Final_Hour: this.hour
+                Final_Hour: this.hour,
+                Month_Actual:this.month_current
+                
 
             });
               
@@ -204,13 +242,14 @@ import * as _ from "lodash";
             this._services.editSignal(id, this.signal).subscribe(
 														response => {
 															if(response.code == 200){
-																this._router.navigate(['/signal']);
+																//this._router.navigate(['/signal']);
+                                location.href = "http://localhost:4200/signal";
 															}else{
 																console.log(response);
 															}
 														},
 														error => {
-                              
+                              location.href = "http://localhost:4200/signal";
 															console.log(<any>error);
 														}
 													);

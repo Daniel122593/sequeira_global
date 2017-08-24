@@ -19,15 +19,26 @@ export class AppComponent {
   email:string;
   password:string;
   users:FirebaseListObservable<any>;
+  history:FirebaseListObservable<any>;
+  
   public admin;
   public userActive=[];
   public userDesactive=[];
   public cantActive;
   public cantDesactive;
-  public fecha = "2017-08-22";
+  public signal_positive=[];
+  public signal_negative=[];
+  public month_number:number;
+  public month_current:string;
+  public cant_signal_positive;
+  public cant_signal_negative;
+  public number_pip;
+  public pip_positive=[];
+  public pip_negative=[];
+  public cant_pip_positive;
+  public cant_pip_negative;
 
 
-   
   constructor(private translate: TranslateService, private activatedRoute: ActivatedRoute, public authService:AuthService,
 
     private db:AngularFireDatabase) {
@@ -37,10 +48,7 @@ export class AppComponent {
         let browserLang = translate.getBrowserLang();
         translate.use(browserLang.match(/es|en/) ? browserLang : 'es');
 
-         
-      
 
-  
          this.db.list('/users').subscribe(snapshot => {
 
           
@@ -60,15 +68,110 @@ export class AppComponent {
                 
               }//fin del for
                
-                console.log(this.userActive);
-                console.log(this.userDesactive);
                 
                 this.cantActive=this.userActive.length;
                 this.cantDesactive=this.userDesactive.length;
 
 
-            });
-  
+            });//fin
+
+
+
+              //obtener numero del mes actual
+               var d = new Date();
+               var n = d.getMonth();
+               
+               var month = new Array();
+
+            
+
+              month[0] = "January";
+              month[1] = "February";
+              month[2] = "March";
+              month[3] = "April";
+              month[4] = "May";
+              month[5] = "June";
+              month[6] = "July";
+              month[7] = "August";
+              month[8] = "September";
+              month[9] = "October";
+              month[10] = "November";
+              month[11] = "December";
+
+              this.month_number=month[n];
+
+              
+             
+
+               this.month_current = this.month_number.toString();
+               
+               //identifica que señales fueron positivas y que señales fueron negativas
+               this.db.list('/history').subscribe(snapshot => {
+
+                  for (var user of snapshot){
+
+                      //toma las señales del mes actual y que fueron positivas
+                     if(user.Month_Actual==this.month_current && user.R_Trend=="arrow-dropup-circle"){
+                   
+                      this.signal_positive.push(user);
+                       
+                       //toma las señales del mes actual y que fueron negativas
+                    }else if(user.Month_Actual==this.month_current && user.R_Trend=="arrow-dropdown-circle"){
+                  
+                      this.signal_negative.push(user);
+                 
+                    }//fin del else if 
+
+                    else{
+
+                      }//fin del else
+ 
+                  }//fin del for 
+
+                   this.cant_signal_positive=this.signal_positive.length;
+                   this.cant_signal_negative=this.signal_negative.length;
+
+               });//fin
+
+
+
+               //identifica que señales tienen pips megativos y cuales tienen pips positivos
+               this.db.list('/history').subscribe(snapshot => {
+
+                  for (var user of snapshot){
+
+                      this.number_pip=parseInt(user.Pips);
+
+                      console.log(this.number_pip);
+
+                      //toma las señales del mes actual y que fueron positivas
+                     if(this.number_pip>0 && user.Month_Actual==this.month_current){
+                   
+                      this.pip_positive.push(user);
+                       
+                       //toma las señales del mes actual y que fueron negativas
+                    }else if(this.number_pip<0 && user.Month_Actual==this.month_current){
+                  
+                      this.pip_negative.push(user);
+                 
+                    }//fin del else if 
+
+                    else{
+
+                      }//fin del else
+ 
+                  }//fin del for 
+
+                   this.cant_pip_positive=this.pip_positive.length;
+                   this.cant_pip_negative=this.pip_negative.length;
+
+                   console.log(this.cant_pip_positive);
+                   console.log(this.cant_pip_negative);
+
+               });//fin
+
+
+              
     }//fin del constructor
 
     changeLanguage(lang){

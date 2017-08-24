@@ -94,6 +94,9 @@
 
          "AllSignal":"All signals"
 
+         
+
+
  
 
 
@@ -182,8 +185,15 @@
 
     "ClientUser":"Client user",
 
-    "RestrictedAccess":"Restricted access"
+    "RestrictedAccess":"Restricted access",
 
+     "AddNewClient":"Add new clients",
+     "SeeMarketNetwork":"See the market network",
+     "GoNetwork":"Go to network",
+     "UploadExcel":"Upload excel file",
+     "UploadData":"Upload data",
+     "UserClient":"Clients users"
+     
 
     }
 
