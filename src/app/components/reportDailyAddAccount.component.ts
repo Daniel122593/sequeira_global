@@ -5,27 +5,23 @@ import { AuthService} from '../auth.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { UserClient} from '../models/user_client';
 
 
 @Component({
-     selector:"clientUser",
-     templateUrl:"../views/clientUser.html"
-
+     selector:"reportDailyAddAccount",
+     templateUrl:"../views/reportDailyAddAccount.html"
 
 	})
 
- export class ClientUser{
+ 
+ export class ReportDailyAddAccount{
 
+ public admin;
+ public newAccount=[];
+ public accountOld=[];
+ account:FirebaseListObservable<any>;
 
- 	  public user_cli=[];
- 	  users:FirebaseListObservable<any>;
- 	  usersClient:FirebaseListObservable<any>;
- 	  public userClient_array : UserClient[];
- 	  public admin;
-
-
-constructor(private _services:ServicesInfo, private _route: ActivatedRoute, private _router: Router, private auth: AngularFireAuth,
+ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, private _router: Router, private auth: AngularFireAuth,
   private db: AngularFireDatabase) {
 
       //este metodo me muestra los datos del usuario actualmente conectado  
@@ -35,101 +31,140 @@ constructor(private _services:ServicesInfo, private _route: ActivatedRoute, priv
            this.verificarAdmin(data.email);
 
         })
-       
-      this.usersClient = db.list('/users');
 
+    this.account = db.list('/account');
 
-    }//fin del constructor
+  
+
+}//fin del metodo constructor
+
+  
+
  
+addAllAccount(){
 
-ngOnInit(){
- 
- this.getClient();
+  this.saveNewAccount();
+  this.saveNewAccountOld();
 
-}//fin del metodo ngOnInit
+  this._router.navigate(['/reportDailyAccount']);
 
-saveClients(){
+}//fin del metodo addAllAcount
 
+saveNewAccount(){
 
-        this.db.list('/users').subscribe(snapshot => {
+  
+
+   this.db.list('/account').subscribe(snapshot => {
 
           
           for (var user of snapshot){
-          	
+            
+              if(user.State=="1"){
 
-            this.user_cli.push(user);
+            this.newAccount.push(user);
+          
+          }else{
+
+
+          }//fin del else
             
        }//fin del for
+          
+       
 
-      this._services.addUserClient(this.user_cli).subscribe(
+      this._services.addNewAccount(this.newAccount).subscribe(
 
      response => {
       
        if(response.code==200){
            
 
-       location.reload();
+       
 
        }else{
          
 
-       location.reload();
+       
 
        }//fin del else
 
      }, error =>{
           
-       location.reload();
-          console.log(<any>error);
+      
+      console.log(<any>error);
         
           
 
      }//fin del error
 
 
-   	);
+    );
 
 
-    
-     
+  
+ }); 
+ 
+
+}//fin del metodo saveNewAccount
+
+
+
+
+saveNewAccountOld(){
+
+
+   this.db.list('/account').subscribe(snapshot => {
+
+          
+          for (var user of snapshot){
+             
+              //aqui filtra las que tienen estado "0" son las que no se utilizan
+              if(user.State=="0"){
+
+            this.accountOld.push(user);
+          
+          }else{
+
+
+          }//fin del else
+            
+       }//fin del for
+          
+       
+
+      this._services.addNewAccountOld(this.accountOld).subscribe(
+
+     response => {
+      
+       if(response.code==200){
+           
+
+       }else{
+         
+
+     }//fin del else
+
+     }, error =>{
+          
+      
+      console.log(<any>error);
+        
+          
+
+     }//fin del error
+
+
+    );
 
  }); 
-        
+ 
+
+}//fin del metodo saveNewAccountOld
 
 
-}//fin del saveClients
 
 
 
-getClient(){
-
-this._services.getUserClient().subscribe(
-
- result => {
-
-
- 	if(result.code!=200){
-
-
- 	}else{
-      
-      this.userClient_array=result.data;
-      console.log(this.userClient_array);
- 	}//fin del else
-
-
-},
-
- error => {
-
-     console.log(<any>error);
-
-   }//fin de error
-
-  )
-
-    }//fin del metodo getUserClient
-     
 
 //verifica que tipo de usuario es el que esta actualmente conectado
  verificarAdmin(email:string){
@@ -174,6 +209,6 @@ this._services.getUserClient().subscribe(
 
  }//fin del metodo verificarAdmin
 
+ }//fin de la clase
 
 
-}//fin de la clase

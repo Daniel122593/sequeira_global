@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="assets/css/style.css">
+
+
+<br><br>
+
+<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+						<li><a *ngIf="admin==true" [routerLink]="['/clientUser']">Volver a usuarios clientes</a></li>					
+					</ul>
+				</div>
+			</section><br><br>
+
+
+			<a *ngIf="admin==true" href="http://localhost/subir-ficheros-en-php-y-mysql/reporteDiarioCuentas.php"><input type="submit" value="Descargar reporte"></a>
+
+			<input *ngIf="admin==true" (click)="closeAndUpdateAccount()" type="submit" value="Finalizar proceso">
+
+
+
+
+
+
+
+

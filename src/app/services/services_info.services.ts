@@ -16,6 +16,8 @@ export class ServicesInfo{
 
 public url:string;
 public info=[];
+public newAccountInput=[];
+public newAccountOutput=[];
 
 constructor(
 
@@ -360,6 +362,59 @@ updateState(this,info=[]){
 
 
 }//fin del metodo updateState
+
+
+//metodo para agregar las cuentas nuevas
+addNewAccount(this,newAccountInput=[]){
+ let json = JSON.stringify(newAccountInput);
+ let params = 'json='+json;
+ let headers = new Headers ({'Content-Type':'application/x-www-form-urlencoded'});
+ 
+ return this._http.post(this.url+'new_account_input', params, {headers: headers})
+                   .map(res => res.json()); 
+
+
+}//fin del metodo addUserClient
+
+
+//metodo para agregar las cuentas ya no utilizadas
+addNewAccountOld(this,newAccountOutput=[]){
+ let json = JSON.stringify(newAccountOutput);
+ let params = 'json='+json;
+ let headers = new Headers ({'Content-Type':'application/x-www-form-urlencoded'});
+ 
+ return this._http.post(this.url+'new_account_output', params, {headers: headers})
+                   .map(res => res.json()); 
+
+}//fin del metodo addUserClient
+
+
+//metodo que modifica el estado de las cuentas entrantes
+update_account_broker_input(this,newAccountInputnew=[]){
+  
+ let json= JSON.stringify(newAccountInputnew); 
+ let params = "json="+json;
+ let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+
+ return this._http.post(this.url+'update-account_broker_input', params, {headers: headers})
+                                   .map(res =>res.json());
+
+
+}//fin del metodo update_account_broker_input
+
+
+//metodo que modifica el estado de las cuentas salientes
+update_account_broker_output(this,newAccountOutput=[]){
+  
+ let json= JSON.stringify(newAccountOutput); 
+ let params = "json="+json;
+ let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
+
+ return this._http.post(this.url+'update-account_broker_output', params, {headers: headers})
+                                   .map(res =>res.json());
+
+}//fin del metodo update_account_broker_input
+
 
 
 

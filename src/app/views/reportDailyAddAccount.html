@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="assets/css/style.css">
+
+
+<br><br>
+
+<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+						<li><a *ngIf="admin==true" [routerLink]="['/clientUser']">Volver a usuarios clientes</a></li>					
+					</ul>
+				</div>
+			</section><br><br>
+
+
+			<input *ngIf="admin==true" (click)="addAllAccount()" type="submit" value="Agregar cuentas a descargar">

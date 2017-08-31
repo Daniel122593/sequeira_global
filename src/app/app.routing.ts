@@ -2,7 +2,6 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule} from '@angular/router';
 
 
-
 import { AppComponent }    from './app.component';
 import { LoginComponent } from './components/login.component';
 import { SignalComponent } from './components/signals.component';
@@ -34,6 +33,9 @@ import { UserPartnerEdit } from './components/userPartner-edit.component';
 import { UserClientDetail } from './components/userClient-detail.component';
 import { UserMember } from './components/userMember.component';
 import { InfoComponent} from './components/info.component';
+import { ReportCXC } from './components/reportCXC.component';
+import { ReportDailyAccount } from './components/reportDaily.component';
+import { ReportDailyAddAccount } from './components/reportDailyAddAccount.component';
 
 const  appRoutes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -66,9 +68,12 @@ const  appRoutes: Routes = [
     { path: 'user_client-detail/:id', component: UserClientDetail},
     { path: 'userMember/:referCode_client/:name_client', component: UserMember},
     { path: 'info', component: InfoComponent},
-    { path: '**', redirectTo: 'home', pathMatch: 'full' }
-
-];
+    { path: 'reportCXC', component: ReportCXC},
+    { path: 'reportDailyAccount', component: ReportDailyAccount},
+    { path: 'reportDailyAddAccount', component: ReportDailyAddAccount},
+    { path: '**', redirectTo: 'home', pathMatch: 'full'}
+ 
+ ];
 
 export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

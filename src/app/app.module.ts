@@ -51,6 +51,9 @@ import { UserPartnerEdit } from './components/userPartner-edit.component';
 import { UserClientDetail } from './components/userClient-detail.component';
 import { UserMember } from './components/userMember.component';
 import { InfoComponent} from './components/info.component';
+import { ReportCXC } from './components/reportCXC.component';
+import { ReportDailyAccount } from './components/reportDaily.component';
+import { ReportDailyAddAccount } from './components/reportDailyAddAccount.component';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
@@ -98,6 +101,9 @@ export function createTranslateLoader(http: Http) {
     { path: 'user_client-detail/:id', component: UserClientDetail},
     { path: 'userMember/:referCode_client/:name_client', component: UserMember},
     { path: 'info', component: InfoComponent},
+    { path: 'reportCXC', component: ReportCXC},
+    { path: 'reportDailyAccount', component: ReportDailyAccount},
+    { path: 'reportDailyAddAccount', component: ReportDailyAddAccount},
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 
     ]),
@@ -139,7 +145,10 @@ export function createTranslateLoader(http: Http) {
     UserPartnerEdit,
     UserClientDetail,
     UserMember,
-    InfoComponent
+    InfoComponent,
+    ReportCXC,
+    ReportDailyAccount,
+    ReportDailyAddAccount
   ],
   providers: [
     appRoutingProviders,

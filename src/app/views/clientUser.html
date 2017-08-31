@@ -15,8 +15,10 @@
 
 					<ul>
 						
-						<li><a href="http://localhost/subir-ficheros-en-php-y-mysql/">{{'User.UploadExcel' | translate}}</a></li>
+						<li><a href="http://localhost/subir-ficheros-en-php-y-mysql">{{'User.UploadExcel' | translate}}</a></li>
 						<li><a  *ngIf="admin==true" [routerLink]="['/info']">{{'User.UploadData' | translate}}</a></li>
+						<li><a  *ngIf="admin==true" [routerLink]="['/reportCXC']">Ir a generar reporte</a></li>
+						<li><a  *ngIf="admin==true" [routerLink]="['/reportDailyAddAccount']">Ir a generar reporte diario de cuentas</a></li>
 						
 					</ul>
 				</div>
@@ -77,3 +79,6 @@
 					</div>
 				
 			</section>
+
+
+

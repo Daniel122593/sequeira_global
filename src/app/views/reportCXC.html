@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="assets/css/style.css">
+
+
+<br><br>
+
+<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						
+						<li><a *ngIf="admin==true" [routerLink]="['/clientUser']">Volver a usuarios clientes</a></li>					
+					</ul>
+				</div>
+			</section><br><br>
+
+
+
+			<a href="http://localhost/subir-ficheros-en-php-y-mysql/mostrarDatos.php"><input type="submit" value="Descargar reporte"></a>
+
+			<input (click)="closeAndUpdateReport()" type="submit" value="Finalizar proceso">
+
+
