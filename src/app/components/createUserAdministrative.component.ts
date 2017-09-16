@@ -22,6 +22,7 @@ public filesToUpload;
 public resultUpload;
 public admin;
 public presentEmail;
+public checkFields;
 
 userWeb:FirebaseListObservable<any>;
 administrative:FirebaseListObservable<any>; 
@@ -47,6 +48,14 @@ this.auth.authState.subscribe(data =>{
 
 onSubmitUserAdministrative(){
 
+  if(this.filesToUpload==null || this.user_administrative.identityCard=="" || this.user_administrative.name_administrative =="" || this.user_administrative.email_administrative=="" || this.user_administrative.password_administrative=="" || this.user_administrative.hierarchy_administrative=="" || this.user_administrative.address_administrative=="" || this.user_administrative.country_administrative=="" || this.user_administrative.telephone_administrative=="" || this.user_administrative.date_administrative=="" || this.user_administrative.confirmPassword==""){
+
+      this.checkFields=true;
+
+  }else{
+      
+      this.checkFields=false;
+
   if(this.filesToUpload.length>=1){
       
       this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) =>{
@@ -67,6 +76,8 @@ onSubmitUserAdministrative(){
         this.user_administrative.telephone_administrative="";
         this.user_administrative.date_administrative="";
         this.user_administrative.profile_picture_administrative="";
+        this.user_administrative.confirmPassword="";
+        
 
      }, 
 
@@ -82,6 +93,8 @@ onSubmitUserAdministrative(){
     
 
   }//fin del else
+
+  }//fin del else de validacion
 
 }//fin del onSubmitUserAdministrative
 

@@ -21,6 +21,7 @@ export class CreateBankPartner{
  public bank_partner: BankPartner;
  public user_partner: User_partner;
  public admin;
+ public checkFields;
 
    constructor( private _services: ServicesInfo, private _route: ActivatedRoute,
 
@@ -40,7 +41,20 @@ export class CreateBankPartner{
   
   
  onSubmitBankPartner(){
-   
+
+  console.log(this.bank_partner);
+
+  
+  if(this.bank_partner.id_partner==0 || this.bank_partner.name_bank=="" || this.bank_partner.number_count_bank=="" || this.bank_partner.count_sinpe_bank==""){
+
+    this.checkFields=true;
+
+  } else {
+
+    this.checkFields=false;
+ 
+  
+
    this._services.addBankPartner(this.bank_partner).subscribe(
 
      response => {
@@ -65,10 +79,13 @@ export class CreateBankPartner{
      }//fin del error
 
 
-   	);
+    );
+
+ }//fin del else
 
 
- }//fin del metodo onSubmitBankPartner
+
+}//fin del metodo onSubmitBankPartner
  
  ngOnInit(){
 

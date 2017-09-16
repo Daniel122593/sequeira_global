@@ -23,6 +23,7 @@ public resultUpload_identity;
 public filesToUpload_voucher;
 public resultUpload_voucher;
 public admin;
+public checkFields;
 
  constructor( private _services: ServicesInfo, private _route: ActivatedRoute,
  	private _router:Router, private auth: AngularFireAuth, private db: AngularFireDatabase){
@@ -40,7 +41,18 @@ public admin;
  onSubmitUserPartner(){
 
 
- if (this.filesToUpload_identity.length>=1){
+ if(this.fileChangeEventIdentity==null || this.filesToUpload_voucher==null || this.user_partner.name_partner=="" || this.user_partner.identityCard_partner=="" || this.user_partner.gender_partner=="" || this.user_partner.civil_status_partner=="" || this.user_partner.profession_partner=="" || this.user_partner.email_partner=="" || this.user_partner.telephone_partner=="" || this.user_partner.country_partner=="" || this.user_partner.address_partner=="" || this.user_partner.investment_amount_partner=="" || this.user_partner.time_partner=="" || this.user_partner.interest_partner=="" || this.user_partner.referred_partner=="" || this.user_partner.date_start_partner=="" || this.user_partner.date_end_partner==""){
+
+
+   this.checkFields=true;
+
+
+ }else{
+
+
+this.checkFields=false;
+
+ if(this.filesToUpload_identity.length>=1){
  
 this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload_identity).then((result) =>{
 
@@ -112,6 +124,7 @@ this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload_
 
  }//fin del else
 
+}//fin del else validacion 
 
   }//fin del metodo onSubmitUserPartner
 

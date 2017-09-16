@@ -61,14 +61,14 @@ saveNewAccount(){
  //trae de firebase todos los registros en el objetp account
 this.db.list('/account').subscribe(snapshot => {
 
-          
+          console.log(snapshot);
           for (var user of snapshot){
             
-              if(user.State=="1"){
+              if(user.State=="1" && user.Block=="true"){
          
                 this.changeStateAccountInput(user.$key);
           
-          }else if(user.State=="0"){
+          }else if(user.State=="0" && user.Block=="true"){
 
                 this.changeStateAccountOutput(user.$key);
           }//fin del else
@@ -101,7 +101,7 @@ changeStateAccountInput(key:string){
 changeStateAccountOutput(key:string){
  
  var account:FirebaseObjectObservable<any>;
- account = this.db.object('/account/'+key);
+ account = this.db.object('/account/' + key);
  account.update({State:"-1"});
  
 

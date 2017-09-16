@@ -2,10 +2,12 @@
 
 <br><br><br><br>
                     <div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
+                    <div *ngIf="checkFields==true" class="error"><b>Hay espacios sin rellenar</b></div>
+                
 				
 					<div *ngIf="admin==true" class="row">
 
-					  <form #formBankPartner="ngForm" class="ngForm" (ngSubmit)="onSubmitBankPartner()" >
+					  <form #formBankPartner="ngForm" id="formBankPartner" (ngSubmit)="onSubmitBankPartner()">
 							<div class="col-sm-12">
 								<div class="panel panel-default">
 									<div class="panel-heading">
@@ -16,27 +18,26 @@
 										<tr>
 										 <td>{{'User.PreferredPartner' | translate}}</td>
                                              <td>
-												<select    #id_partner="ngModel" name="id_partner" [(ngModel)]="bank_partner.id_partner"  class="form-control">
-													<option *ngFor=" let info_partner of user_partner" value="{{info_partner.id}}">{{info_partner.name_partner}}</option>
+												<select #id_partner="ngModel" name="id_partner" [(ngModel)]="bank_partner.id_partner"  class="form-control" required>
 													
+													<option *ngFor=" let info_partner of user_partner" value="{{info_partner.id}}" required>{{info_partner.name_partner}}</option>
 												</select>
 											</td>
 											</tr>
 										<tr>
 											<td>{{'User.NameBank' | translate}}</td>
-											<td><input type="text" #name_bank="ngModel" name="name_bank" class="form-control" [(ngModel)]="bank_partner.name_bank" ></td>
+											<td><input type="text" #name_bank="ngModel" name="name_bank" class="form-control" [(ngModel)]="bank_partner.name_bank" required></td>
 										</tr>
 										<tr>
 											<td>{{'User.AccountNumber' | translate}}</td>
-											<td><input type="text" #number_count_bank="ngModel" name="number_count_bank" class="form-control" [(ngModel)]="bank_partner.number_count_bank" ></td>
+											<td><input type="text" #number_count_bank="ngModel" name="number_count_bank" class="form-control" [(ngModel)]="bank_partner.number_count_bank" required></td>
 										</tr>
 
 										<tr>
 											<td>{{'User.SinpeAccount' | translate}}</td>
-											<td><input type="text" #count_sinpe_bank="ngModel" name="count_sinpe_bank" class="form-control" [(ngModel)]="bank_partner.count_sinpe_bank" ></td>
+											<td><input type="text" #count_sinpe_bank="ngModel" name="count_sinpe_bank" class="form-control" [(ngModel)]="bank_partner.count_sinpe_bank" required></td>
 										</tr>
-                                         
-                                         
+  
 										<tr>
 											<td></td>
 											<td><input type="submit"  value="{{'User.AddAccount' | translate}}" style="width:80%;" class="boton-save"  /></td>

@@ -27,6 +27,7 @@ export class CreateSignalComponent{
   public filesToUpload;
   public resultUpload;
   public hour;
+  public checkFields;
    
   //estos son para la imagen en firebase
   selectedFiles: FileList;
@@ -87,9 +88,9 @@ export class CreateSignalComponent{
                 
 
                 this.hour=result.data;
-                alert(result.data);
+                
 
-                  alert("firebase");
+                  
    var address_signal:string;
    var color_signal:string;
 
@@ -110,7 +111,7 @@ export class CreateSignalComponent{
            
            
 
-          alert('llega aqui');
+          
             
           this.signals.push({
               Instrument: this.signal.instrument,
@@ -144,6 +145,17 @@ export class CreateSignalComponent{
 
   onSubmitSignal(){
    console.log(this.signal);
+ 
+
+   if(this.filesToUpload==null || this.signal.instrument=="" || this.signal.open_price=="" || this.signal.trend=="" || this.signal.tp1=="" || this.signal.tp2=="" || this.signal.sl=="" || this.signal.type_trend=="" || this.signal.id_analyst=="" || this.signal.date==""){
+
+       this.checkFields=true;
+ 
+
+   }else{
+
+       this.checkFields=false;
+
 
    if(this.filesToUpload.length>=1){
    
@@ -180,6 +192,9 @@ export class CreateSignalComponent{
    this.insertFirebase();
 
  }//fin del else
+
+ }//fin del else validacion
+
   }//fin del metodo inSubmitSignal
 
   

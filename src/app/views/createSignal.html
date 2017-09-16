@@ -16,6 +16,8 @@
 				</div>
 			</section>
 
+			<div *ngIf="checkFields==true" class="error"><b>Hay espacios sin rellenar</b></div>
+
           <section class="container clearfix main_section">
 				<div id="main_content_outer" class="clearfix">
 					<div id="">
@@ -93,8 +95,8 @@
 											<td>{{'Signal.Analyst' | translate}}</td>
 											<td>
 
-											<select name="analyst" #analyst="ngModel"
-											[(ngModel)]="signal.analyst" class="form-control">
+											<select name="analyst" #id_analyst="ngModel"
+											[(ngModel)]="signal.id_analyst" class="form-control">
 
 											<option *ngFor=" let user of user_analyst" value="{{user.id}}">{{user.name_analyst}}</option>
 

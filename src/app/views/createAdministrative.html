@@ -27,6 +27,7 @@
 
 
 <div *ngIf="admin!=true" class="error"><b>{{'User.RestrictedAccess' | translate}}</b></div>
+<div *ngIf="checkFields==true" class="error"><b>Hay espacios sin rellenar</b></div>
 
 
 <section class="container clearfix main_section" *ngIf="admin==true">

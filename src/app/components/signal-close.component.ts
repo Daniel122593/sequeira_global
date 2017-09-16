@@ -30,8 +30,17 @@ import * as _ from "lodash";
     public hour;
     public month_number:number;
     public month_current:string;
+    public month_actual_number_string:string;
+    public month_number_actual:number;
+    public checkFields;
+    public price_initial:number;
+    public price_final:number;
+    public pips_result:number;
+    public pips_result_string:string;
+
     history_signals:FirebaseListObservable<any>;
     signals:FirebaseListObservable<any>;
+    
      
 
     
@@ -55,6 +64,7 @@ import * as _ from "lodash";
       this.history_signals = db.list('/history');
       this.signals = db.list('/signals');
         
+     
 
       //obtener numero del mes actual
                var d = new Date();
@@ -62,8 +72,7 @@ import * as _ from "lodash";
                
                var month = new Array();
 
-            
-
+ 
               month[0] = "January";
               month[1] = "February";
               month[2] = "March";
@@ -78,12 +87,11 @@ import * as _ from "lodash";
               month[11] = "December";
 
               this.month_number=month[n];
+              this.month_number_actual=n;
 
-           
+          
 
-
-
-     
+            
  	}//fin del constructor
     
 
@@ -101,8 +109,6 @@ import * as _ from "lodash";
 
                 this.hour=result.data;
                
-
-              
 
               var address_signal:string;
               var color_signal:string;
@@ -131,13 +137,27 @@ import * as _ from "lodash";
                
               address_signal_final="arrow-dropup-circle";
               color_signal_final="green";
-              }
-                  
+              } 
 
+               this.price_initial=parseInt(this.signal.open_price);
+               this.price_final=parseInt(this.signal.close_price);
+                
+               
+              if(this.signal.trend=="comprar"){
+               
+                this.pips_result=this.price_final-this.price_initial;
 
+              }else {
+              
+                this.pips_result=this.price_initial-this.price_final;
+
+              }//fin del else
+                
+
+                this.pips_result_string=this.pips_result.toString();
     
                 this.month_current = this.month_number.toString();
-                
+                this.month_actual_number_string=this.month_number_actual.toString();
                 console.log(this.signal.graph_image+'eerferferf');
                 this.history_signals.push({
                 Instrument: this.signal.instrument,
@@ -147,15 +167,16 @@ import * as _ from "lodash";
                 Date_A: this.signal.date,
                 Price_c: this.signal.close_price,
                 Img_R: this.signal.graph_final,
-                Pips: this.signal.pip,
+                Pips: this.pips_result_string,
                 R_Trend: address_signal_final,
                 R_Color: color_signal_final,
                 Date_C: this.signal.date_final,
                 Initial_Hour: this.signal.time_initial,
                 Final_Hour: this.hour,
-                Month_Actual:this.month_current
-                
+                Month_Actual:this.month_current,
+                Month_Actual_Number:this.month_actual_number_string
 
+                
             });
               
                 
@@ -186,7 +207,12 @@ import * as _ from "lodash";
 
      
      onSubmitSignal(){
- 
+      
+      if(this.filesToUpload==null || this.signal.close_price=="" || this.signal.pip=="" || this.signal.type_trend_final=="" || this.signal.date_final==""){
+          
+         this.checkFields=true;
+
+      }else{
  
    if(this.filesToUpload && this.filesToUpload.length>=1){
 
@@ -220,7 +246,8 @@ import * as _ from "lodash";
     this._router.navigate(['/signal-update',this.signal.id]);
 
  }//fin del else
-
+ 
+ }//fin del else de validacion
 
  }//fin del onSubmitSignal
 

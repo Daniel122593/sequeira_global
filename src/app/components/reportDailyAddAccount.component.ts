@@ -4,6 +4,7 @@ import { ServicesInfo } from '../services/services_info.services';
 import { AuthService} from '../auth.service';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 
@@ -38,21 +39,23 @@ import { AngularFireDatabase } from 'angularfire2/database';
 
 }//fin del metodo constructor
 
-  
 
- 
 addAllAccount(){
 
   this.saveNewAccount();
   this.saveNewAccountOld();
+  this.goReportDaily();
+  
+  //segundo hilo de ejecucion
 
-  this._router.navigate(['/reportDailyAccount']);
+
+  
 
 }//fin del metodo addAllAcount
 
 saveNewAccount(){
 
-  
+   
 
    this.db.list('/account').subscribe(snapshot => {
 
@@ -61,16 +64,18 @@ saveNewAccount(){
             
               if(user.State=="1"){
 
-            this.newAccount.push(user);
-          
+              this.newAccount.push(user);
+           
+               
           }else{
 
 
           }//fin del else
             
        }//fin del for
-          
-       
+
+  
+      
 
       this._services.addNewAccount(this.newAccount).subscribe(
 
@@ -79,12 +84,8 @@ saveNewAccount(){
        if(response.code==200){
            
 
-       
-
        }else{
          
-
-       
 
        }//fin del else
 
@@ -99,29 +100,62 @@ saveNewAccount(){
 
 
     );
-
-
+  
   
  }); 
  
 
+
+
+
+
+
 }//fin del metodo saveNewAccount
 
 
+goReportDaily(){
+ 
+ this.db.list('/account').subscribe(snapshot => {
 
+          
+          for (var user of snapshot){
+            
+              if(user.State=="1" && user.Block=="false"){
+
+              
+                 this.changeStateAccountViewed(user.$key);
+               
+          }else{
+
+
+          }//fin del else
+            
+       }//fin del for
+
+
+    
+
+  
+  
+  
+ }); 
+
+
+}//fin del metodo 
 
 saveNewAccountOld(){
 
 
    this.db.list('/account').subscribe(snapshot => {
-
-          
+     
           for (var user of snapshot){
              
               //aqui filtra las que tienen estado "0" son las que no se utilizan
               if(user.State=="0"){
 
             this.accountOld.push(user);
+
+            this.changeStateAccountViewed(user.$key);
           
           }else{
 
@@ -138,6 +172,7 @@ saveNewAccountOld(){
       
        if(response.code==200){
            
+         location.href = "http://localhost:4200/reportDailyAccount";
 
        }else{
          
@@ -146,7 +181,7 @@ saveNewAccountOld(){
 
      }, error =>{
           
-      
+      location.href = "http://localhost:4200/reportDailyAccount";
       console.log(<any>error);
         
           
@@ -162,6 +197,15 @@ saveNewAccountOld(){
 }//fin del metodo saveNewAccountOld
 
 
+
+changeStateAccountViewed(key:string){
+ 
+ var account:FirebaseObjectObservable<any>;
+ account = this.db.object('/account/' + key);
+ account.update({Block:"true"});
+ 
+
+}//fin del metodo
 
 
 

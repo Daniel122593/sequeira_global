@@ -24,6 +24,7 @@ public filesToUpload;
 public resultUpload;
 public present_email;
 public admin;
+public checkFields;
 
 userWeb:FirebaseListObservable<any>;
 analyst:FirebaseListObservable<any>;
@@ -55,6 +56,16 @@ this.analyst = db.list('/analyst');
 
 onSubmitAnalyst(){
 
+
+
+  if(this.filesToUpload==null || this.user_analyst.identityCard_analyst=="" || this.user_analyst.name_analyst=="" || this.user_analyst.email_analyst=="" || this.user_analyst.password_analyst=="" || this.user_analyst.hierarchy_analyst=="" || this.user_analyst.telephone_analyst=="" || this.user_analyst.country_analyst=="" || this.user_analyst.address_analyst=="" || this.user_analyst.date_analyst=="" || this.user_analyst.confirmPassword==""){
+
+    this.checkFields=true; 
+
+  }else{
+
+    this.checkFields=false;
+
 if(this.filesToUpload.length>=1){
    
    this._services.makeFileRequest(GLOBAL.url+'upload-file', [], this.filesToUpload).then((result) =>{
@@ -63,7 +74,7 @@ if(this.filesToUpload.length>=1){
 		console.log(this.resultUpload.name);
 		this.user_analyst.profile_picture_analyst=this.resultUpload.filename;
      
-         this.saveUser_analyst();
+        this.saveUser_analyst();
         //this.saveUser_administrative();
         //this._router.navigate(['/users']);
         this.user_analyst.name_analyst="";
@@ -95,6 +106,7 @@ if(this.filesToUpload.length>=1){
 
 }//fin del else
 
+}//fin del else
 
 }//fin del metodo onSubmitAnalyst
 

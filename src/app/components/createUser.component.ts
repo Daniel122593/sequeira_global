@@ -23,7 +23,6 @@ export class CreateUser {
   public user_analyst: UserAnalyst;
   public admin;
   public presentEmail;
-  
 
   constructor(private _services: ServicesInfo, private activatedRoute: ActivatedRoute, private _router: Router, private db:AngularFireDatabase,  private auth: AngularFireAuth){
      
