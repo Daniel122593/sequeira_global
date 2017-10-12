@@ -80,25 +80,7 @@ export class AppComponent {
               //obtener numero del mes actual
                var d = new Date();
                var n = d.getMonth();
-               
-               var month = new Array();
-
-            
-
-              month[0] = "January";
-              month[1] = "February";
-              month[2] = "March";
-              month[3] = "April";
-              month[4] = "May";
-              month[5] = "June";
-              month[6] = "July";
-              month[7] = "August";
-              month[8] = "September";
-              month[9] = "October";
-              month[10] = "November";
-              month[11] = "December";
-
-              this.month_number=month[n];
+               this.month_number=n;
 
               
              
@@ -111,12 +93,12 @@ export class AppComponent {
                   for (var user of snapshot){
 
                       //toma las señales del mes actual y que fueron positivas
-                     if(user.Month_Actual==this.month_current && user.R_Trend=="arrow-dropup-circle"){
+                     if(user.Month_Actual_Number==this.month_current && user.R_Trend=="arrow-dropup-circle"){
                    
                       this.signal_positive.push(user);
                        
                        //toma las señales del mes actual y que fueron negativas
-                    }else if(user.Month_Actual==this.month_current && user.R_Trend=="arrow-dropdown-circle"){
+                    }else if(user.Month_Actual_Number==this.month_current && user.R_Trend=="arrow-dropdown-circle"){
                   
                       this.signal_negative.push(user);
                  
@@ -145,12 +127,12 @@ export class AppComponent {
                       console.log(this.number_pip);
 
                       //toma las señales del mes actual y que fueron positivas
-                     if(this.number_pip>0 && user.Month_Actual==this.month_current){
+                     if(this.number_pip>0 && user.Month_Actual_Number==this.month_current){
                    
                       this.pip_positive.push(user);
                        
                        //toma las señales del mes actual y que fueron negativas
-                    }else if(this.number_pip<0 && user.Month_Actual==this.month_current){
+                    }else if(this.number_pip<0 && user.Month_Actual_Number==this.month_current){
                   
                       this.pip_negative.push(user);
                  

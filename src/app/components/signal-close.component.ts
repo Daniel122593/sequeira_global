@@ -70,23 +70,8 @@ import * as _ from "lodash";
                var d = new Date();
                var n = d.getMonth();
                
-               var month = new Array();
-
  
-              month[0] = "January";
-              month[1] = "February";
-              month[2] = "March";
-              month[3] = "April";
-              month[4] = "May";
-              month[5] = "June";
-              month[6] = "July";
-              month[7] = "August";
-              month[8] = "September";
-              month[9] = "October";
-              month[10] = "November";
-              month[11] = "December";
-
-              this.month_number=month[n];
+             
               this.month_number_actual=n;
 
           
@@ -156,7 +141,7 @@ import * as _ from "lodash";
 
                 this.pips_result_string=this.pips_result.toString();
     
-                this.month_current = this.month_number.toString();
+                
                 this.month_actual_number_string=this.month_number_actual.toString();
                 console.log(this.signal.graph_image+'eerferferf');
                 this.history_signals.push({
@@ -173,7 +158,6 @@ import * as _ from "lodash";
                 Date_C: this.signal.date_final,
                 Initial_Hour: this.signal.time_initial,
                 Final_Hour: this.hour,
-                Month_Actual:this.month_current,
                 Month_Actual_Number:this.month_actual_number_string
 
                 

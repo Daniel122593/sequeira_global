@@ -148,7 +148,10 @@ export function createTranslateLoader(http: Http) {
     InfoComponent,
     ReportCXC,
     ReportDailyAccount,
-    ReportDailyAddAccount
+    ReportDailyAddAccount,
+    AboutComponent,
+    ContactComponent
+
   ],
   providers: [
     appRoutingProviders,
